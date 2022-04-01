@@ -1,11 +1,20 @@
 <template>
-  <v-card max-width="375" class="mx-auto">
-    <v-img
-      src="https://cdn.vuetifyjs.com/images/lists/ali.png"
-      height="300px"
-      dark
-    >
-      <v-row class="fill-height">
+  <v-container>
+    <v-row class="text-center"> 
+      <!-- <v-card max-width="768" class="mx-auto"> -->
+
+        <v-toolbar color="cyan" dark>
+          <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+          <v-toolbar-title>Inbox</v-toolbar-title>
+
+          <v-spacer></v-spacer>
+
+          <v-btn icon>
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+        </v-toolbar>
+
         <v-card-title>
           <v-btn dark icon>
             <v-icon>mdi-chevron-left</v-icon>
@@ -22,77 +31,106 @@
           </v-btn>
         </v-card-title>
 
-        <v-spacer></v-spacer>
+        <v-badge
+          bordered
+          bottom
+          color="pink"
+          offset-x="10"
+          offset-y="10"
+          icon="mdi-camera"
+          class="d-flex justify-center mb-6"
+        >
+          <v-avatar size="60">
+            <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
+          </v-avatar>
+        </v-badge>
 
-        <v-card-title class="white--text pl-12 pt-12">
-          <div class="text-h4 pl-12 pt-12">Ali Conners</div>
-        </v-card-title>
-      </v-row>
-    </v-img>
 
-    <v-list two-line>
-      <v-list-item>
-        <v-list-item-icon>
-          <v-icon color="indigo"> mdi-phone </v-icon>
-        </v-list-item-icon>
+        <v-list two-line>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>帳號</v-list-item-title>
+            </v-list-item-content>
 
-        <v-list-item-content>
-          <v-list-item-title>(650) 555-1234</v-list-item-title>
-          <v-list-item-subtitle>Mobile</v-list-item-subtitle>
-        </v-list-item-content>
 
-        <v-list-item-icon>
-          <v-icon>mdi-message-text</v-icon>
-        </v-list-item-icon>
-      </v-list-item>
+            <v-list-item-content >
+              <v-list-item-subtitle>aloha me</v-list-item-subtitle>
+            </v-list-item-content>
 
-      <v-list-item>
-        <v-list-item-action></v-list-item-action>
+          </v-list-item>
 
-        <v-list-item-content>
-          <v-list-item-title>(323) 555-6789</v-list-item-title>
-          <v-list-item-subtitle>Work</v-list-item-subtitle>
-        </v-list-item-content>
 
-        <v-list-item-icon>
-          <v-icon>mdi-message-text</v-icon>
-        </v-list-item-icon>
-      </v-list-item>
+          <v-divider></v-divider>
 
-      <v-divider inset></v-divider>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>帳號</v-list-item-title>
+            </v-list-item-content>
 
-      <v-list-item>
-        <v-list-item-icon>
-          <v-icon color="indigo"> mdi-email </v-icon>
-        </v-list-item-icon>
 
-        <v-list-item-content>
-          <v-list-item-title>aliconnors@example.com</v-list-item-title>
-          <v-list-item-subtitle>Personal</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
+            <v-list-item-content >
+              <v-list-item-subtitle>aloha me</v-list-item-subtitle>
+            </v-list-item-content>
+            <v-switch
+              label="Switch"
+            ></v-switch>
 
-      <v-list-item>
-        <v-list-item-action></v-list-item-action>
 
-        <v-list-item-content>
-          <v-list-item-title>ali_connors@example.com</v-list-item-title>
-          <v-list-item-subtitle>Work</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
+          </v-list-item>
+          
 
-      <v-divider inset></v-divider>
 
-      <v-list-item>
-        <v-list-item-icon>
-          <v-icon color="indigo"> mdi-map-marker </v-icon>
-        </v-list-item-icon>
+          <v-divider></v-divider>
 
-        <v-list-item-content>
-          <v-list-item-title>1400 Main Street</v-list-item-title>
-          <v-list-item-subtitle>Orlando, FL 79938</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
-  </v-card>
+        </v-list>
+      <!-- </v-card> -->
+    </v-row>
+
+  </v-container>
+
 </template>
+
+<script>
+export default {
+  name: "SelfSetting",
+
+  data: () => ({
+    
+    items: [
+      { header: "Today" },
+      {
+        avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+        title: "Brunch this weekend?",
+        subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+      },
+      { divider: true, inset: true },
+      {
+        avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+        title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
+        subtitle: `<span class="text--primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
+      },
+      { divider: true, inset: true },
+      {
+        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+        title: "Oui oui",
+        subtitle:
+          '<span class="text--primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
+      },
+      { divider: true, inset: true },
+      {
+        avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+        title: "Birthday gift",
+        subtitle:
+          '<span class="text--primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
+      },
+      { divider: true, inset: true },
+      {
+        avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+        title: "Recipe to try",
+        subtitle:
+          '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+      },
+    ],
+  }),
+};
+</script>

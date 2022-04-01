@@ -10,5 +10,19 @@ export default new Vuetify({
       sm: 540,
       md: 800,
     }
-  }
+  },
+  theme: {
+    themes: {
+      light: {
+        primary: '#3f51b5',
+        secondary: '#F3F6FC',
+        lightblack: '#666666;',
+        error: '#b71c1c',
+        success: '#CCE1E8',
+        grey: '#7E7E7E;',
+        black: '#4B4B4B',
+        purple:''
+      },
+    },
+  },
 });

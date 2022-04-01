@@ -3,15 +3,7 @@
     <v-row class="text-center"> -->
       <v-card max-width="450"  style="height: 100vh;" class="mx-auto text-center">
         
-        <v-avatar size="70">
-          <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
-        </v-avatar>
-
-
-        <v-text-field
-          filled
-          rounded
-        ><v-icon>mdi-clock</v-icon></v-text-field>
+     
 
         <v-spacer></v-spacer>
 
@@ -205,7 +197,7 @@
 
 <script>
 export default {
-  name: "keyboard",
+  name: "call",
 
   data: () => ({
     

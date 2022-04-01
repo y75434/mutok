@@ -4,18 +4,53 @@
 
         <v-card max-width="450" class="mx-auto">
           <v-toolbar
-            color="cyan"
+           style="background: radial-gradient(103.2% 247.39% at 0% 6.82%, #0083CC 0%, #328DE139.49%, rgba(39, 26, 186, 0.7) 92.57%);"           
             dark
           >
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-            <v-toolbar-title>Inbox</v-toolbar-title>
+            <v-toolbar-title>即時訊息</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
             <v-btn icon>
               <v-icon>mdi-magnify</v-icon>
             </v-btn>
+
+
+          <v-menu
+            bottom
+            left
+          >
+          <template v-slot:activator="{ on, attrs }">
+
+            <v-btn icon v-bind="attrs" v-on="on">
+              <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>
+
+          </template>
+          <v-list>
+            <v-list-item to="/selfsetting">
+              <v-list-item-title >個人設定</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>電話設定</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>語音信箱</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>刪除通話紀錄</v-list-item-title>
+            </v-list-item>
+
+          </v-list>
+
+
+          </v-menu>
+
+
+
+
           </v-toolbar>
 
           <v-list three-line>
@@ -35,35 +70,75 @@
               <v-list-item
                 v-else
                 :key="item.title"
+                class="d-flex justify-space-between mb-6"
               >
                 <v-list-item-avatar>
                   <v-img :src="item.avatar"></v-img>
                 </v-list-item-avatar>
 
-                <v-list-item-content>
-                  <v-list-item-title v-html="item.title"></v-list-item-title>
-                  <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
+                <v-list-item-content >
+                  <v-list-item-title class="text-left" v-html="item.title"></v-list-item-title>
+                  <v-list-item-subtitle class="text-left" v-html="item.subtitle"></v-list-item-subtitle>
+                    
+
                 </v-list-item-content>
+                <v-text class="">20:08</v-text>
+
+                <v-icon color="yellow darken-3">
+                      mdi-star
+                    </v-icon>
+
               </v-list-item>
             </template>
           </v-list>
+
+          <div color="success" class="rounded-b-0" style="height:100px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
+            <v-list-item class="d-flex justify-center mb-6 pt-3">
+              <div class="mx-2">
+                <v-btn
+                  color="success"
+                  fab
+                ><v-icon class="text-h5 grey--text">mdi-bullhorn-variant-outline</v-icon>
+                </v-btn>
+              </div>
+              <div class="mx-2">
+                <v-btn
+                  color="success"
+                  fab
+                  dark
+                ><v-icon class="text-h5 grey--text">mdi-microphone-off</v-icon>
+                </v-btn>
+              </div>
+              <div class="mx-2">
+                <v-btn
+                  color="success"
+                  fab
+                  dark
+                ><v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
+
+                </v-btn>
+              </div>
+            </v-list-item>
+
+          </div>
+
           <v-bottom-navigation v-model="value">
-          <v-btn value="recent">
-            <span>Recent</span>
+          <v-btn>
+            <span>訊息</span>
 
-            <v-icon>mdi-history</v-icon>
+            <v-icon>mdi-android-messages</v-icon>
           </v-btn>
 
-          <v-btn value="favorites">
-            <span>Favorites</span>
+          <v-btn to="keyboard">
+            <span>電話</span>
 
-            <v-icon>mdi-heart</v-icon>
+            <v-icon>mdi-phone</v-icon>
           </v-btn>
 
-          <v-btn value="nearby">
-            <span>Nearby</span>
+          <v-btn >
+            <span>會議</span>
 
-            <v-icon>mdi-map-marker</v-icon>
+            <v-icon>mdi-video</v-icon>
           </v-btn>
         </v-bottom-navigation>
 
@@ -72,21 +147,8 @@
 
     </v-row>
 
-    <v-col col="12" md="12" lg="12">
-    <v-container >
-      <v-app-bar color="deep-white accent-4" style="z-index:10" dense>
-        <v-toolbar-title>
-          <v-icon>mdi-pound</v-icon>
-          channelName 
-          <v-icon>mdi-star-outline</v-icon>
-        </v-toolbar-title>
-        <v-spacer></v-spacer>
-      </v-app-bar>
-      <SingleMessage :messages="messages" style="overflow-y: auto; height:80vh"></SingleMessage>
-      <MessageForm/>
-    </v-container>
 
-  </v-col>
+
 
   </v-container>
 
@@ -96,71 +158,22 @@
 
 <script>
   export default {
-    name: 'HelloWorld',
+    name: 'Messages',
 
     data: () => ({
-      ecosystem: [
-        {
-          text: 'vuetify-loader',
-          href: 'https://github.com/vuetifyjs/vuetify-loader',
-        },
-        {
-          text: 'github',
-          href: 'https://github.com/vuetifyjs/vuetify',
-        },
-        {
-          text: 'awesome-vuetify',
-          href: 'https://github.com/vuetifyjs/awesome-vuetify',
-        },
-      ],
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com',
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com',
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuejs.com/vuetify',
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs',
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify',
-        },
-      ],
-      whatsNext: [
-        {
-          text: 'Explore components',
-          href: 'https://vuetifyjs.com/components/api-explorer',
-        },
-        {
-          text: 'Select a layout',
-          href: 'https://vuetifyjs.com/getting-started/pre-made-layouts',
-        },
-        {
-          text: 'Frequently Asked Questions',
-          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-        },
-      ],
+     
       items: [
         { header: 'Today' },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
           title: 'Brunch this weekend?',
-          subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+          subtitle: `Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
         },
         { divider: true, inset: true },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
           title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
-          subtitle: `<span class="text--primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
+          subtitle: `to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
         },
         { divider: true, inset: true },
         {
