@@ -92,32 +92,40 @@
             </template>
           </v-list>
 
-          <div color="success" class="rounded-b-0" style="height:100px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
+          <div color="success" class="rounded-b-0 rounded-pill" style="height:100px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
             <v-list-item class="d-flex justify-center mb-6 pt-3">
-              <div class="mx-2">
+              <div class="mx-2 flex-column d-flex">
                 <v-btn
                   color="success"
                   fab
                 ><v-icon class="text-h5 grey--text">mdi-bullhorn-variant-outline</v-icon>
                 </v-btn>
+                <span class="body-2 black--text mt-1">最近紀錄</span>
               </div>
-              <div class="mx-2">
+              <div class="mx-2 flex-column d-flex">
                 <v-btn
                   color="success"
                   fab
                   dark
                 ><v-icon class="text-h5 grey--text">mdi-microphone-off</v-icon>
                 </v-btn>
+                <span class="body-2 black--text mt-1">鍵盤</span>
               </div>
-              <div class="mx-2">
+              <div class="mx-2 flex-column d-flex">
                 <v-btn
                   color="success"
                   fab
                   dark
-                ><v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
+                >
+                <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
 
                 </v-btn>
+                <span class="body-2 black--text mt-1">通訊錄</span>
+
               </div>
+            
+
+
             </v-list-item>
 
           </div>
@@ -157,8 +165,10 @@
 </template>
 
 <script>
+
+
   export default {
-    name: 'Messages',
+    name: 'Directory',
 
     data: () => ({
      

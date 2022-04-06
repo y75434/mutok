@@ -19,9 +19,10 @@ export default new Vuetify({
         lightblack: '#666666;',
         error: '#b71c1c',
         success: '#CCE1E8',
+        darkgrey: 'c4c4c4',
         grey: '#7E7E7E;',
         black: '#4B4B4B',
-        purple:''
+        purple:'',
       },
     },
   },

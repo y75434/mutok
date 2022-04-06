@@ -1,19 +1,16 @@
 <template>
   <!-- <v-container>
     <v-row class="text-center"> -->
-      <v-card max-width="450"  style="height: 100vh;" class="mx-auto text-center">
+      <v-card max-width="450"  style="height: 100vh;" class="mx-auto text-center py-15">
         
-     
 
-        <v-spacer></v-spacer>
-
-        <div class="text-body-1 black--text mb-5">Joe Cooper</div>
+        <div class="text-body-1 black--text my-5">Joe Cooper</div>
 
         <div class="text-h5 lightblack--text mb-6">0225632563#1</div>
         <div class="text-body-1 black--text mb-3"> <v-icon class="text-h5 grey--text">mdi-phone-outgoing-outline</v-icon>通話中....</div>
 
 
-        <v-list color="secondary" class="rounded-xl py-8">
+        <v-list color="secondary" class="rounded-xl py-8 mb-0">
            
 
 

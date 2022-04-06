@@ -1,18 +1,17 @@
 <template>
-  <v-container>
-    <v-row class="text-center"> 
-      <!-- <v-card max-width="768" class="mx-auto"> -->
+  <!-- <v-container>
+    <v-row class="text-center">  -->
+      <v-card max-width="768" style="height: 100vh;" class="mx-auto">
 
-        <v-toolbar color="cyan" dark>
-          <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-toolbar color="white" >
+          <v-app-bar-nav-icon><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
+          
 
-          <v-toolbar-title>Inbox</v-toolbar-title>
+          <v-toolbar-title>個人設定</v-toolbar-title>
 
           <v-spacer></v-spacer>
 
-          <v-btn icon>
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
+       
         </v-toolbar>
 
         <v-card-title>
@@ -34,8 +33,8 @@
         <v-badge
           bordered
           bottom
-          color="pink"
-          offset-x="10"
+          color="darkgrey"
+          offset-x="190"
           offset-y="10"
           icon="mdi-camera"
           class="d-flex justify-center mb-6"
@@ -44,6 +43,21 @@
             <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
           </v-avatar>
         </v-badge>
+        <div class="text-body-1 black--text text-center mb-3"> 
+          本人暱稱
+          <v-icon class="text-h5 grey--text ">mdi-pencil</v-icon>
+
+        </div>
+
+        <div class="text-body-2 black--text text-center mb-3 d-flex justify-center"> 
+          <v-badge
+          color="red" class="badge"
+          ></v-badge>
+          忙碌中
+          <a href="">修改狀態</a>
+
+        </div>
+
 
 
         <v-list two-line>
@@ -51,23 +65,52 @@
             <v-list-item-content>
               <v-list-item-title>帳號</v-list-item-title>
             </v-list-item-content>
-
-
             <v-list-item-content >
               <v-list-item-subtitle>aloha me</v-list-item-subtitle>
             </v-list-item-content>
-
           </v-list-item>
-
 
           <v-divider></v-divider>
 
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>帳號</v-list-item-title>
+              <v-list-item-title>號碼</v-list-item-title>
             </v-list-item-content>
+            <v-list-item-content>
+              <v-list-item-subtitle>021-12345678</v-list-item-subtitle>
+            </v-list-item-content>      
+          </v-list-item>
+          
+          <v-divider></v-divider>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>信箱</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-content>
+              <v-list-item-subtitle>aloha@mail.com</v-list-item-subtitle>
+            </v-list-item-content>      
+          </v-list-item>
+          
+          <v-divider></v-divider>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>密碼</v-list-item-title>
+            </v-list-item-content>
+            <v-list-item-content>
+              <v-list-item-subtitle>**********</v-list-item-subtitle>
+            </v-list-item-content>   
+            <a href="">更改密碼</a>   
+          </v-list-item>
+
+          <v-divider></v-divider>
 
 
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>隱藏</v-list-item-title>
+            </v-list-item-content>
             <v-list-item-content >
               <v-list-item-subtitle>aloha me</v-list-item-subtitle>
             </v-list-item-content>
@@ -77,16 +120,15 @@
 
 
           </v-list-item>
-          
-
 
           <v-divider></v-divider>
 
-        </v-list>
-      <!-- </v-card> -->
-    </v-row>
 
-  </v-container>
+        </v-list>
+      </v-card>
+    <!-- </v-row>
+
+  </v-container> -->
 
 </template>
 

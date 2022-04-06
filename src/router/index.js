@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Login from '../views/Login'
-import Chat from '../views/Chat'
+// import Chat from '../views/Chat'
 import Directory from '../views/Directory'
 
 import KeyBoard from'../components/KeyBoard.vue'
@@ -16,7 +16,15 @@ const routes = [
   {
     path: '/',
     name: 'Chat',
-    component: Chat
+    // component: () => import('../views/Chat.vue')
+    component: () => import('../components/Chat/Chat.vue')
+    // component: Chat,
+    // children: [
+    //   {
+    //     path: 'chat',
+    //     component: () => import('../components/Chat/Chat.vue')
+    //   }
+    // ]
   },
   {
     path: '/login',
@@ -38,7 +46,8 @@ const routes = [
   {
     path: '/call',
     name: 'call',
-    component: Call
+    component: Call,
+   
   },
   {
     path: '/directory',

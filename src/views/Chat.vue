@@ -1,34 +1,64 @@
 <template>
-  <div>
-     
-      
+
+  <div>      
     <v-container class="" fluid permanent>
-      <v-row>
-        <!-- <v-col
-          style="overflow-y: auto; height: 100vh"
-          class="d-sm-none d-md-flex p-0"
-          col="4"
-          md="4"
-          lg="4"
-        >
-          <Sidebar /> 
-        </v-col> -->
-        <!-- <v-col class="p-0" sm="12" md="12" lg="12"> -->
-          <Messages />
-        <!-- </v-col> -->
+      <v-row>    
+        <Chat />
       </v-row>
     </v-container>
   </div>
+
+
+  
+
 </template>
 <script>
-// import Sidebar from "../components/Sidebar";
-import Messages from "../components/Messages";
-// import FileModal from '../components/FileModal.vue'
+ import Chat from "../components/Chat/Chat.vue";
+
+
 export default {
   name: "Chat",
   components: { 
-    Messages 
+    Chat 
   },
+  data: () => ({
+    items: [
+      { header: "Today" },
+      {
+        avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+        title: "Brunch this weekend?",
+        subtitle: `012-12345678`,
+      },
+      { divider: true, inset: true },
+      {
+        avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+        title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
+        subtitle: `012-12345678`,
+
+      },
+      { divider: true, inset: true },
+      {
+        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+        title: "Oui oui",
+        subtitle: `012-12345678`,
+
+      },
+      { divider: true, inset: true },
+      {
+        avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+        title: "Birthday gift",
+        subtitle: `012-12345678`,
+
+      },
+      { divider: true, inset: true },
+      {
+        avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+        title: "Recipe to try",
+        subtitle: `012-12345678`,
+
+      },
+    ],
+  }),
 };
 </script>
 
