@@ -21,8 +21,10 @@ export default new Vuetify({
         success: '#CCE1E8',
         darkgrey: 'c4c4c4',
         grey: '#7E7E7E;',
+        lightgrey: '#F2F2F2',
         black: '#4B4B4B',
         purple:'',
+        bg: '#fafafa'
       },
     },
   },

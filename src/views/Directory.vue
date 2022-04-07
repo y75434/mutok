@@ -2,7 +2,7 @@
   
 
   <div>      
-    <v-container class="" fluid permanent>
+    <v-container class="" style="height: 100vh;" fluid permanent>
       <v-row>    
         <Directory />
       </v-row>
@@ -21,10 +21,5 @@ export default {
 };
 </script>
 
-<style scoped>
-.sidebar {
-  display: block;
-  height: 100%;
-}
-</style>
+
 

@@ -1,12 +1,12 @@
 <template>
 
   <v-card max-width="768" style="height: 100vh;" class="mx-auto">
-    
-
-
-    <v-toolbar class="bar py-2 mb-2">
-
-      <v-toolbar-title class="white--text">網路電話</v-toolbar-title>
+    <v-toolbar
+      style="background: radial-gradient(100% 757.37% at 0% 11.36%, #0EA5B0 30.25%, #00C8D7 100%)"           
+      dark
+    >
+      <v-img src="src/assets/img/img_mutok_color@2x.png" size="36px" max-width="50" alt=""></v-img>
+      <v-toolbar-title>即時訊息</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -14,64 +14,45 @@
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
 
-      <v-menu bottom left>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item to="/selfsetting">
-            <v-list-item-title>個人設定</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>電話設定</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>語音信箱</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>刪除通話紀錄</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+    <v-menu
+      bottom
+      left
+    >
+    <template v-slot:activator="{ on, attrs }">
+
+      <v-btn icon v-bind="attrs" v-on="on">
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+
+    </template>
+    <v-list>
+      <v-list-item to="/selfsetting">
+        <v-list-item-title >個人設定</v-list-item-title>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-title>電話設定</v-list-item-title>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-title>語音信箱</v-list-item-title>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-title>刪除通話紀錄</v-list-item-title>
+      </v-list-item>
+
+    </v-list>
+    </v-menu>
+
     </v-toolbar>
 
-
-    <v-tabs background-color="white" centered dark icons-and-text v-model="tab">
-      <v-col cols="6" >
-        <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-1">
-          好友
-        </v-tab>
-      </v-col>
-        <v-tabs-slider></v-tabs-slider>
-      <v-col cols="6">
-        <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-2">
-          公司部門
-        </v-tab>
-      </v-col>    
-    </v-tabs>
-
-
-    <v-tabs-items v-model="tab">
-      <v-tab-item value="tab-1">
-        <v-card flat>
-          <v-card-text> text</v-card-text>
-          
-
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item value="tab-2">
-        <v-card-text> cc</v-card-text>
-
-      </v-tab-item>
-    </v-tabs-items>
-
-
-
-    <v-card flat>
+    <v-card flat class="bg">
       <v-list one-line>
+        <v-col cols="12" >
+          <div class=" secondary rounded-lg" >
+            <div class="text-body-2 grey--text text-center"> 昨天</div>
+
+          </div>
+
+        </v-col>
         <template v-for="(item, index) in items">
           <v-subheader
             v-if="item.header"
@@ -88,11 +69,13 @@
           <v-list-item
             v-else
             :key="item.title"
-            class="d-flex justify-space-between mb-6"
+            class="d-flex justify-space-between mb-3"
             color="lightgrey"
 
           >
-            <v-list-item-avatar>
+            <v-icon class="text-h5 grey--text">mdi-phone-outgoing-outline</v-icon>
+
+            <v-list-item-avatar class="mx-2">
               <v-img :src="item.avatar"></v-img>
             </v-list-item-avatar>
 
@@ -103,61 +86,13 @@
 
             </v-list-item-content>
             <div class="d-flex flex-column">
-              <v-text class="">20:08</v-text>
-              <v-icon color="">
-                mdi-check
-              </v-icon>
+              <v-text class="grey--text text-body-2">20:08</v-text>
+             
             </div>
           </v-list-item>
         </template>
       </v-list>
     </v-card>
-
-    <v-speed-dial
-      v-model="fab"
-      :bottom="bottom"
-      :right="true"
-      :direction="direction"
-      :transition="transition"
-    >
-      <template v-slot:activator>
-        <v-btn
-          v-model="fab"
-          fab
-          dark
-          color="indigo"       
-        >
-          <v-icon v-if="fab">
-            mdi-close
-          </v-icon>
-          <v-icon v-else>
-            mdi-plus
-          </v-icon>
-        </v-btn>
-      </template>
-      <v-btn
-        outlined
-        color=""
-      >
-        <v-icon>mdi-pencil</v-icon>
-        新增聊天
-      </v-btn>
-      <v-btn
-       outlined
-       color=""
-      >
-        <v-icon>mdi-plus</v-icon>
-        新增同事
-      </v-btn>
-      <v-btn
-        outlined
-        color=""
-      >
-        <v-icon>mdi-delete</v-icon>
-        撥打緊急電話
-      </v-btn>
-    </v-speed-dial>
-
 
     
 
@@ -192,7 +127,7 @@
 
 
   export default {
-    name: 'Directory',
+    name: 'History',
 
     data: () => ({
      

@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import Login from '../views/Login'
 // import Chat from '../views/Chat'
-import Directory from '../views/Directory'
+// import Directory from '../views/Directory'
 
 import KeyBoard from'../components/KeyBoard.vue'
 import SelfSetting from'../components/SelfSetting.vue'
@@ -52,7 +52,14 @@ const routes = [
   {
     path: '/directory',
     name: 'directory',
-    component: Directory
+    component: () => import('../components/Directory/Directory.vue')
+
+  },
+  {
+    path: '/history',
+    name: 'history',
+    component: () => import('../components/Directory/History.vue')
+
   },
 ]
 

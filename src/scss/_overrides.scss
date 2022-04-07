@@ -1,3 +1,16 @@
 .badge {
     inset:auto auto calc(100% - 4px) calc(100% - 4px) !important; 
   }
+
+  .bar{
+    background: 
+    radial-gradient(103.2% 247.39% at 0% 6.82%, #0083CC 0%, #328DE1 39.49%, rgba(39, 26, 186, 0.7) 92.57%) 
+  }
+
+  .msbar{
+    background: radial-gradient(100% 757.37% at 0% 11.36%,  #0ea5b0 30.25%, #00c8d7 100% );
+  }
+
+  .secondary{
+    background: #F3F6FC;
+  }
