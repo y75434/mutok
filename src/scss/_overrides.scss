@@ -14,3 +14,21 @@
   .secondary{
     background: #F3F6FC;
   }
+
+  .v-speed-dial--left {
+    left: 320px !important;
+}
+
+.v-speed-dial--direction-top .v-speed-dial__list, .v-speed-dial--direction-bottom .v-speed-dial__list {
+    left: -183px  !important;
+    // width: 100%;
+}
+
+.speeddial{
+  background: linear-gradient(139.27deg, #43DDE3 21.49%, #0C79DC 91.67%);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);  
+}
+
+.alert{
+  border:#A6BBCE 1px;
+}

@@ -1,41 +1,51 @@
 <template>
-
-  <v-card max-width="768" style="height: 100vh;" class="mx-auto">
-    
+  <div class="" style="height: 100vh; width:100vw">
 
 
-    <v-toolbar class="bar py-2 mb-2">
+    <v-container class="rounded-lg  alert">
+      <v-row no-gutters>
+        <v-col cols="12">
+          <v-card
+            class="pa-2"
+            outlined
+            tile
+          >
+            Mutok 電話
+          </v-card>
+        </v-col>
+        <v-col cols="12">
+          <v-card
+            class="px-6 py-7"
+            outlined
+            tile
+          >       
+            <div class="text-h4 text-left lightblack--text">David</div>
+          </v-card>
+        </v-col>
 
-      <v-toolbar-title class="white--text">網路電話</v-toolbar-title>
+        <v-col
+          cols="6"
+        >
+          <v-btn
+            class="pa-7"
+            block
+            style="background: #DDD2CC;"
+          >
+            <div class="text-body-2 text-center lightblack--text">忽略</div>
 
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-menu bottom left>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
-        </template>
-        <v-list>
-          <v-list-item to="/selfsetting">
-            <v-list-item-title>個人設定</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>電話設定</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>語音信箱</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>刪除通話紀錄</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-    </v-toolbar>
+
+        </v-col>
+        <v-col cols="6">
+          <v-btn class="pa-7" block style="background: #05B2DC">
+            <div class="text-body-2 text-center white--text ">接聽</div>
+          </v-btn>
+
+          
+        </v-col>
+
+      </v-row>
+    </v-container>
 
 
     <v-tabs background-color="white" centered dark icons-and-text v-model="tab">
@@ -113,53 +123,43 @@
       </v-list>
     </v-card>
 
-    <v-speed-dial
-      v-model="fab"
-      :bottom="bottom"
-      :right="true"
-      :direction="direction"
-      :transition="transition"
-    >
-      <template v-slot:activator>
-        <v-btn
-          v-model="fab"
-          fab
-          dark
-          color="indigo"       
-        >
-          <v-icon v-if="fab">
-            mdi-close
-          </v-icon>
-          <v-icon v-else>
-            mdi-plus
-          </v-icon>
-        </v-btn>
-      </template>
-      <v-btn
-        outlined
-        color=""
-      >
-        <v-icon>mdi-pencil</v-icon>
-        新增聊天
-      </v-btn>
-      <v-btn
-       outlined
-       color=""
-      >
-        <v-icon>mdi-plus</v-icon>
-        新增同事
-      </v-btn>
-      <v-btn
-        outlined
-        color=""
-      >
-        <v-icon>mdi-delete</v-icon>
-        撥打緊急電話
-      </v-btn>
-    </v-speed-dial>
+    <div color="success" class="rounded-b-0 rounded-pill" style="height:100px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
+      <v-list-item class="d-flex justify-center mb-6 pt-3">
+        <div class="mx-2 flex-column d-flex">
+          <v-btn
+            color="success"
+            fab
+          ><v-icon class="text-h5 grey--text">mdi-bullhorn-variant-outline</v-icon>
+          </v-btn>
+          <span class="body-2 black--text mt-1">最近紀錄</span>
+        </div>
+        <div class="mx-2 flex-column d-flex">
+          <v-btn
+            color="success"
+            fab
+            dark
+          ><v-icon class="text-h5 grey--text">mdi-microphone-off</v-icon>
+          </v-btn>
+          <span class="body-2 black--text mt-1">鍵盤</span>
+        </div>
+        <div class="mx-2 flex-column d-flex">
+          <v-btn
+            color="success"
+            fab
+            dark
+          >
+          <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
+
+          </v-btn>
+          <span class="body-2 black--text mt-1">通訊錄</span>
+
+        </div>
+      
 
 
-    
+      </v-list-item>
+
+    </div>
 
     <v-bottom-navigation v-model="value">
     <v-btn>
@@ -181,8 +181,8 @@
     </v-btn>
   </v-bottom-navigation>
 
-  </v-card>
         
+  </div>
 
   
 

@@ -1,7 +1,21 @@
 <template>
- <div  class="" style=" width:100vw">
+ <div class="" style=" width:100vw">
   <!-- <v-card max-width="768"  class="mx-auto m-0">     -->
-      
+    
+ 
+
+    
+    
+
+    <v-col cols="12" class="secondary">
+      <v-text-field
+        outlined
+        rounded
+        label="輸入名稱、電話號碼或電子郵件"
+        prepend-inner-icon="mdi-magnify"
+        hide-details
+      ></v-text-field>
+    </v-col>
 
     <v-tabs
       background-color="white"
@@ -28,7 +42,7 @@
     
     </v-tabs>
 
-    <v-tabs-items color="bg" v-model="tab">
+    <v-tabs-items v-model="tab">
       <v-tab-item value="tab-1">
         <v-card flat>
           <v-card-text> text</v-card-text>
@@ -51,22 +65,9 @@
                 :key="item.title"
                 class="d-flex justify-space-between mb-0"
               >
-
-              <v-badge
-                bordered
-                bottom
-                color="red"
-                dot
-                offset-x="20"
-                offset-y="27"
-              >
                 <v-list-item-avatar>
                   <v-img :src="item.avatar"></v-img>
                 </v-list-item-avatar>
-
-              </v-badge>
-
-                
 
                 <v-list-item-content>
                   <v-list-item-title
@@ -132,54 +133,42 @@
       </v-tab-item>
     </v-tabs-items>
 
-    <v-speed-dial
-      v-model="fab"
+    <div color="success" class="rounded-b-0 rounded-pill" style="height:100px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
+      <v-list-item class="d-flex justify-center mb-6 pt-3">
+        <div class="mx-2 flex-column d-flex">
+          <v-btn
+            color="success"
+            fab
+          ><v-icon class="text-h5 grey--text">mdi-bullhorn-variant-outline</v-icon>
+          </v-btn>
+          <span class="body-2 black--text mt-1">最近紀錄</span>
+        </div>
+        <div class="mx-2 flex-column d-flex">
+          <v-btn
+            color="success"
+            fab
+            dark
+          ><v-icon class="text-h5 grey--text">mdi-microphone-off</v-icon>
+          </v-btn>
+          <span class="body-2 black--text mt-1">鍵盤</span>
+        </div>
+        <div class="mx-2 flex-column d-flex">
+          <v-btn
+            color="success"
+            fab
+            dark
+          >
+          <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
+
+          </v-btn>
+          <span class="body-2 black--text mt-1">通訊錄</span>
+
+        </div>
       
-      top="false"
-      bottom="true"
-      right="false"
-      left="true"
-     
-      :direction="top"
-    >
-      <template v-slot:activator>
-        <v-btn
-          v-model="fab"
-          fab
-          dark
-          bottom right
 
-          class="speeddial"      
-        >
-          <v-icon v-if="fab">
-            mdi-close
-          </v-icon>
-          <v-icon v-else>
-            mdi-plus
-          </v-icon>
-        </v-btn>
-      </template>
-      <v-btn
-        color="white"
-      >
-        <v-icon>mdi-pencil</v-icon>
-        新增聊天
-      </v-btn>
-      <v-btn
-       color="white"
-      >
-        <v-icon>mdi-plus</v-icon>
-        新增同事
-      </v-btn>
-      <v-btn
-        
-        color="white"
-      >
-        <v-icon>mdi-delete</v-icon>
-        撥打緊急電話
-      </v-btn>
-    </v-speed-dial>
 
+      </v-list-item>
+    </div>
    
   <!-- </v-card>  -->
   </div>
@@ -228,14 +217,3 @@
     }),
   }
 </script>
-
-<style>
-/* This is for documentation purposes and will not be needed in your application */
-/* #create .v-speed-dial {
-  position: absolute;
-}
-
-#create .v-btn--floating {
-  position: relative;
-} */
-</style>

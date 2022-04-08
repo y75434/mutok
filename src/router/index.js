@@ -15,23 +15,54 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'Voip',
+    component: () => import('../views/Voip.vue'),
+    children: [
+      {
+        path: 'voipchat',
+        component: () => import('../components/voip/Chat.vue')
+      },
+      {
+        path: '/directory',
+        name: 'directory',
+        component: () => import('../components/voip/Directory.vue')
+
+      },
+      {
+        path: '/history',
+        name: 'history',
+        component: () => import('../components/voip/History.vue')
+
+      },
+      {
+        path: '/voipcall',
+        name: 'voipcall',
+        component: () => import('../components/voip/Call.vue')
+
+      },
+    ]
+  },
+  {
+    path: '/chat',
     name: 'Chat',
-    // component: () => import('../views/Chat.vue')
-    component: () => import('../components/Chat/Chat.vue')
-    // component: Chat,
-    // children: [
-    //   {
-    //     path: 'chat',
-    //     component: () => import('../components/Chat/Chat.vue')
-    //   }
-    // ]
+    component: () => import('../views/Chat.vue'),
+    children: [
+      {
+        path: 'chat',
+        component: () => import('../components/Chat/Chat.vue')
+      },
+      // {
+      //   path: '/voipcall',
+      //   name: 'voipcall',
+      //   component: () => import('../components/voip/Call.vue')
+
+      // },
+    ]
   },
   {
     path: '/login',
     name: 'Login',
     component: Login
-
-    // component: () => import(/* webpackChunkName: "about" */ '../views/')
   },
   {
     path: '/selfsetting',
@@ -49,18 +80,7 @@ const routes = [
     component: Call,
    
   },
-  {
-    path: '/directory',
-    name: 'directory',
-    component: () => import('../components/Directory/Directory.vue')
-
-  },
-  {
-    path: '/history',
-    name: 'history',
-    component: () => import('../components/Directory/History.vue')
-
-  },
+  
 ]
 
 const router = new VueRouter({
