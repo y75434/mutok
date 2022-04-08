@@ -70,6 +70,11 @@ const routes = [
     component: SelfSetting
   },
   {
+    path: '/phonesetting',
+    name: 'phonesetting',
+    component: SelfSetting
+  },
+  {
     path: '/keyboard',
     name: 'keyboard',
     component: KeyBoard

@@ -6,7 +6,7 @@
       <v-app-bar-nav-icon><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
       
 
-      <v-toolbar-title>個人設定</v-toolbar-title>
+      <v-toolbar-title>電話設定</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -29,43 +29,16 @@
       </v-btn>
     </v-card-title>
 
-    <v-badge
-      bordered
-      bottom
-      color="darkgrey"
-      offset-x="190"
-      offset-y="10"
-      icon="mdi-camera"
-      class="d-flex justify-center mb-6"
-    >
-      <v-avatar size="60">
-        <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
-      </v-avatar>
-    </v-badge>
-    <div class="text-body-1 black--text text-center mb-3"> 
-      本人暱稱
-      <v-icon class="text-h5 grey--text ">mdi-pencil</v-icon>
-
-    </div>
-
-    <div class="text-body-2 black--text text-center mb-3 d-flex justify-center"> 
-      <v-badge
-      color="red" class="badge"
-      ></v-badge>
-      忙碌中
-      <a href="">修改狀態</a>
-
-    </div>
 
 
 
     <v-list two-line>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title>帳號</v-list-item-title>
+          <v-list-item-title>勿擾模式</v-list-item-title>
         </v-list-item-content>
         <v-list-item-content >
-          <v-list-item-subtitle>aloha me</v-list-item-subtitle>
+          <v-list-item-subtitle><v-switch label="Switch"></v-switch></v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
@@ -73,10 +46,10 @@
 
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title>號碼</v-list-item-title>
+          <v-list-item-title>通知</v-list-item-title>
         </v-list-item-content>
         <v-list-item-content>
-          <v-list-item-subtitle>021-12345678</v-list-item-subtitle>
+          <v-list-item-subtitle>震動</v-list-item-subtitle>
         </v-list-item-content>      
       </v-list-item>
       
@@ -84,10 +57,10 @@
 
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title>信箱</v-list-item-title>
+          <v-list-item-title>發送號碼</v-list-item-title>
         </v-list-item-content>
         <v-list-item-content>
-          <v-list-item-subtitle>aloha@mail.com</v-list-item-subtitle>
+          <v-list-item-subtitle><v-switch label="Switch"></v-switch></v-list-item-subtitle>
         </v-list-item-content>      
       </v-list-item>
       
@@ -95,7 +68,7 @@
 
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title>密碼</v-list-item-title>
+          <v-list-item-title>來電轉接</v-list-item-title>
         </v-list-item-content>
         <v-list-item-content>
           <v-list-item-subtitle>**********</v-list-item-subtitle>
@@ -108,7 +81,7 @@
 
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title>隱藏</v-list-item-title>
+          <v-list-item-title>設為預設接聽</v-list-item-title>
         </v-list-item-content>
         <v-list-item-content >
           <v-list-item-subtitle>aloha me</v-list-item-subtitle>
@@ -130,7 +103,7 @@
 
 <script>
 export default {
-  name: "SelfSetting",
+  name: "PhoneSetting",
 
   data: () => ({
     
