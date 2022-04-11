@@ -98,7 +98,7 @@
           <v-list-item
             v-else
             :key="item.title"
-            class="d-flex justify-space-between mb-6"
+            class="d-flex justify-space-between mb-3"
             color="lightgrey"
 
           >
@@ -124,7 +124,7 @@
     </v-card>
 
     <div color="success" class="rounded-b-0 rounded-pill" style="height:100px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
-      <v-list-item class="d-flex justify-center mb-6 pt-3">
+      <v-list-item class="d-flex justify-center mb-1 pt-3">
         <div class="mx-2 flex-column d-flex">
           <v-btn
             color="success"
@@ -149,37 +149,12 @@
             dark
           >
           <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
-
           </v-btn>
           <span class="body-2 black--text mt-1">通訊錄</span>
-
         </div>
-      
-
-
       </v-list-item>
 
     </div>
-
-    <v-bottom-navigation v-model="value">
-    <v-btn>
-      <span>訊息</span>
-
-      <v-icon>mdi-android-messages</v-icon>
-    </v-btn>
-
-    <v-btn to="keyboard">
-      <span>電話</span>
-
-      <v-icon>mdi-phone</v-icon>
-    </v-btn>
-
-    <v-btn >
-      <span>會議</span>
-
-      <v-icon>mdi-video</v-icon>
-    </v-btn>
-  </v-bottom-navigation>
 
         
   </div>

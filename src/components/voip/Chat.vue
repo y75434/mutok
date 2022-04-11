@@ -2,11 +2,6 @@
  <div class="" style=" width:100vw">
   <!-- <v-card max-width="768"  class="mx-auto m-0">     -->
     
- 
-
-    
-    
-
     <v-col cols="12" class="secondary">
       <v-text-field
         outlined
@@ -24,22 +19,17 @@
       icons-and-text
       v-model="tab"
     >
-    <v-col cols="6">
-
-      <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-1">
-        好友
-      </v-tab>
-    </v-col>
-
-    <v-tabs-slider></v-tabs-slider>
-    <v-col cols="6">
-
-      <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-2">
-        公司部門
-      </v-tab>
-    </v-col>
-
-    
+      <v-col cols="6">
+        <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-1">
+          好友
+        </v-tab>
+      </v-col>
+      <v-tabs-slider></v-tabs-slider>
+      <v-col cols="6">
+        <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-2">
+          公司部門
+        </v-tab>
+      </v-col> 
     </v-tabs>
 
     <v-tabs-items v-model="tab">

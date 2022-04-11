@@ -5,7 +5,7 @@
     <v-container class="" style="height: 100vh;" fluid permanent>
       <v-row>  
         <v-toolbar class="bar py-2 mb-2">
-          <v-img :src="require('@/assets/img/img_mutok_color@2x.png')" size="36px" max-width="50" alt=""></v-img>
+          <v-img :src="require('@/assets/img/img_mutok_white@2x.png')" size="36px" max-width="50" alt=""></v-img>
 
           <v-toolbar-title class="white--text">網路電話</v-toolbar-title>
 

@@ -2,11 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Login from '../views/Login'
-// import Chat from '../views/Chat'
-// import Directory from '../views/Directory'
 
-import KeyBoard from'../components/KeyBoard.vue'
-import SelfSetting from'../components/SelfSetting.vue'
+
 import Call from'../components/Call.vue'
 
 
@@ -51,33 +48,31 @@ const routes = [
         path: 'chat',
         component: () => import('../components/Chat/Chat.vue')
       },
-      // {
-      //   path: '/voipcall',
-      //   name: 'voipcall',
-      //   component: () => import('../components/voip/Call.vue')
 
-      // },
     ]
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    children: [
+      
+    ]
   },
   {
     path: '/selfsetting',
     name: 'selfsetting',
-    component: SelfSetting
+    component: () => import('../components/SelfSetting.vue') 
   },
   {
     path: '/phonesetting',
     name: 'phonesetting',
-    component: SelfSetting
-  },
+    component:  () => import('../components/PhoneSetting.vue') 
+  }, 
   {
-    path: '/keyboard',
-    name: 'keyboard',
-    component: KeyBoard
+    path: '/friend',
+    name: 'friend',
+    component: () => import('../components/Friend.vue')
   },
   {
     path: '/call',
