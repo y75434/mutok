@@ -203,5 +203,28 @@
         },
       ],
     }),
+    methods:{
+      //接受
+      onInvite(invitation) { 
+
+        // const userAgent = {
+        //   authorizationPassword: 'secretPassword',
+        //   authorizationUsername: 'authorizationUsername',
+        // };
+
+        invitation.accept(); 
+      },
+      reject(invitation) { 
+
+        // const userAgent = {
+        //   authorizationPassword: 'secretPassword',
+        //   authorizationUsername: 'authorizationUsername',
+        // };
+        
+        invitation.reject(); 
+      },
+
+
+    }
   }
 </script>

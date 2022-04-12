@@ -23,7 +23,10 @@
             </template>
             <v-list>
               <v-list-item to="/selfsetting">
-                <v-list-item-title>個人設定</v-list-item-title>
+                <v-list-item-title class="d-flex">
+                  <v-img :src="require('@/assets/svg/ic_im_setting.svg')" size="12px"></v-img>
+                  個人設定
+                </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title>電話設定</v-list-item-title>
@@ -49,7 +52,7 @@
 
       
 
-        <v-bottom-navigation v-model="value">
+        <v-bottom-navigation>
           <v-btn>
             <span>最近紀錄</span>
 
@@ -76,13 +79,11 @@
 </template>
 
 <script>
-// import Directory from "../components/voip/Directory";
 
 
 export default {
   name: "Directory",
   components: { 
-    // Directory 
   }
 };
 </script>

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Login from '../views/Login'
 
 
 import Call from'../components/Call.vue'
@@ -54,7 +53,7 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: Login,
+    component: () => import('../components/login/Login.vue'),
     children: [
       
     ]

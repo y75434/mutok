@@ -19,7 +19,7 @@
             outlined
             rounded
             label=""
-            
+            v-model="inputBox"
             hide-details
           ></v-text-field>
         </v-col>
@@ -152,7 +152,7 @@
             <v-list-item class="d-flex justify-center mb-6">
 
               <!-- <div class="mx-2"> -->
-                <v-btn x-large block class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
+                <v-btn @click="call" x-large block class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
                   <div class="text-body-1 white--text"><v-icon class="">mdi-phone-remove-outline</v-icon>結束通話</div>
                 </v-btn>
               <!-- </div> -->
@@ -199,6 +199,7 @@
 
       </v-list-item>
     </div>
+  
 
     </div>
 
@@ -209,11 +210,73 @@
 </template>
 
 <script>
+import { Web } from "sip.js";
+
 export default {
   name: "call",
 
   data: () => ({
-    
+    inputBox: ""
+
   }),
+  methods:{
+    type(e){
+      this.inputBox += e
+      console.log(this.inputBox, e);  
+    },
+    // Helper function to get an HTML audio element
+    // getAudioElement(id){
+    //   const el = document.getElementById(id);
+    //   if (!(el)) {
+    //     throw new Error(`Element "${id}" not found or not an audio element.`);
+    //   }
+    //   return el;
+    // },
+    call(){
+     const options = {
+        aor: "sip:alice@example.com", // caller
+        media: {
+          constraints: { audio: true, video: false }, // audio only call
+          // remote: { audio: this.getAudioElement("remoteAudio") } // play remote audio
+        }
+      };
+
+      const server = "wss://sip.example.com";
+      const simpleUser = new Web.SimpleUser(server, options);
+
+      simpleUser.connect()
+        .then(() => simpleUser.call("sip:bob@example.com"))
+        .catch((error) => {
+          console.log(error);       
+        });
+    },
+    // endCall() {
+    //   switch(session.state) {
+    //     case SessionState.Initial:
+    //     case SessionState.Establishing:
+    //       if (session instanceOf Inviter) {
+    //         // An unestablished outgoing session
+    //         session.cancel();
+    //       } else {
+    //         // An unestablished incoming session
+    //         session.reject();
+    //       }
+    //       break;
+    //     case SessionState.Established:
+    //       // An established session
+    //       session.bye();
+    //       break;
+    //     case SessionState.Terminating:
+    //     case SessionState.Terminated:
+    //         // Cannot terminate a session that is already terminated
+    //     break;
+    //     }
+    //   }
+
+    
+
+       
+    
+  }
 };
 </script>

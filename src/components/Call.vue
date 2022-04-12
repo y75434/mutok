@@ -203,9 +203,7 @@ export default {
   methods:{
     type(e){
       this.inputBox += e
-
-        console.log(this.inputBox, e);
-        
+      console.log(this.inputBox, e);  
     },
     call(){
 
