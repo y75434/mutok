@@ -7,7 +7,7 @@
   >
 
   <v-toolbar color="white" >
-    <v-app-bar-nav-icon><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon to="/directory"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
     <v-toolbar-title>個人設定</v-toolbar-title>
     <v-spacer></v-spacer>
   </v-toolbar>

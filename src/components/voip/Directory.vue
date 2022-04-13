@@ -123,6 +123,30 @@
       </v-list>
     </v-card>
 
+    <div color="success" class="rounded-b-xl text-center" style="height:80px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
+      <v-list-item class="d-flex justify-center mb-1 pt-3">
+        <div class="mx-2 flex-column d-flex">
+          <v-btn style="box-shadow:none;background: transparent">
+            <v-icon class="text-h5 grey--text">mdi-phone-outgoing-outline</v-icon>
+          </v-btn>
+          <span class="body-2 black--text mt-1">通話</span>
+        </div>
+        <div class="mx-2 flex-column d-flex">
+          <v-btn style="box-shadow:none;background: transparent">
+            <v-icon class="text-h5 grey--text">mdi-plus</v-icon>
+          </v-btn>
+          <span class="body-2 black--text mt-1">加入通訊錄</span>
+        </div>
+        <div class="mx-2 flex-column d-flex">
+          <v-btn style="box-shadow:none;background: transparent"  >
+            <v-icon class="text-h5 grey--text">mdi-pencil-outline</v-icon>
+          </v-btn>
+          <span class="body-2 black--text mt-1">編輯資料</span>
+        </div>
+      </v-list-item>
+
+    </div>
+
     <div color="success" class="rounded-b-0 rounded-pill" style="height:100px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
       <v-list-item class="d-flex justify-center mb-1 pt-3">
         <div class="mx-2 flex-column d-flex">

@@ -23,19 +23,28 @@
             </template>
             <v-list>
               <v-list-item to="/selfsetting">
-                <v-list-item-title class="d-flex">
-                  <v-img :src="require('@/assets/svg/ic_im_setting.svg')" size="12px"></v-img>
+                <v-list-item-title class="d-flex align-center" >
+                  <v-img width="5px" :src="require('@/assets/svg/ic_user_setting.png')"></v-img>
                   個人設定
                 </v-list-item-title>
               </v-list-item>
-              <v-list-item>
-                <v-list-item-title>電話設定</v-list-item-title>
+              <v-list-item >
+                <v-list-item-title class="d-flex align-center">
+                  <v-img width="10px" :src="require('@/assets/svg/ic_im_setting.svg')"></v-img>
+                  電話設定
+                </v-list-item-title>
               </v-list-item>
-              <v-list-item>
-                <v-list-item-title>語音信箱</v-list-item-title>
+              <v-list-item >
+                <v-list-item-title class="d-flex align-center">
+                  <v-img width="10px" :src="require('@/assets/svg/ic_g_voicemail.svg')"></v-img>
+                  語音信箱
+                </v-list-item-title>
               </v-list-item>
-              <v-list-item>
-                <v-list-item-title>刪除通話紀錄</v-list-item-title>
+              <v-list-item  >
+                <v-list-item-title class="d-flex align-center">
+                  <v-img width="10px" :src="require('@/assets/svg/ic_g_delmsg.svg')"></v-img>
+                  刪除通話紀錄
+                </v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>

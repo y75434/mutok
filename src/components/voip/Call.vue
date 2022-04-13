@@ -199,7 +199,10 @@
 
       </v-list-item>
     </div>
-  
+    <audio id="remoteAudio" controls>
+      <p>Your browser doesn't support HTML5 audio.</p>
+    </audio>
+
 
     </div>
 
@@ -210,7 +213,7 @@
 </template>
 
 <script>
-import { Web } from "sip.js";
+import { Web,UserAgent,Registerer } from "sip.js";
 
 export default {
   name: "call",
@@ -224,54 +227,49 @@ export default {
       this.inputBox += e
       console.log(this.inputBox, e);  
     },
-    // Helper function to get an HTML audio element
-    // getAudioElement(id){
-    //   const el = document.getElementById(id);
-    //   if (!(el)) {
-    //     throw new Error(`Element "${id}" not found or not an audio element.`);
-    //   }
-    //   return el;
-    // },
+    getAudioElement(id){
+      const el = document.getElementById(id);
+      if (!(el)) {
+        throw new Error(`Element "${id}" not found or not an audio element.`);
+      }
+      return el;
+    },
     call(){
+      const uri = UserAgent.makeURI("6111");
+      const server = "wss://sip.doqubiz.com:8089/ws";
+
+      const userAgentOptions = {
+        authorizationPassword: '6111',
+        authorizationUsername: '6111',
+        server,
+        uri
+      };
+      const userAgent = new UserAgent(userAgentOptions);
+      const registerer = new Registerer(userAgent);
+      userAgent.start().then(() => { registerer.register(); });
+
+
      const options = {
-        aor: "sip:alice@example.com", // caller
+        aor: "6111@sip.doqubiz.com", // caller
         media: {
           constraints: { audio: true, video: false }, // audio only call
-          // remote: { audio: this.getAudioElement("remoteAudio") } // play remote audio
+          remote: { audio: this.getAudioElement("remoteAudio") } // play remote audio
         }
       };
 
-      const server = "wss://sip.example.com";
       const simpleUser = new Web.SimpleUser(server, options);
 
       simpleUser.connect()
-        .then(() => simpleUser.call("sip:bob@example.com"))
+        .then(() => simpleUser.call("100@sip.doqubiz.com"))
         .catch((error) => {
           console.log(error);       
         });
+
+        
     },
-    // endCall() {
-    //   switch(session.state) {
-    //     case SessionState.Initial:
-    //     case SessionState.Establishing:
-    //       if (session instanceOf Inviter) {
-    //         // An unestablished outgoing session
-    //         session.cancel();
-    //       } else {
-    //         // An unestablished incoming session
-    //         session.reject();
-    //       }
-    //       break;
-    //     case SessionState.Established:
-    //       // An established session
-    //       session.bye();
-    //       break;
-    //     case SessionState.Terminating:
-    //     case SessionState.Terminated:
-    //         // Cannot terminate a session that is already terminated
-    //     break;
-    //     }
-    //   }
+    endCall(){
+  
+    }
 
     
 
