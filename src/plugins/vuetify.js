@@ -24,7 +24,9 @@ export default new Vuetify({
         lightgrey: '#F2F2F2',
         black: '#4B4B4B',
         purple:'',
-        bg: '#fafafa'
+        bg: '#fafafa',
+        herf: '#22B2DE',
+        redhref:'#FB6376'
       },
     },
   },

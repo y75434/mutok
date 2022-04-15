@@ -1,8 +1,8 @@
 <template>
-  <div class="" style="height: 100vh; width:100vw">
+  <div background-color="bg" class="" style="height: 100vh; width:100vw">
 
 
-    <v-container class="rounded-lg  alert">
+    <v-container color="bg" class="rounded-lg  alert">
       <v-row no-gutters>
         <v-col cols="12">
           <v-card
@@ -48,7 +48,7 @@
     </v-container>
 
 
-    <v-tabs background-color="white" centered dark icons-and-text v-model="tab">
+    <v-tabs background-color="bg" height="35px" centered dark icons-and-text v-model="tab">
       <v-col cols="6" >
         <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-1">
           好友
@@ -63,24 +63,7 @@
     </v-tabs>
 
 
-    <v-tabs-items v-model="tab">
-      <v-tab-item value="tab-1">
-        <v-card flat>
-          <v-card-text> text</v-card-text>
-          
-
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item value="tab-2">
-        <v-card-text> cc</v-card-text>
-
-      </v-tab-item>
-    </v-tabs-items>
-
-
-
-    <v-card flat>
+    <v-card flat class="bg">
       <v-list one-line>
         <template v-for="(item, index) in items">
           <v-subheader
@@ -98,7 +81,7 @@
           <v-list-item
             v-else
             :key="item.title"
-            class="d-flex justify-space-between mb-3"
+            class="d-flex justify-space-between mb-1 "
             color="lightgrey"
 
           >
@@ -106,7 +89,7 @@
               <v-img :src="item.avatar"></v-img>
             </v-list-item-avatar>
 
-            <v-list-item-content >
+            <v-list-item-content class="p0">
               <v-list-item-title class="text-left" v-html="item.title"></v-list-item-title>
               <v-list-item-subtitle class="text-left" v-html="item.subtitle"></v-list-item-subtitle>
                 
@@ -114,9 +97,7 @@
             </v-list-item-content>
             <div class="d-flex flex-column">
               <v-text class="">20:08</v-text>
-              <v-icon color="">
-                mdi-check
-              </v-icon>
+            
             </div>
           </v-list-item>
         </template>
@@ -198,32 +179,32 @@
       items: [
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-          title: 'Brunch this weekend?',
-          subtitle: `Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+          title: 'Darlene Robertson',
+          subtitle: `012-12345678`,
         },
         { divider: true, inset: true },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-          title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
-          subtitle: `to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
+          title: 'Darlene Robertson',
+          subtitle: `012-12345678`,
         },
         { divider: true, inset: true },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-          title: 'Oui oui',
-          subtitle: '<span class="text--primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
+          title: 'Darlene Robertson',
+          subtitle: '012-12345678',
         },
         { divider: true, inset: true },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-          title: 'Birthday gift',
-          subtitle: '<span class="text--primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
+          title: 'Darlene Robertson',
+          subtitle: '012-12345678',
         },
         { divider: true, inset: true },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
-          title: 'Recipe to try',
-          subtitle: '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+          title: 'Darlene Robertson',
+          subtitle: '012-12345678',
         },
       ],
     }),

@@ -213,7 +213,20 @@
 </template>
 
 <script>
-import { Web,UserAgent,Registerer } from "sip.js";
+// import {UserAgent,Registerer } from "sip.js";
+import {
+  Invitation,
+  Inviter,
+  InviterOptions,
+  Referral,
+  Registerer,
+  RegistererOptions,
+  Session,
+  SessionState,
+  UserAgent,
+  UserAgentOptions,
+  InvitationAcceptOptions
+} from "sip.js";
 
 export default {
   name: "call",
@@ -235,6 +248,90 @@ export default {
       return el;
     },
     call(){
+
+      /*
+ * Create a user agent
+ */
+const uri = UserAgent.makeURI("sip:alice@example.com");
+if (!uri) {
+  throw new Error("Failed to create URI");
+}
+const userAgentOptions = {
+  uri,
+  
+};
+const userAgent = new UserAgent(userAgentOptions);
+
+/*
+ * Setup handling for incoming INVITE requests
+ */
+userAgent.delegate = {
+  onInvite(invitation) {
+
+    // An Invitation is a Session
+    const incomingSession = invitation;
+
+    // Setup incoming session delegate
+    incomingSession.delegate = {
+      // Handle incoming REFER request.
+      onRefer(referral) {
+        // ...
+      }
+    };
+
+    // Handle incoming session state changes.
+    incomingSession.stateChange.addListener((newState) => {
+      switch (newState) {
+        case SessionState.Establishing:
+          // Session is establishing.
+          break;
+        case SessionState.Established:
+          // Session has been established.
+          break;
+        case SessionState.Terminated:
+          // Session has terminated.
+          break;
+        default:
+          break;
+      }
+    });
+
+    // Handle incoming INVITE request.
+    let constrainsDefault = {
+      audio: true,
+      video: false,
+    }
+
+    const options = {
+      sessionDescriptionHandlerOptions: {
+        constraints: constrainsDefault,
+      },
+    }
+
+    incomingSession.accept(options)
+  }
+};
+
+/*
+ * Create a Registerer to register user agent
+ */
+const registererOptions = { /* ... */ };
+const registerer = new Registerer(userAgent, registererOptions);
+
+/*
+ * Start the user agent
+ */
+userAgent.start().then(() => {
+
+  // Register the user agent
+  registerer.register();
+
+  // Send an outgoing INVITE request
+  const target = UserAgent.makeURI("sip:bob@example.com");
+  if (!target) {
+    throw new Error("Failed to create target URI.");
+  }
+
       const uri = UserAgent.makeURI("6111");
       const server = "wss://sip.doqubiz.com:8089/ws";
 
@@ -249,24 +346,59 @@ export default {
       userAgent.start().then(() => { registerer.register(); });
 
 
-     const options = {
-        aor: "6111@sip.doqubiz.com", // caller
-        media: {
-          constraints: { audio: true, video: false }, // audio only call
-          remote: { audio: this.getAudioElement("remoteAudio") } // play remote audio
+    //  const options = {
+    //     aor: "6111@sip.doqubiz.com", // caller
+    //     media: {
+    //       constraints: { audio: true, video: false }, // audio only call
+    //       remote: { audio: this.getAudioElement("remoteAudio") } // play remote audio
+    //     }
+    //   };
+
+       const target = UserAgent.makeURI("sip:bob@example.com");
+
+        if (!target) {
+          throw new Error("Failed to create target URI.");
         }
-      };
 
-      const simpleUser = new Web.SimpleUser(server, options);
+      // const simpleUser = new Web.SimpleUser(server, options);
 
-      simpleUser.connect()
-        .then(() => simpleUser.call("100@sip.doqubiz.com"))
-        .catch((error) => {
-          console.log(error);       
-        });
+      // simpleUser.connect()
+      //   .then(() => simpleUser.call("100@sip.doqubiz.com"))
+      //   .catch((error) => {
+      //     console.log(error);       
+      //   });
 
         
     },
+
+    phoneCallButtonPressed(sessionid) {
+
+		var s   = ctxSip.Sessions[sessionid],
+			target = $("#numDisplay").val();
+
+		if (!s) {
+			var mutok_num = $('#mutok-numDisplay').val();
+			if (this.inputBox)	{
+				console.log('phoneCallButtonPressed: calling mutok number ' + mutok_num);
+				target = mutok_num;
+			}
+			$("#numDisplay").val("");
+			ctxSip.sipCall(target);
+
+		} else if (s.accept && !s.startTime) {
+
+			s.accept({
+				media : {
+					stream      : ctxSip.Stream,
+					constraints : { audio : true, video : false },
+					render      : {
+						remote : { audio: $('#audioRemote').get()[0] }
+					},
+					RTCConstraints : { "optional": [{ 'DtlsSrtpKeyAgreement': 'true'} ]}
+				}
+			});
+		}
+	},
     endCall(){
   
     }
