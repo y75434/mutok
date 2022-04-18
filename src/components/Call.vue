@@ -273,6 +273,8 @@
 </template>
 
 <script>
+import { SimpleUser } from "sip.js";
+
 export default {
   name: "call",
 
@@ -291,7 +293,59 @@ export default {
     },
     call(){
 
+
+      // const uri = UserAgent.makeURI("6111");
+      const server = "wss://sip.doqubiz.com:8089/ws";
+
+      const destination = "sip:1001@sip.doqubiz.com";
+      const aor = "sip:6111@sip.doqubiz.com";
+      const authorizationUsername = '6111';
+      const authorizationPassword = '6111';
+
+     const options = {
+      aor,
+      media: {
+        remote: {
+          // audio: getAudioElement("remoteAudio")
+        }
+      },
+      userAgentOptions: {
+        authorizationPassword,
+        authorizationUsername,
+      }
+    };
+
+  // Construct a SimpleUser instance
+  const simpleUser = new SimpleUser(server, options);
+
+  // 要知道您是否接到電話，您需要註冊一個簡單用戶委託
+  simpleUser.delegate = {
+    onCallReceived: async () => {
+      console.log('Incoming Call!');
+      await simpleUser.answer();
     }
+  };
+
+  // Connect to server
+   simpleUser.connect();
+
+  // Register to receive inbound calls (optional)
+  simpleUser.register();
+
+  // Place call to the destination
+  simpleUser.call(destination);
+
+  // Wait some number of milliseconds
+  // wait(5000);
+
+  
+
+    },
+    // 終止會話
+    // hangUp(){
+    //  simpleUser.hangup();
+    // }
+    
   }
 };
 </script>

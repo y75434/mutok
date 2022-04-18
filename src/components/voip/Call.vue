@@ -213,26 +213,40 @@
 </template>
 
 <script>
-// import {UserAgent,Registerer } from "sip.js";
-import {
-  Invitation,
-  Inviter,
-  InviterOptions,
-  Referral,
-  Registerer,
-  RegistererOptions,
-  Session,
-  SessionState,
-  UserAgent,
-  UserAgentOptions,
-  InvitationAcceptOptions
-} from "sip.js";
+import {UserAgent,Registerer,Web } from "sip.js";
+// import {
+//   Invitation,
+//   Inviter,
+//   InviterOptions,
+//   Referral,
+//   Registerer,
+//   RegistererOptions,
+//   Session,
+//   SessionState,
+//   UserAgent,
+//   UserAgentOptions,
+//   InvitationAcceptOptions
+// } from "sip.js";
 
 export default {
   name: "call",
 
   data: () => ({
-    inputBox: ""
+    inputBox: "",
+    config : {
+      password        : '6111',
+      displayName     : 'linda',
+      // uri             : 'sip:'+user.User+'@'+user.Realm,
+      // wsServers       : user.WSServer,
+      registerExpires : 30,
+      traceSip        : true,
+      log             : { level : 0,}
+    },
+    Sessions     : [],
+    callTimers   : {},
+    callActiveID : null,
+    callVolume   : 1,
+    Stream       : null,
 
   }),
   methods:{
@@ -248,165 +262,40 @@ export default {
       return el;
     },
     call(){
+      // if (this.inputBox)	{
 
-      /*
- * Create a user agent
- */
-const uri = UserAgent.makeURI("sip:alice@example.com");
-if (!uri) {
-  throw new Error("Failed to create URI");
-}
-const userAgentOptions = {
-  uri,
-  
-};
-const userAgent = new UserAgent(userAgentOptions);
+          const userAgentOptions = {
+            authorizationPassword: '6111',
+            authorizationUsername: '6111',
+            server,
+            uri
+          };
+          const userAgent = new UserAgent(userAgentOptions);
+          const registerer = new Registerer(userAgent); 
 
-/*
- * Setup handling for incoming INVITE requests
- */
-userAgent.delegate = {
-  onInvite(invitation) {
+          const uri = UserAgent.makeURI("6111");
+          const server = "wss://sip.doqubiz.com:8089/ws";
 
-    // An Invitation is a Session
-    const incomingSession = invitation;
+         
 
-    // Setup incoming session delegate
-    incomingSession.delegate = {
-      // Handle incoming REFER request.
-      onRefer(referral) {
-        // ...
-      }
+
+        userAgent.start().then(() => {
+    
+             registerer.register();
+
+             const simpleUser = new Web.SimpleUser(server, userAgentOptions);
+
+            simpleUser.connect()
+              .then(() => simpleUser.call("100@sip.doqubiz.com"))
+              .catch((error) => {
+                console.log(error);       
+              });
+          })
+       }}
     };
-
-    // Handle incoming session state changes.
-    incomingSession.stateChange.addListener((newState) => {
-      switch (newState) {
-        case SessionState.Establishing:
-          // Session is establishing.
-          break;
-        case SessionState.Established:
-          // Session has been established.
-          break;
-        case SessionState.Terminated:
-          // Session has terminated.
-          break;
-        default:
-          break;
-      }
-    });
-
-    // Handle incoming INVITE request.
-    let constrainsDefault = {
-      audio: true,
-      video: false,
-    }
-
-    const options = {
-      sessionDescriptionHandlerOptions: {
-        constraints: constrainsDefault,
-      },
-    }
-
-    incomingSession.accept(options)
-  }
-};
-
-/*
- * Create a Registerer to register user agent
- */
-const registererOptions = { /* ... */ };
-const registerer = new Registerer(userAgent, registererOptions);
-
-/*
- * Start the user agent
- */
-userAgent.start().then(() => {
-
-  // Register the user agent
-  registerer.register();
-
-  // Send an outgoing INVITE request
-  const target = UserAgent.makeURI("sip:bob@example.com");
-  if (!target) {
-    throw new Error("Failed to create target URI.");
-  }
-
-      const uri = UserAgent.makeURI("6111");
-      const server = "wss://sip.doqubiz.com:8089/ws";
-
-      const userAgentOptions = {
-        authorizationPassword: '6111',
-        authorizationUsername: '6111',
-        server,
-        uri
-      };
-      const userAgent = new UserAgent(userAgentOptions);
-      const registerer = new Registerer(userAgent);
-      userAgent.start().then(() => { registerer.register(); });
-
-
-    //  const options = {
-    //     aor: "6111@sip.doqubiz.com", // caller
-    //     media: {
-    //       constraints: { audio: true, video: false }, // audio only call
-    //       remote: { audio: this.getAudioElement("remoteAudio") } // play remote audio
-    //     }
-    //   };
-
-       const target = UserAgent.makeURI("sip:bob@example.com");
-
-        if (!target) {
-          throw new Error("Failed to create target URI.");
-        }
-
-      // const simpleUser = new Web.SimpleUser(server, options);
-
-      // simpleUser.connect()
-      //   .then(() => simpleUser.call("100@sip.doqubiz.com"))
-      //   .catch((error) => {
-      //     console.log(error);       
-      //   });
-
-        
-    },
-
-    phoneCallButtonPressed(sessionid) {
-
-		var s   = ctxSip.Sessions[sessionid],
-			target = $("#numDisplay").val();
-
-		if (!s) {
-			var mutok_num = $('#mutok-numDisplay').val();
-			if (this.inputBox)	{
-				console.log('phoneCallButtonPressed: calling mutok number ' + mutok_num);
-				target = mutok_num;
-			}
-			$("#numDisplay").val("");
-			ctxSip.sipCall(target);
-
-		} else if (s.accept && !s.startTime) {
-
-			s.accept({
-				media : {
-					stream      : ctxSip.Stream,
-					constraints : { audio : true, video : false },
-					render      : {
-						remote : { audio: $('#audioRemote').get()[0] }
-					},
-					RTCConstraints : { "optional": [{ 'DtlsSrtpKeyAgreement': 'true'} ]}
-				}
-			});
-		}
-	},
-    endCall(){
-  
-    }
-
-    
-
-       
-    
-  }
-};
 </script>
+
+    
+    
+    
+   

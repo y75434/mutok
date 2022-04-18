@@ -3,158 +3,81 @@
  <v-card
   max-width="768"
   style="height: 100vh; width: 100vw"
-  class="mx-auto text-center"
+  class="mx-auto text-center" 
+  color="secondary"
   >
 
-  <v-toolbar color="white" >
-    <v-app-bar-nav-icon><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
-    <v-toolbar-title>開設新帳號</v-toolbar-title>
-    <v-spacer></v-spacer>
-  </v-toolbar>
-
-  <v-card-title>
-    <v-btn dark icon>
-      <v-icon>mdi-chevron-left</v-icon>
-    </v-btn>
-    <v-spacer></v-spacer>
-    <v-btn dark icon class="mr-4">
-      <v-icon>mdi-pencil</v-icon>
-    </v-btn>
-    <v-btn dark icon>
-      <v-icon>mdi-dots-vertical</v-icon>
-    </v-btn>
-  </v-card-title>
+    <v-toolbar color="white" >
+      <v-app-bar-nav-icon><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
+      <v-toolbar-title>開設新帳號</v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-toolbar>
 
 
+ 
 
-    <div class="text-body-1 black--text text-center mb-3">本人暱稱<v-icon class="text-h5 grey--text ">mdi-pencil</v-icon></div>
+
      
-    <div class="">
-     <div class="d-flex justify-center"> 
-        <div class="text-body-2 black--text text-center mb-3 mr-3 d-flex  align-center">
-          忙碌中    
-          <v-icon color="red">mdi-circle</v-icon>
-        </div>
-        <a href="" class="justify-end">修改狀態</a>
-      </div>
-    </div>
 
 
 
-<v-form ref="form" >
-    
-  <v-col cols="8">
-    <v-list-item-title>帳號</v-list-item-title>
-    <v-text-field label="E-mail" solo ></v-text-field>
-  </v-col>
+    <v-stepper v-model="e1">
+    <v-stepper-header>
+      <v-stepper-step
+        :complete="e1 > 1"
+        step="1"
+      >
+        填寫基本資料
+      </v-stepper-step>
 
-  <v-row>  
-    <v-col cols="4">
-      <v-list-item-title >帳號</v-list-item-title>
-    </v-col>
-    <v-col cols="10">
-      <v-text-field
-        label="Solo"
-        solo
-      ></v-text-field>
-    </v-col>
-  </v-row>
+      <v-divider></v-divider>
 
-  <v-col cols="8">
-    <v-text-field
-      label="Solo"
-      solo
-    ></v-text-field>
-  </v-col>
-
-
-
-   
-  </v-form>
-
-
-
-
-    <v-list  class="text-left">
+      <v-stepper-step
+        :complete="e1 > 2"
+        step="2"
+      >
+        通訊設定
+      </v-stepper-step>
       
+    </v-stepper-header>
 
-      <v-list-item>
-        <v-col cols="4">
-          <v-list-item-content>
-          <v-list-item-title >帳號</v-list-item-title>
-          </v-list-item-content>
-        </v-col>
-        <v-list-item-content >
-          <v-list-item-subtitle>
-            <v-col cols="8">
-              <v-text-field
-                label="Solo"
-                solo
-              ></v-text-field>
-            </v-col>
+    <v-stepper-items>
+      <v-stepper-content step="1" color="secondary" style="height: 100vh;">
+        <v-list-item class="text-left justify-center d-flex">
+          <v-col cols="8" >
+            <v-list-item-title>帳號</v-list-item-title>
+            <v-text-field label="E-mail" solo ></v-text-field>
+          </v-col>
+        </v-list-item>
 
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
 
-      <v-divider></v-divider>
+        
 
-      <v-list-item>
-        <v-col cols="4">
-          <v-list-item-content>
-          <v-list-item-title>號碼</v-list-item-title>
-          </v-list-item-content>
-        </v-col>
-          <v-list-item-content>
-          <v-list-item-subtitle>021-12345678</v-list-item-subtitle>
-          </v-list-item-content>
-      </v-list-item>
+         <v-col cols="10" class="">
+            <v-btn @click="e1 = 2" class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
+              <div class="text-body-1 white--text">下一步</div>
+            </v-btn>
+          </v-col>
+      </v-stepper-content>
 
-      <v-divider></v-divider>
+      <v-stepper-content step="2">
+        <v-card
+          class="mb-12"
+          color="grey lighten-1"
+        >
+        
+        
+        
+        
+        
+        </v-card>
 
-      <v-list-item>
-        <v-col cols="4">
-          <v-list-item-content >
-            <v-list-item-title>信箱</v-list-item-title>
-          </v-list-item-content>
-        </v-col>
+      </v-stepper-content>
 
-        <v-list-item-content>
-          <v-list-item-subtitle>aloha@mail.com</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
+     
+    </v-stepper-items>
+  </v-stepper>
 
-      <v-divider></v-divider>
-
-      <v-list-item>
-        <v-col cols="4">
-          <v-list-item-content>
-            <v-list-item-title>密碼</v-list-item-title>
-          </v-list-item-content>
-        </v-col>
-        <v-list-item-content>
-          <v-list-item-subtitle>**********</v-list-item-subtitle>
-        </v-list-item-content>
-        <a href="">更改密碼</a>
-      </v-list-item>
-
-      <v-divider></v-divider>
-
-      <v-list-item>
-        <v-col cols="4">
-          <v-list-item-content>
-            <v-list-item-title>隱藏</v-list-item-title>
-          </v-list-item-content>
-        </v-col>
-        <v-list-item-content >
-        <v-list-item-subtitle>aloha me</v-list-item-subtitle>
-        </v-list-item-content>
-        <v-switch label="公開" ></v-switch>
-      </v-list-item>
-
-      <v-divider></v-divider>
-
-    </v-list>
 
   </v-card>
 
@@ -167,7 +90,7 @@ export default {
   name: "SelfSetting",
 
   data: () => ({
-    
+    e1: 1,
     items: [
       { header: "Today" },
       {
