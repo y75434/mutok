@@ -26,7 +26,7 @@ export default new Vuetify({
         purple:'',
         bg: '#fafafa',
         herf: '#22B2DE',
-        redhref:'#FB6376'
+        redhref:'#FB6376',
       },
     },
   },

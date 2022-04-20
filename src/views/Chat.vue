@@ -24,16 +24,30 @@
             </template>
             <v-list>
               <v-list-item to="/selfsetting">
-                <v-list-item-title>個人設定</v-list-item-title>
+                <v-list-item-title>
+                  <img class="menuIcon" src="" alt="">
+                  <!-- @/assets/svg/ic_g_contactlist.svg -->
+
+                  通訊錄
+                </v-list-item-title>
               </v-list-item>
               <v-list-item>
-                <v-list-item-title>電話設定</v-list-item-title>
+                <v-list-item-title>
+                  <img class="menuIcon" src="@/assets/svg/ic_user_setting.png" alt="">
+                  訊息設定
+                </v-list-item-title>
               </v-list-item>
               <v-list-item>
-                <v-list-item-title>語音信箱</v-list-item-title>
+                <v-list-item-title>
+                  <img class="menuIcon" src="@/assets/svg/ic_user_setting.png" alt="">
+                  帳號設定
+                </v-list-item-title>
               </v-list-item>
               <v-list-item>
-                <v-list-item-title>刪除通話紀錄</v-list-item-title>
+                <v-list-item-title>
+                  <img class="menuIcon" src="@/assets/svg/ic_g_delmsg.png" alt="">
+                  清除所有訊息
+                </v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>

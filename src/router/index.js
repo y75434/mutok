@@ -38,6 +38,7 @@ const routes = [
       },
     ]
   },
+  //chat
   {
     path: '/chat',
     name: 'Chat',
@@ -47,16 +48,66 @@ const routes = [
         path: 'chat',
         component: () => import('../components/Chat/Chat.vue')
       },
+     
 
     ]
   },
+  {
+    path: '/singlemsg',
+    name: 'SingleMsg',
+    component: () => import('../components/Chat/SingleMsg.vue')
+  },
+  {
+    path: '/groupprofile',
+    name: 'groupProfile',
+    component: () => import('../components/Chat/GroupProfile.vue')
+  },
+  {
+    path: '/add',
+    name: 'Add',
+    component: () => import('../components/Chat/Add.vue')
+  },
+  {
+    path: '/addf',
+    name: 'AddF',
+    component: () => import('../components/Chat/AddF.vue')
+  },
+  //login
   {
     path: '/login',
     name: 'Login',
     component: () => import('../components/login/Login.vue'),
     children: [
-      
+      // {
+      //   path: 'Enroll',
+      //   component: () => import('../components/login/Enroll.vue')
+      // },
     ]
+  },
+  {
+    path: '/notice',
+    name: 'Notice',
+    component: () => import('../components/login/Notice.vue')
+  },
+  {
+    path: '/reset',
+    name: 'Reset',
+    component: () => import('../components/login/Reset.vue')
+  },
+  {
+    path: '/forgotpw',
+    name: 'ForgotPW',
+    component: () => import('../components/login/ForgotPW.vue')
+  },
+  {
+    path: '/enroll',
+    name: 'Enroll',
+    component: () => import('../components/login/Enroll.vue')
+  },
+  {
+    path: '/success',
+    name: 'Success',
+    component: () => import('../components/login/Success.vue')
   },
   {
     path: '/selfsetting',

@@ -28,10 +28,10 @@
     
     </v-tabs>
 
-    <v-tabs-items color="bg" v-model="tab">
+    <v-tabs-items class="bg" v-model="tab" @contextmenu="show">
       <v-tab-item value="tab-1">
         <v-card flat>
-          <v-card-text> text</v-card-text>
+          <v-card-text>text</v-card-text>
           <v-list two-line>
             <template v-for="(item, index) in items" >
               <v-subheader
@@ -91,42 +91,42 @@
         <v-card flat>
           <v-card-text> 3</v-card-text>
           <v-list two-line>
-                <template v-for="(item, index) in items" >
-                  <v-subheader
-                    v-if="item.header"
-                    :key="item.header"
-                    v-text="item.header"
-                  ></v-subheader>
+            <template v-for="(item, index) in items" >
+              <v-subheader
+                v-if="item.header"
+                :key="item.header"
+                v-text="item.header"
+              ></v-subheader>
 
-                  <v-divider
-                    v-else-if="item.divider"
-                    :key="index"
-                    :inset="item.inset"
-                  ></v-divider>
+              <v-divider
+                v-else-if="item.divider"
+                :key="index"
+                :inset="item.inset"
+              ></v-divider>
 
-                  <v-list-item
-                    v-else
-                    :key="item.title"
-                    class="d-flex justify-space-between mb-0"
-                  >
-                    <v-list-item-avatar>
-                      <v-img :src="item.avatar"></v-img>
-                    </v-list-item-avatar>
+              <v-list-item
+                v-else
+                :key="item.title"
+                class="d-flex justify-space-between mb-0"
+              >
+                <v-list-item-avatar>
+                  <v-img :src="item.avatar"></v-img>
+                </v-list-item-avatar>
 
-                    <v-list-item-content>
-                      <v-list-item-title
-                        class="text-left"
-                        v-html="item.title"
-                      ></v-list-item-title>
-                      <v-list-item-subtitle
-                        class="text-left"
-                        v-html="item.subtitle"
-                      ></v-list-item-subtitle>
-                    </v-list-item-content>
-                    <v-text class="">20:08</v-text>
+                <v-list-item-content>
+                  <v-list-item-title
+                    class="text-left"
+                    v-html="item.title"
+                  ></v-list-item-title>
+                  <v-list-item-subtitle
+                    class="text-left"
+                    v-html="item.subtitle"
+                  ></v-list-item-subtitle>
+                </v-list-item-content>
+                <v-text class="">20:08</v-text>
 
-                  </v-list-item>
-                </template>
+              </v-list-item>
+            </template>
           </v-list>
         </v-card>
       </v-tab-item>
@@ -161,15 +161,17 @@
       </template>
       <v-btn
         color="white"
+        to="/addf"
       >
         <v-icon>mdi-pencil</v-icon>
         新增聊天
       </v-btn>
       <v-btn
        color="white"
+       to="/add"
       >
         <v-icon>mdi-plus</v-icon>
-        新增同事
+        新增好友
       </v-btn>
       <v-btn
         
@@ -179,6 +181,15 @@
         撥打緊急電話
       </v-btn>
     </v-speed-dial>
+
+    <v-menu v-model="showMenu" :position-x="x" :position-y="y" absolute offset-y>
+      <v-list>
+        <v-list-item>
+          <v-list-item-title>item.title</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+
 
    
   <!-- </v-card>  -->
@@ -192,6 +203,9 @@
     name: 'Chat',
 
     data: () => ({
+     showMenu: false,
+     x: 0,
+     y: 0,
      tab: null,
      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
      items: [
@@ -226,6 +240,19 @@
         },
       ],
     }),
+    methods: {
+      show(e) { 
+        e.preventDefault(); 
+        console.log(e);
+        
+        this.showMenu = false; 
+        this.x = e.clientX; 
+        this.y = e.clientY; 
+        this.$nextTick(() => { 
+          this.showMenu = true; 
+        });
+      } 
+    }
   }
 </script>
 
