@@ -9,7 +9,7 @@
       <v-list one-line>
         <v-col cols="12" >
           <div class=" secondary rounded-lg" >
-            <div class="text-body-2 grey--text text-center"> 昨天</div>
+            <div class="text-body-2 grey--text text-center">昨天</div>
 
           </div>
 
@@ -61,7 +61,8 @@
           <v-btn
             color="success"
             fab
-          ><v-icon class="text-h5 grey--text">mdi-bullhorn-variant-outline</v-icon>
+          >
+          <img src="@/assets/svg/ic_g_history.svg" style="width:30px" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">最近紀錄</span>
         </div>
@@ -70,7 +71,9 @@
             color="success"
             fab
             dark
-          ><v-icon class="text-h5 grey--text">mdi-microphone-off</v-icon>
+            to="/call"
+          >
+          <img src="@/assets/svg/ic_g_dialbtn_non.svg" style="width:30px" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">鍵盤</span>
         </div>
@@ -79,8 +82,9 @@
             color="success"
             fab
             dark
+            to="/directory"
           >
-          <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
+          <img src="@/assets/svg/ic_g_contactlist.svg" style="width:30px" alt="">
 
           </v-btn>
           <span class="body-2 black--text mt-1">通訊錄</span>

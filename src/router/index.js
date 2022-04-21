@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-
-
 import Call from'../components/Call.vue'
 
 
@@ -39,18 +37,27 @@ const routes = [
     ]
   },
   //chat
+  // {
+  //   path: '/chat',
+  //   name: 'Chat',
+  //   component: () => import('../components/Chat/Chat.vue'),
+  //   // children: [
+  //   //   {
+  //   //     path: 'chat',
+  //   //     component: () => import('../components/Chat/Chat.vue')
+  //   //   },
+  //   // ]
+  // },
   {
-    path: '/chat',
-    name: 'Chat',
-    component: () => import('../views/Chat.vue'),
-    children: [
-      {
-        path: 'chat',
-        component: () => import('../components/Chat/Chat.vue')
-      },
-     
-
-    ]
+      path: '/chat',
+      component: () => import('../views/Chat.vue')
+  },
+ 
+  {
+    // chatdirectory
+    path: '/chatdirectory',
+    name: 'ChatDirectory',
+    component: () => import('../components/Chat/Directory.vue')
   },
   {
     path: '/singlemsg',
@@ -71,6 +78,16 @@ const routes = [
     path: '/addf',
     name: 'AddF',
     component: () => import('../components/Chat/AddF.vue')
+  },
+  {
+    path: '/chatfriend',
+    name: 'chatfriend',
+    component: () => import('../components/Chat/Friend.vue')
+  },
+  {
+    path: '/chatselfsetting',
+    name: 'selfsetting',
+    component: () => import('../components/Chat/SelfSetting.vue') 
   },
   //login
   {

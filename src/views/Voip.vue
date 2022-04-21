@@ -27,7 +27,7 @@
                   個人設定
                 </v-list-item-title>
               </v-list-item>
-              <v-list-item >
+              <v-list-item to="/phonesetting">
                 <v-list-item-title class="d-flex align-center">
                   <img class="menuIcon" src="@/assets/svg/ic_im_setting.svg" alt="">
                   電話設定
@@ -61,16 +61,16 @@
       
 
         <v-bottom-navigation>
-          <v-btn>
-            <span class="active">最近紀錄</span>
+          <v-btn to="/chat">
+            <span class="active">訊息</span>
             <v-icon style="color:#0EA5B0;">mdi-android-messages</v-icon>
           </v-btn>
-          <v-btn to="keyboard">
-            <span class="active">鍵盤</span>
+          <v-btn to="/call">
+            <span class="active">電話</span>
             <v-icon style="color:#0EA5B0;">mdi-phone</v-icon>
           </v-btn>
           <v-btn>
-            <span class="active">通訊錄</span>
+            <span class="active">會議</span>
             <v-icon class="" style="color:#0EA5B0;">mdi-video</v-icon>
           </v-btn>
         </v-bottom-navigation>

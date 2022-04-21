@@ -22,8 +22,8 @@
 
     <v-col cols="8" class="mx-auto" >
 
-      <v-btn large block class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
-        <div class="text-body-1 white--text"><v-icon class="">mdi-phone-remove-outline</v-icon>結束通話</div>
+      <v-btn to="/call" large block class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
+        <div class="text-body-1 white--text"><v-icon class="">mdi-phone-remove-outline</v-icon>撥話</div>
       </v-btn>
     </v-col>
 
@@ -46,7 +46,7 @@
         </div>
         <div class="mx-2 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent"  >
-            <v-icon class="text-h5 grey--text">mdi-pencil-outline</v-icon>
+            <v-img :src="require('@/assets/svg/ic_g_del.svg')" size="15px"></v-img>
           </v-btn>
           <span class="body-2 black--text mt-1">刪除聯絡人</span>
         </div>

@@ -3,7 +3,7 @@
   <v-card max-width="768" style="height: 100vh;" class="mx-auto">
 
     <v-toolbar color="white" >
-      <v-app-bar-nav-icon to="/chat/chat"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon to="/chat"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
       <v-toolbar-title>新增聊天</v-toolbar-title>
 
       <v-spacer></v-spacer> 

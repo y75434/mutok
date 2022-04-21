@@ -41,9 +41,9 @@
 
         </template>
         <v-list>
-          <v-list-item to="/profile">
+          <v-list-item to="/selfsetting">
             <img class="chatIcon" src="@/assets/svg/ic_g_info.svg" alt="">
-            <v-list-item-title>群組資訊</v-list-item-title>
+            <v-list-item-title>個人資訊</v-list-item-title>
           </v-list-item>
           <v-list-item>
             <img class="chatIcon" src="@/assets/svg/ic_g_mute.svg" alt="">
@@ -56,6 +56,10 @@
           <v-list-item>
             <img class="chatIcon" src="@/assets/svg/ic_g_del.svg" alt="">
             <v-list-item-title>刪除訊息</v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <img class="chatIcon" src="@/assets/svg/ic_g_location.svg" alt="">
+            <v-list-item-title>傳送目前位置</v-list-item-title>
           </v-list-item>
           <v-list-item>
             <img class="chatIcon" src="@/assets/svg/ic_g_exit.svg" alt="">

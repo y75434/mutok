@@ -1,5 +1,5 @@
 <template>
- <div  class="" style=" width:100vw">
+ <div  class="">
   <!-- <v-card max-width="768"  class="mx-auto m-0">     -->
       
 
@@ -180,15 +180,15 @@
         <v-icon>mdi-delete</v-icon>
         撥打緊急電話
       </v-btn>
-    </v-speed-dial>
+    </v-speed-dial> 
 
-    <v-menu v-model="showMenu" :position-x="x" :position-y="y" absolute offset-y>
+     <v-menu v-model="showMenu" :position-x="x" :position-y="y" absolute offset-y>
       <v-list>
         <v-list-item>
           <v-list-item-title>item.title</v-list-item-title>
         </v-list-item>
       </v-list>
-    </v-menu>
+    </v-menu> 
 
 
    

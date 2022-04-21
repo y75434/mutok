@@ -1,5 +1,5 @@
 <template>
-  <div background-color="bg" class="" style="height: 100vh; width:100vw">
+  <div background-color="bg" class="" style="height: 70vh; width:100vw">
 
 
     <v-container color="bg" class="rounded-lg  alert">
@@ -83,6 +83,7 @@
             :key="item.title"
             class="d-flex justify-space-between mb-1 "
             color="lightgrey"
+            to="/friend"
 
           >
             <v-list-item-avatar>
@@ -107,7 +108,7 @@
     <div color="success" class="rounded-b-xl text-center" style="height:80px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
       <v-list-item class="d-flex justify-center mb-1 pt-3">
         <div class="mx-2 flex-column d-flex">
-          <v-btn style="box-shadow:none;background: transparent">
+          <v-btn  style="box-shadow:none;background: transparent">
             <v-icon class="text-h5 grey--text">mdi-phone-outgoing-outline</v-icon>
           </v-btn>
           <span class="body-2 black--text mt-1">通話</span>
@@ -129,12 +130,15 @@
     </div>
 
     <div color="success" class="rounded-b-0 rounded-pill" style="height:100px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
-      <v-list-item class="d-flex justify-center mb-1 pt-3">
+      <v-list-item class="d-flex justify-center mb-1 pt-3 text-center">
         <div class="mx-2 flex-column d-flex">
           <v-btn
             color="success"
             fab
-          ><v-icon class="text-h5 grey--text">mdi-bullhorn-variant-outline</v-icon>
+            to="/history"
+
+          >
+          <img src="@/assets/svg/ic_g_history.svg" style="width:30px" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">最近紀錄</span>
         </div>
@@ -143,7 +147,9 @@
             color="success"
             fab
             dark
-          ><v-icon class="text-h5 grey--text">mdi-microphone-off</v-icon>
+            to="/call"
+          >
+          <img src="@/assets/svg/ic_g_dialbtn_non.svg" style="width:30px" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">鍵盤</span>
         </div>
@@ -152,8 +158,10 @@
             color="success"
             fab
             dark
+            to="/directory"
           >
-          <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
+          <img src="@/assets/svg/ic_g_contactlist.svg" style="width:30px" alt="">
+
           </v-btn>
           <span class="body-2 black--text mt-1">通訊錄</span>
         </div>
