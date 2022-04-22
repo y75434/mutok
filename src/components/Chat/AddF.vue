@@ -24,7 +24,7 @@
    
    <v-card>
     <v-toolbar flat>
-      <v-app-bar-nav-icon to="/chat/chat" ><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon to="/chat" ><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
 
       <v-toolbar-title>新增聊天</v-toolbar-title>
 
@@ -38,10 +38,6 @@
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
 
-
-      
-
-
       <template v-slot:extension>
         <v-tabs
           v-model="tabs"
@@ -51,15 +47,13 @@
           <v-tab
             href="#mobile-tabs-5-1"
             class="primary--text"
-          >
-            <v-icon>mdi-phone</v-icon>
-          </v-tab>
+          >好友</v-tab>
 
           <v-tab
             href="#mobile-tabs-5-2"
             class="primary--text"
           >
-            <v-icon>mdi-heart</v-icon>
+          公司部門
           </v-tab>
 
           
@@ -254,3 +248,10 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+.v-text-field--outlined > .v-input__control > .v-input__slot { 
+  background: #fff !important; 
+}
+
+</style>

@@ -8,11 +8,11 @@
 
   <v-toolbar color="white" >
     <v-app-bar-nav-icon to="/chat"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
-    <v-toolbar-title>個人設定</v-toolbar-title>
+    <v-toolbar-title>帳號設定</v-toolbar-title>
     <v-spacer></v-spacer>
   </v-toolbar>
 
-  <v-card-title>
+  <!-- <v-card-title>
     <v-btn dark icon>
       <v-icon>mdi-chevron-left</v-icon>
     </v-btn>
@@ -23,54 +23,52 @@
     <v-btn dark icon>
       <v-icon>mdi-dots-vertical</v-icon>
     </v-btn>
-  </v-card-title>
+  </v-card-title> -->
 
   
 
-    <div class="text-body-1 black--text text-center mb-3">本人暱稱<v-icon class="text-h5 grey--text ">mdi-pencil</v-icon></div>
-     
-    <div class="d-flex ">
-     <!-- <div class=" ">  -->
 
+    <v-row class="d-flex py-6 justify-center align-center text-left bg"> 
+      <div  class="d-flex my-5 justify-center align-center ">
+        <div class="" style="width:40%"> 
+          <v-badge
+            bordered
+            bottom
+            color="darkgrey"
+            offset-x="10"
+            offset-y="20"
+            icon="mdi-camera"
+            class="d-flex justify-center mb-6"
+          >
+            <v-avatar size="100" >
+              <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
+            </v-avatar>
+          </v-badge>
 
-      <!-- <v-badge
-        bordered
-        bottom
-        color="darkgrey"
-        offset-x="190"
-        offset-y="10"
-        icon="mdi-camera"
-        class="d-flex justify-center mb-6"
-      > -->
-
-        <v-avatar size="60">
-        <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
-        </v-avatar>
-
-        <!-- </v-badge> -->
-      <!-- </div> -->
-
-     <div class="d-flex justify-center"> 
-       <v-avatar size="60">
-        <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg" style="height: 60px; min-width: 60px; width: 60px;"></v-img>
-        </v-avatar>
-
-       
-
-
-        <div class="text-body-2 black--text text-center mb-3 mr-3 d-flex  align-center">
-          忙碌中    
-          <v-icon color="red">mdi-circle</v-icon>
         </div>
-        <a href="" class="justify-end">修改狀態</a>
+
+      <div class="d-flex flex-column" style="width:60%"> 
+          <div class="text-body-1 mx-6 black--text d-flex justify-space-between text-left mb-3">
+            本人暱稱<v-icon class="text-h5 grey--text ">mdi-pencil</v-icon>
+          </div>
+
+          <div class="text-body-2 mx-6 black--text text-center mb-3 mr-3 d-flex  align-center">
+            忙碌中    
+            <v-icon size="4" color="red">mdi-circle</v-icon>
+          </div>
+        </div>
       </div>
-    </div>
+      
+      
+      
+      
+    </v-row>
 
 
-    <v-list two-line class="text-left">
-      <v-list-item>
-        <v-col cols="4">
-          <v-list-item-content>
+    <v-list two-line class="text-left bg">
+      <v-list-item >
+        <v-col cols="4" >
+          <v-list-item-content >
           <v-list-item-title >帳號</v-list-item-title>
           </v-list-item-content>
         </v-col>
@@ -117,7 +115,7 @@
         <v-list-item-content>
           <v-list-item-subtitle>**********</v-list-item-subtitle>
         </v-list-item-content>
-        <a href="">更改密碼</a>
+        <a href="" class="herf--text">更改密碼</a>
       </v-list-item>
 
       <v-divider></v-divider>
@@ -138,9 +136,61 @@
 
     </v-list>
 
+    <span class="grey--text text-left">系統設定</span>
+    <v-expansion-panels class="bg">
+      <v-list-item>
+        <v-col cols="4">
+          <v-list-item-content>
+            <v-list-item-title>通知</v-list-item-title>
+          </v-list-item-content>
+        </v-col>
+        <v-list-item-content >
+          <v-menu offset-y>
+            <template v-slot:activator="{ on }">
+              <a v-on="on" class="grey--text justify-end">
+                <img class="chatIcon" src="@/assets/svg/ic_bk_mute.svg" alt="">
+                <!-- <v-img :src="require('@/assets/svg/ic_bk_mute.svg')" size="15px"></v-img> -->
+                震動
+              </a>
+            </template>
+            <v-list>
+              <v-list-item >
+                <v-list-item-title class="align-center d-flex">
+                  <img class="chatIcon" src="@/assets/svg/ic_g_ring.svg" alt="">
+                  鈴聲
+                </v-list-item-title>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-title class="align-center d-flex">
+                  <img class="chatIcon" src="@/assets/svg/ic_bk_vibe.svg" alt="">
+                  震動
+                </v-list-item-title>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-title class="align-center d-flex">
+                  <img class="chatIcon" src="@/assets/svg/ic_bk_mute.svg" alt="">
+                  靜音
+                </v-list-item-title>
+              </v-list-item>
+              
 
-    <v-expansion-panels>
-      <v-expansion-panel>
+            </v-list>
+          </v-menu>
+
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-expansion-panel class="bg">
+        <v-expansion-panel-header>
+          通訊協定
+        </v-expansion-panel-header>
+        <v-expansion-panel-content>
+          
+
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+
+      <v-expansion-panel class="bg">
         <v-expansion-panel-header>
           通訊協定
         </v-expansion-panel-header>
@@ -148,7 +198,7 @@
           Lorem ipsum dolor sit amet, 
         </v-expansion-panel-content>
       </v-expansion-panel>
-      <v-expansion-panel>
+      <v-expansion-panel class="bg">
         <v-expansion-panel-header>
           通訊協定
         </v-expansion-panel-header>
@@ -156,7 +206,7 @@
           Lorem ipsum dolor sit amet, 
         </v-expansion-panel-content>
       </v-expansion-panel>
-      <v-expansion-panel>
+      <v-expansion-panel class="bg">
         <v-expansion-panel-header>
           伺服器設定
         </v-expansion-panel-header>
@@ -164,7 +214,7 @@
           Lorem ipsum dolor sit amet, 
         </v-expansion-panel-content>
       </v-expansion-panel>
-      <v-expansion-panel>
+      <v-expansion-panel class="bg">
         <v-expansion-panel-header>
           安全設定
         </v-expansion-panel-header>
@@ -227,3 +277,9 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+.v-list-item__content {   
+  padding: 0 !important;
+}
+</style>

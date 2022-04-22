@@ -86,7 +86,7 @@ const routes = [
   },
   {
     path: '/chatselfsetting',
-    name: 'selfsetting',
+    name: 'chatselfsetting',
     component: () => import('../components/Chat/SelfSetting.vue') 
   },
   //login

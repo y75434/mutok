@@ -16,35 +16,22 @@
     <v-spacer></v-spacer>
   </v-toolbar>
 
-  <v-card-title>
-    <v-btn dark icon>
-      <v-icon>mdi-chevron-left</v-icon>
-    </v-btn>
-    <v-spacer></v-spacer>
-    <v-btn dark icon class="mr-4">
-      <v-icon>mdi-pencil</v-icon>
-    </v-btn>
-    <v-btn dark icon>
-      <v-icon>mdi-dots-vertical</v-icon>
-    </v-btn>
-  </v-card-title>
-
- 
-
-  
 
 
-    <div class="text-body-1 black--text text-center mb-3">本人暱稱<v-icon class="text-h5 grey--text ">mdi-pencil</v-icon></div>
      
-    <div class="">
-      <div class="d-flex justify-center"> 
-        <v-avatar size="60">
+    <div  class="d-flex my-10 justify-center align-center ">
+      <div class="" style="width:40%"> 
+        <v-avatar size="100" >
           <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
         </v-avatar>
       </div>
 
-     <div class="d-flex justify-center"> 
-        <div class="text-body-2 black--text text-center mb-3 mr-3 d-flex  align-center">
+     <div class="d-flex flex-column" style="width:60%"> 
+        <div class="text-body-1 mx-6 black--text d-flex justify-space-between text-left mb-3">
+          本人暱稱<v-icon class="text-h5 grey--text ">mdi-pencil</v-icon>
+        </div>
+
+        <div class="text-body-2 mx-6 black--text text-center mb-3 mr-3 d-flex  align-center">
           忙碌中    
           <v-icon size="4" color="red">mdi-circle</v-icon>
         </div>
@@ -55,19 +42,20 @@
       <v-list-item class="d-flex justify-center mb-1 pt-3">
         <div class="mx-2 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent">
-            <v-img :src="require('@/assets/svg/ic_bk_mute.svg')" size="15px"></v-img>
+            <img class="profileIcon" src="@/assets/svg/ic_g_addfriend.svg" alt="">
           </v-btn>
-          <span class="body-2 black--text mt-1">靜音</span>
+          <span class="body-2 black--text mt-1">邀請</span>
         </div>
         <div class="mx-2 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent">
-            <v-img :src="require('@/assets/svg/ic_g_edit.svg')" size="15px"></v-img>
+            <img class="profileIcon" src="@/assets/svg/ic_bk_mute.svg" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">編輯聯絡人</span>
         </div>
         <div class="mx-2 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent"  >
-            <v-img :src="require('@/assets/svg/ic_g_del.svg')" size="15px"></v-img>
+            <img class="profileIcon" src="@/assets/svg/ic_bk_del.svg" alt="">
+            <!-- <v-img :src="require('@/assets/svg/ic_g_del.svg')" size="15px"></v-img> -->
           </v-btn>
           <span class="body-2 black--text mt-1">刪除聯絡人</span>
         </div>
@@ -76,7 +64,7 @@
     </div>
 
 
-    <v-list one-line class="text-left">
+    <v-list one-line class="text-left bg" style="height: 60vh;">
       <v-list-item>
         <v-col cols="4">
           <v-list-item-content>

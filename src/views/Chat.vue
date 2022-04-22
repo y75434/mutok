@@ -94,7 +94,7 @@
                     :key="item.title"
                     class="d-flex justify-space-between mb-0"
                     to="/singlemsg"
-
+                    @click="set"
                   >
 
                   <v-badge
@@ -126,7 +126,20 @@
                     <v-text class="">20:08</v-text>
 
                   </v-list-item>
+
                 </template>
+
+                <v-list-item to="/singlemsg" @click="setGroup" class="d-flex justify-space-between mb-0">
+                  <v-list-item-avatar>
+                    <v-img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-img>
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <v-list-item-title  class="text-left">group</v-list-item-title>
+                    <v-list-item-subtitle class="text-left">group</v-list-item-subtitle>
+                  </v-list-item-content>
+                  <v-text class="">20:08</v-text>
+                </v-list-item>
+
               </v-list>
 
             </v-card>
@@ -177,13 +190,13 @@
         </v-tabs-items>
 
         <v-speed-dial
-      v-model="fab"
-      top="false"
-      bottom="true"
-      right="false"
-      left="true"
-      :direction="top"
-    >
+          v-model="fab"
+          top="false"
+          bottom="true"
+          right="false"
+          left="true"
+          :direction="top"
+        >
           <template v-slot:activator>
             <v-btn
               v-model="fab"
@@ -358,7 +371,12 @@ export default {
 	},
   methods: {
     handler(event) { event.preventDefault(); },
-
+    set(){
+      this.$store.dispatch('setGroup', false);
+    },
+    setGroup(){
+     this.$store.dispatch('setGroup', true);
+    },
     show(e) { 
       e.preventDefault(); 
       console.log(e);

@@ -66,8 +66,6 @@
 
               </v-badge>
 
-                
-
                 <v-list-item-content>
                   <v-list-item-title
                     class="text-left"
@@ -82,7 +80,13 @@
 
               </v-list-item>
             </template>
+
+            
+
           </v-list>
+
+          
+
 
         </v-card>
       </v-tab-item>

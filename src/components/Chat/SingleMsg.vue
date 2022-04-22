@@ -26,25 +26,24 @@
         </v-btn>
 
           
-        <v-btn icon>
+        <v-btn  icon>
           <v-icon class="chatActive">mdi-magnify</v-icon>
         </v-btn>
 
-        <v-btn icon v-bind="attrs" v-on="on">
+        <v-btn icon @click="call = !call" >
           <v-icon class="chatActive">mdi-phone</v-icon>
         </v-btn>
-        
-
-
-
-      
-
         </template>
         <v-list>
-          <v-list-item to="/selfsetting">
+          <v-list-item v-if="!this.$store.getters.group" to="/selfsetting">
             <img class="chatIcon" src="@/assets/svg/ic_g_info.svg" alt="">
             <v-list-item-title>個人資訊</v-list-item-title>
           </v-list-item>
+          <v-list-item v-else  to="/selfsetting">
+            <img class="chatIcon" src="@/assets/svg/ic_g_info.svg" alt="">
+            <v-list-item-title>群組資訊</v-list-item-title>
+          </v-list-item>
+
           <v-list-item>
             <img class="chatIcon" src="@/assets/svg/ic_g_mute.svg" alt="">
             <v-list-item-title>關閉提醒</v-list-item-title>
@@ -69,6 +68,19 @@
         </v-list>
       </v-menu>
     </v-toolbar>
+
+    <v-col v-if="call" cols="12" class="d-flex text-center secondary justify-center">
+      <div class="d-flex flex-column " style="width:50%">
+        <img class="profileIcon mx-auto filter" src="@/assets/svg/ic_g_callout.svg" alt="">
+        <span>語音通話</span>
+      </div>
+      <div class="d-flex flex-column justify-center" style="width: 50%">
+        <img class="profileIcon mx-auto" src="@/assets/svg/ic_bk_concall.svg" alt="">
+        <span>視訊通話</span>
+      </div>
+
+    </v-col>
+
     
     <div class="bg" style="height: 80vh;">
 
@@ -131,6 +143,7 @@
     name: 'Chat',
 
     data: () => ({
+     call: false,
      tab: null,
      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
      items: [

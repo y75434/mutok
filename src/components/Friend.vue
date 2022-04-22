@@ -34,19 +34,19 @@
       <v-list-item class="d-flex justify-center mb-1 pt-3">
         <div class="mx-2 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent">
-            <v-img :src="require('@/assets/svg/ic_bk_mute.svg')" size="15px"></v-img>
+            <img class="profileIcon" src="@/assets/svg/ic_g_mute.svg" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">靜音</span>
         </div>
         <div class="mx-2 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent">
-            <v-img :src="require('@/assets/svg/ic_g_edit.svg')" size="15px"></v-img>
+            <img class="profileIcon" src="@/assets/svg/ic_g_edit.svg" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">編輯聯絡人</span>
         </div>
         <div class="mx-2 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent"  >
-            <v-img :src="require('@/assets/svg/ic_g_del.svg')" size="15px"></v-img>
+            <img class="profileIcon" src="@/assets/svg/ic_g_del.svg" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">刪除聯絡人</span>
         </div>
