@@ -1,5 +1,5 @@
 <template>
-  <div background-color="bg" class="" style="height: 70vh; width:100vw">
+  <div background-color="bg" class="" style="height: 85vh; width:100vw">
 
 
     <v-container color="bg" class="rounded-lg  alert">

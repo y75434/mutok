@@ -199,9 +199,10 @@
 
       </v-list-item>
     </div>
-    <audio id="remoteAudio" controls>
+    <!-- <audio id="remoteAudio" controls>
       <p>Your browser doesn't support HTML5 audio.</p>
-    </audio>
+    </audio> -->
+    <audio id="audioRemote"></audio>
 
 
     </div>
@@ -213,40 +214,16 @@
 </template>
 
 <script>
-import {UserAgent,Registerer,Web } from "sip.js";
-// import {
-//   Invitation,
-//   Inviter,
-//   InviterOptions,
-//   Referral,
-//   Registerer,
-//   RegistererOptions,
-//   Session,
-//   SessionState,
-//   UserAgent,
-//   UserAgentOptions,
-//   InvitationAcceptOptions
-// } from "sip.js";
+import { Inviter,Web,UserAgent,Registerer,SessionState } from "sip.js";
+//  import { getAudio } from "../../../demo-utils";
+
 
 export default {
   name: "call",
 
   data: () => ({
     inputBox: "",
-    config : {
-      password        : '6111',
-      displayName     : 'linda',
-      // uri             : 'sip:'+user.User+'@'+user.Realm,
-      // wsServers       : user.WSServer,
-      registerExpires : 30,
-      traceSip        : true,
-      log             : { level : 0,}
-    },
-    Sessions     : [],
-    callTimers   : {},
-    callActiveID : null,
-    callVolume   : 1,
-    Stream       : null,
+    displayName: "linda"
 
   }),
   methods:{
@@ -262,36 +239,156 @@ export default {
       return el;
     },
     call(){
-      // if (this.inputBox)	{
+      
+        //  const audioElement = getAudio("audioRemote");
+        // const server = "wss://edge.sip.onsip.com";
 
-          const userAgentOptions = {
-            authorizationPassword: '6111',
-            authorizationUsername: '6111',
-            server,
-            uri
-          };
-          const userAgent = new UserAgent(userAgentOptions);
-          const registerer = new Registerer(userAgent); 
+        const server = "wss://sip.doqubiz.com:8089/ws";
+        // const target = "6111@sip.doqubiz.com"; 
 
-          const uri = UserAgent.makeURI("6111");
-          const server = "wss://sip.doqubiz.com:8089/ws";
+        // const simpleUserOptions = {
+        //   // delegate: simpleUserDelegate,
+        //   media: {
+        //     constraints : { audio : true, video : false },
+        //     remote: {
+        //       audio: audioElement
+        //     }
+        //   },
+        //   // userAgentOptions: {
+        //   //   // logLevel: "debug",
+        //   //   displayName
+        //   // }
+        // };
 
-         
+        const userAgent = new UserAgent({
+          uri: UserAgent.makeURI("6111@sip.doqubiz.com"),
+          transportOptions: {
+            server: "wss://sip.doqubiz.com:8089/ws"
+          },
+        });
+
+          const simpleUser = new Web.SimpleUser(server);
+          // const userAgent = new UserAgent({simpleUserOptions}); 
 
 
-        userAgent.start().then(() => {
-    
-             registerer.register();
+             userAgent.start().then(() => {
+              const target = UserAgent.makeURI("6666@sip.doqubiz.com");
 
-             const simpleUser = new Web.SimpleUser(server, userAgentOptions);
+              const inviter = new Inviter(userAgent, target);
+              inviter.invite();
+
+              const ctxid = this.getUniqueID();
+              console.log(ctxid);
+
+
+              // Handle outgoing session state changes
+              inviter.stateChange.addListener((ctxid) => {
+                switch (ctxid) {
+                  case SessionState.Establishing:
+                    console.log('1');
+                    return this.cancel().then(() => super.dispose());
+                    // Session is establishing
+                    // break;
+                  case SessionState.Established:
+                    // Session has been established
+                    console.log('2');
+                    return super.dispose();
+                    // break;
+                  case SessionState.Terminated:
+                    // Session has terminated
+                    return super.dispose();
+
+                    console.log('3');
+                    // break;
+                  default:
+                    break;
+                }
+              });
+
+              
+              
+
+
+                simpleUser.connect()
+                  .then(() => simpleUser.call(target))
+                  .catch((error) => {
+                    console.log(error);       
+                  });
+
+                simpleUser.call(target
+                // , {inviteWithoutSdp: false}
+                )
+                .catch((error) => {
+                  console.error(`[${simpleUser.id}] failed to place call`);
+                  console.error(error);
+                  alert("Failed to place call.\n" + error);
+                });
+              });
+
+          // })
+       },
+       // Genereates a rendom string to ID a call
+       getUniqueID () {
+        return Math.random().toString(36).substr(2, 9);
+       },
+       newSession(newSess) {
+
+        newSess.ctxid = this.getUniqueID();
+
+        },
+       test(){
+
+          /*
+          * Start the user agent
+          */
+
+          UserAgent.start().then(() => {
+
+            // Register the user agent
+            registerer.register();
+
+            // Send an outgoing INVITE request
+            const target = UserAgent.makeURI("6111@sip.doqubiz.com");
+            if (!target) {
+              throw new Error("Failed to create target URI.");
+            }
+
+            const uri = UserAgent.makeURI("6111");
+            const server = "wss://sip.doqubiz.com:8089/ws";
+            const simpleUser = new Web.SimpleUser(server, options);
 
             simpleUser.connect()
               .then(() => simpleUser.call("100@sip.doqubiz.com"))
               .catch((error) => {
                 console.log(error);       
               });
-          })
-       }}
+
+
+            const userAgentOptions = {
+              authorizationPassword: '6111',
+              authorizationUsername: '6111',
+              server,
+              uri
+            };
+            const userAgent = new UserAgent(userAgentOptions);
+            const registerer = new Registerer(userAgent);
+            userAgent.start().then(() => { registerer.register(); });
+         })
+       
+
+         const options = {
+            aor: "6111@sip.doqubiz.com", // caller
+            media: {
+              constraints: { audio: true, video: false }, // audio only call
+              // remote: { audio: this.getAudioElement("remoteAudio") } // play remote audio
+            }
+          };
+
+
+          
+       }
+          
+      }
     };
 </script>
 
