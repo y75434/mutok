@@ -214,8 +214,8 @@
 </template>
 
 <script>
-import { Inviter,Web,UserAgent,Registerer,SessionState } from "sip.js";
-//  import { getAudio } from "../../../demo-utils";
+import { Web,UserAgent,Registerer, } from "sip.js";
+//  import { getAudio } from "../../../demo-utils";SessionState
 
 
 export default {
@@ -241,7 +241,8 @@ export default {
     call(){
       
         //  const audioElement = getAudio("audioRemote");
-        // const server = "wss://edge.sip.onsip.com";
+        // const server = "wss://edge.sip.onsip.com";  sip.dagula.net
+        // const server = "wss://sip.dagula.net:8089/ws";
 
         const server = "wss://sip.doqubiz.com:8089/ws";
         // const target = "6111@sip.doqubiz.com"; 
@@ -261,49 +262,57 @@ export default {
         // };
 
         const userAgent = new UserAgent({
-          uri: UserAgent.makeURI("6111@sip.doqubiz.com"),
+          uri: UserAgent.makeURI("6000@sip.doqubiz.com"),
           transportOptions: {
             server: "wss://sip.doqubiz.com:8089/ws"
           },
+          authorizationPassword: '6000', // 分机密码
+          authorizationUsername: '6000', // 分机号
         });
+
+      
 
           const simpleUser = new Web.SimpleUser(server);
           // const userAgent = new UserAgent({simpleUserOptions}); 
+          const registerer = new Registerer(userAgent)
+
 
 
              userAgent.start().then(() => {
-              const target = UserAgent.makeURI("6666@sip.doqubiz.com");
+               registerer.register() // 注册,向服务器进行身份验证并接收消息
 
-              const inviter = new Inviter(userAgent, target);
-              inviter.invite();
+              const target = UserAgent.makeURI("6002@sip.doqubiz.com");
+
+              // const inviter = new Inviter(userAgent, target);
+              // inviter.invite();
 
               const ctxid = this.getUniqueID();
               console.log(ctxid);
 
 
               // Handle outgoing session state changes
-              inviter.stateChange.addListener((ctxid) => {
-                switch (ctxid) {
-                  case SessionState.Establishing:
-                    console.log('1');
-                    return this.cancel().then(() => super.dispose());
-                    // Session is establishing
-                    // break;
-                  case SessionState.Established:
-                    // Session has been established
-                    console.log('2');
-                    return super.dispose();
-                    // break;
-                  case SessionState.Terminated:
-                    // Session has terminated
-                    return super.dispose();
+              // inviter.stateChange.addListener((ctxid) => {
+              //   switch (ctxid) {
+              //     case SessionState.Establishing:
+              //       console.log('1');
+              //       return this.cancel().then(() => super.dispose());
+              //       // Session is establishing
+              //       // break;
+              //     case SessionState.Established:
+              //       // Session has been established
+              //       console.log('2');
+              //       return super.dispose();
+              //       // break;
+              //     case SessionState.Terminated:
+              //       // Session has terminated
+              //       console.log('3');
+              //       return super.dispose();
 
-                    console.log('3');
-                    // break;
-                  default:
-                    break;
-                }
-              });
+              //       // break;
+              //     default:
+              //       break;
+              //   }
+              // });
 
               
               
