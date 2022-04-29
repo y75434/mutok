@@ -52,7 +52,6 @@ const routes = [
       path: '/chat',
       component: () => import('../views/Chat.vue')
   },
- 
   {
     // chatdirectory
     path: '/chatdirectory',

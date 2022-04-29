@@ -1,7 +1,7 @@
 <template>
-
-  <div @contextmenu="handler($event)">      
-    <v-container class="" style="height: 100vh;" fluid permanent>
+<!-- @contextmenu="handler($event)" -->
+  <div >      
+    <v-container class="" style="height: 100vh;" fluid permanent >
       <v-row>  
 
 
@@ -72,9 +72,9 @@
         </v-col>
       </v-tabs>
 
-        <v-tabs-items v-model="tab" @contextmenu="open">
+        <v-tabs-items v-model="tab">
           <v-tab-item value="tab-1">
-            <v-card class="bg" flat>
+            <v-card class="bg" flat @contextmenu="show">
               <v-list two-line>
                 <template v-for="(item, index) in items" >
                   <v-subheader
@@ -142,6 +142,50 @@
 
               </v-list>
 
+
+            <v-menu v-model="show" :position-x="x" :position-y="y" absolute offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-dots-vertical</v-icon>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item >
+                  <v-list-item-title class="d-flex align-center">
+                  Esther Howard
+                  </v-list-item-title>
+                </v-list-item>
+
+                <v-list-item to="/selfsetting">
+                  <v-list-item-title class="d-flex align-center">
+                    <img class="menuIcon" src="@/assets/svg/ic_bk_info.svg" alt="">
+                    <!--  -->
+
+                    個人資訊
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="d-flex align-center">
+                    <img class="menuIcon" src="@/assets/svg/ic_bk_mute.svg" alt="">
+                    關閉提醒
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="d-flex align-center">
+                    <img class="menuIcon" src="@/assets/svg/ic_bk_vibe.svg" alt="">
+                    設為震動
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="d-flex align-center">
+                    <img class="menuIcon" src="@/assets/svg/ic_g_delmsg.svg" alt="">
+                    刪除訊息紀錄
+                  </v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+
+
             </v-card>
           </v-tab-item>
 
@@ -152,7 +196,6 @@
                   <v-subheader
                     v-if="item.header"
                     :key="item.header"
-                    v-text="item.header"
                   ></v-subheader>
 
                   <v-divider
@@ -190,7 +233,6 @@
         </v-tabs-items>
 
         <v-speed-dial
-          v-model="fab"
           top="false"
           bottom="true"
           right="false"
@@ -199,11 +241,9 @@
         >
           <template v-slot:activator>
             <v-btn
-              v-model="fab"
               fab
               dark
               bottom right
-
               class="speeddial"      
             >
               <v-icon v-if="fab">
@@ -222,14 +262,13 @@
             新增聊天
           </v-btn>
           <v-btn
-          color="white"
-          to="/add"
+            color="white"
+            to="/add"
           >
             <v-icon>mdi-plus</v-icon>
             新增好友
           </v-btn>
-          <v-btn
-            
+          <v-btn 
             color="white"
           >
             <v-icon>mdi-delete</v-icon>
@@ -238,48 +277,7 @@
         </v-speed-dial>
 
 
-        <v-menu v-model="showMenu" :position-x="x" :position-y="y" absolute offset-y bottom left>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn icon v-bind="attrs" v-on="on">
-              <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-          </template>
-          <v-list>
-            <v-list-item >
-              <v-list-item-title class="d-flex align-center">
-               Esther Howard
-              </v-list-item-title>
-            </v-list-item>
-
-            <v-list-item to="/selfsetting">
-              <v-list-item-title class="d-flex align-center">
-                <img class="menuIcon" src="@/assets/svg/ic_bk_info.svg" alt="">
-                <!--  -->
-
-                個人資訊
-              </v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title class="d-flex align-center">
-                <img class="menuIcon" src="@/assets/svg/ic_bk_mute.svg" alt="">
-                關閉提醒
-              </v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title class="d-flex align-center">
-                <img class="menuIcon" src="@/assets/svg/ic_bk_vibe.svg" alt="">
-                設為震動
-              </v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title class="d-flex align-center">
-                <img class="menuIcon" src="@/assets/svg/ic_g_delmsg.svg" alt="">
-                刪除訊息紀錄
-              </v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-
+        
 
 
         <v-bottom-navigation v-model="value">
@@ -302,6 +300,9 @@
           </v-btn>
         </v-bottom-navigation>
 
+
+       
+
       </v-row>
     </v-container>
   </div>
@@ -311,15 +312,15 @@
 
 </template>
 <script>
-//  import Chat from "../components/voip/Chat.vue";
 
 
 export default {
   name: "Chat",
   components: { 
-    // Chat 
+  
+
   },
-  data: () => ({
+  data: () => ({    
     showMenu: false,
     x: 0,
     y: 0,
@@ -362,14 +363,18 @@ export default {
     ],
   }),
   computed: {
-		style() {
-			return {
-				top: `${this.top}px`,
-				left: `${this.left}px`,
-			};
-		},
+		// style() {
+		// 	return {
+		// 		top: `${this.top}px`,
+		// 		left: `${this.left}px`,
+		// 	};
+		// },
 	},
-  methods: {
+  methods: {    
+    showMenu(event) { 
+      // console.log('right')
+      this.$refs.menu.open(event);
+    },
     handler(event) { event.preventDefault(); },
     set(){
       this.$store.dispatch('setGroup', false);
@@ -377,17 +382,15 @@ export default {
     setGroup(){
      this.$store.dispatch('setGroup', true);
     },
-    show(e) { 
-      e.preventDefault(); 
-      console.log(e);
-      
-      this.showMenu = false; 
-      this.x = e.clientX; 
-      this.y = e.clientY; 
-      this.$nextTick(() => { 
-        this.showMenu = true; 
-      });
-    } ,
+    show (e) {
+      e.preventDefault()
+      this.showMenu = false
+      this.x = e.clientX
+      this.y = e.clientY
+      this.$nextTick(() => {
+        this.showMenu = true
+      })
+    }
   
    }
 };

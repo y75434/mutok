@@ -20,7 +20,7 @@
 }
 
 .v-speed-dial--direction-top .v-speed-dial__list, .v-speed-dial--direction-bottom .v-speed-dial__list {
-    left: -183px  !important;
+    left: -3px  !important;
     // width: 100%;
 }
 
@@ -50,6 +50,11 @@
 .profileIcon{
   width: 40px !important;
   // margin-right: 3px;
+  box-shadow:none;background: transparent;
+}
+
+.btnIcon{
+  width: 30px !important;
   box-shadow:none;background: transparent;
 }
 

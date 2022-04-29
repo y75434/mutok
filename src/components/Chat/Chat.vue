@@ -1,8 +1,5 @@
 <template>
- <div  class="">
-  <!-- <v-card max-width="768"  class="mx-auto m-0">     -->
-      
-
+ <div class="">    
     <v-tabs
       background-color="white"
       centered
@@ -11,15 +8,12 @@
       v-model="tab"
     >
     <v-col cols="6">
-
       <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-1">
         好友
       </v-tab>
     </v-col>
-
     <v-tabs-slider></v-tabs-slider>
     <v-col cols="6">
-
       <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-2">
         公司部門
       </v-tab>
@@ -27,11 +21,10 @@
 
     
     </v-tabs>
-
-    <v-tabs-items class="bg" v-model="tab" @contextmenu="show">
+    <!-- @contextmenu="show" -->
+    <v-tabs-items class="bg" v-model="tab" >
       <v-tab-item value="tab-1">
         <v-card flat>
-          <v-card-text>text</v-card-text>
           <v-list two-line>
             <template v-for="(item, index) in items" >
               <v-subheader
@@ -39,19 +32,16 @@
                 :key="item.header"
                 v-text="item.header"
               ></v-subheader>
-
               <v-divider
                 v-else-if="item.divider"
                 :key="index"
                 :inset="item.inset"
               ></v-divider>
-
               <v-list-item
                 v-else
                 :key="item.title"
                 class="d-flex justify-space-between mb-0"
               >
-
               <v-badge
                 bordered
                 bottom
@@ -80,20 +70,13 @@
 
               </v-list-item>
             </template>
-
-            
-
           </v-list>
-
-          
-
 
         </v-card>
       </v-tab-item>
 
       <v-tab-item value="tab-2">
         <v-card flat>
-          <v-card-text> 3</v-card-text>
           <v-list two-line>
             <template v-for="(item, index) in items" >
               <v-subheader
@@ -137,13 +120,11 @@
     </v-tabs-items>
 
     <v-speed-dial
-      v-model="fab"
-      
+      v-model="fab"    
       top="false"
       bottom="true"
       right="false"
-      left="true"
-     
+      left="true"  
       :direction="top"
     >
       <template v-slot:activator>
@@ -152,7 +133,6 @@
           fab
           dark
           bottom right
-
           class="speeddial"      
         >
           <v-icon v-if="fab">

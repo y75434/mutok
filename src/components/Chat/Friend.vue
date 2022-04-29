@@ -38,7 +38,7 @@
       </div>
     </div>
 
-     <div  class=" text-center" style="height:80px;">
+     <div class="text-center" style="height:80px;">
       <v-list-item class="d-flex justify-center mb-1 pt-3">
         <div class="mx-2 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent">

@@ -1,30 +1,7 @@
 <template>
-  
-  <!-- <v-card max-width="768" style="height: 100vh;width:100vw" class="mx-auto"> -->
-
-    <!-- <v-toolbar color="white" >
-      <v-app-bar-nav-icon><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
-      <v-toolbar-title>新增聊天</v-toolbar-title>
-
-      <v-spacer></v-spacer> 
-      <a href="" class="herf--text text-decoration-none">確定</a>
-  
-    </v-toolbar>
-
-    <v-col cols="12" class="secondary">
-      <v-text-field
-        outlined
-        rounded
-        label="輸入名稱、電話號碼或電子郵件"
-        prepend-inner-icon="mdi-magnify"
-        hide-details
-      ></v-text-field>
-    </v-col> -->
-
-   
    <v-card>
     <v-toolbar flat>
-      <v-app-bar-nav-icon to="/chat/chat" ><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon to="/chat" ><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
 
       <v-toolbar-title>新增聊天</v-toolbar-title>
 
@@ -32,10 +9,6 @@
 
       <v-btn @click="search = !search" icon>
         <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
 
       <template v-slot:extension>
@@ -81,7 +54,6 @@
         :value="'mobile-tabs-5-' + i"
       >
         <v-card flat>
-
           <v-list two-line>
             <template v-for="(item, index) in items" >
               <v-subheader
@@ -121,90 +93,11 @@
             </template>
           </v-list>
 
-          <!-- <v-list two-line class="text-left">
-            <v-list-item>
-              <v-col cols="4">
-                <v-list-item-content>
-                <v-list-item-title >暱稱</v-list-item-title>
-                </v-list-item-content>
-              </v-col>
-              <v-list-item-content >
-                <v-list-item-subtitle>rachel-doqubiz</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-
-            <v-divider></v-divider>
-
-            <v-list-item>
-              <v-col cols="4">
-                <v-list-item-content>
-                <v-list-item-title>帳號</v-list-item-title>
-                </v-list-item-content>
-              </v-col>
-                <v-list-item-content>
-                <v-list-item-subtitle>rachellee</v-list-item-subtitle>
-                </v-list-item-content>
-            </v-list-item>
-
-            <v-divider></v-divider>
-
-            <v-list-item>
-              <v-col cols="4">
-                <v-list-item-content >
-                  <v-list-item-title>Email</v-list-item-title>
-                </v-list-item-content>
-              </v-col>
-
-              <v-list-item-content>
-                <v-list-item-subtitle>rachel.lee@doqubiz.com</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-
-            <v-divider></v-divider>
-
-            <v-list-item>
-              <v-col cols="4">
-                <v-list-item-content>
-                  <v-list-item-title>電話號碼1</v-list-item-title>
-                </v-list-item-content>
-              </v-col>
-              <v-list-item-content>
-                <v-list-item-subtitle>01-2345678</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-
-            <v-divider></v-divider>
-
-            <v-list-item>
-              <v-col cols="4">
-                <v-list-item-content>
-                  <v-list-item-title>電話號碼2</v-list-item-title>
-                </v-list-item-content>
-              </v-col>
-              <v-list-item-content >
-              <v-list-item-subtitle>01-2345678</v-list-item-subtitle>
-              </v-list-item-content>
-              <a class="herf--text" href="">新增電話</a>
-            </v-list-item>
-
-            <v-divider></v-divider>
-
-          </v-list> -->
-
-
         </v-card>
       </v-tab-item>
 
-
-    
     </v-tabs-items>
   </v-card>
-
-   
-
-
-
-  <!-- </v-card> -->
 
 </template>
 
@@ -251,3 +144,10 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+.v-application .primary--text .v-tabs-slider-wrapper{
+    color: #0EA5B0 !important;
+    caret-color: #0EA5B0 !important;
+}
+</style>

@@ -281,13 +281,13 @@ export default {
              userAgent.start().then(() => {
                registerer.register() // 注册,向服务器进行身份验证并接收消息
 
-              const target = UserAgent.makeURI("6002@sip.doqubiz.com");
+              const target = UserAgent.makeURI("echo@sipjs.onsip.com");
 
               // const inviter = new Inviter(userAgent, target);
               // inviter.invite();
 
-              const ctxid = this.getUniqueID();
-              console.log(ctxid);
+              // const ctxid = this.getUniqueID();
+              // console.log(ctxid);
 
 
               // Handle outgoing session state changes
@@ -313,9 +313,6 @@ export default {
               //       break;
               //   }
               // });
-
-              
-              
 
 
                 simpleUser.connect()

@@ -35,7 +35,7 @@
     class="d-flex justify-center mb-6"
   >
 
-  <v-avatar size="60">
+  <v-avatar size="80">
    <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
   </v-avatar>
 
@@ -47,7 +47,7 @@
      <div class="d-flex justify-center"> 
         <div class="text-body-2 black--text text-center mb-3 mr-3 d-flex  align-center">
           忙碌中    
-          <v-icon color="red">mdi-circle</v-icon>
+          <v-icon size="4" color="red">mdi-circle</v-icon>
         </div>
         <a href="" class="justify-end">修改狀態</a>
       </div>
@@ -175,3 +175,10 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+.v-list-item__content{
+  padding: 0 !important;
+}
+
+</style>

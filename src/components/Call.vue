@@ -2,7 +2,10 @@
   <!-- <v-container>
     <v-row class="text-center"> -->
       <v-card max-width="450"  style="height: 100vh;" class="mx-auto text-center py-15">
-        
+        <v-avatar size="70" class="my-6">
+          <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
+        </v-avatar>
+
 
         <div class="text-body-1 black--text my-5">Joe Cooper</div>
 
@@ -10,7 +13,7 @@
         <div class="text-body-1 black--text mb-3"> <v-icon class="text-h5 grey--text">mdi-phone-outgoing-outline</v-icon>通話中....</div>
 
         <!-- number -->
-        <v-list v-if="numberKeyboard" color="secondary" class="rounded-xl py-8 mb-0">
+        <v-list v-if="numberKeyboard && !endcall" color="secondary" class="rounded-b-0 py-8 mb-0">
             <v-list-item class="d-flex justify-center mb-6">
               <div class="mx-2">
                 <v-btn
@@ -134,14 +137,14 @@
 
 
             <v-list-item class="d-flex justify-center mb-9">
-              <div class="mx-2">
+              <div class="mx-4">
                 <v-btn
                   color="success"
                   fab
                 ><v-icon class="text-h5 grey--text">mdi-bullhorn-variant-outline</v-icon>
                 </v-btn>
               </div>
-              <div class="mx-2">
+              <div class="mx-4">
                 <v-btn
                   color="success"
                   fab
@@ -149,7 +152,7 @@
                 ><v-icon class="text-h5 grey--text">mdi-microphone-off</v-icon>
                 </v-btn>
               </div>
-              <div class="mx-2">
+              <div class="mx-4">
                 <v-btn
                   @click="numberKeyboard = !numberKeyboard"
                   color="success"
@@ -163,7 +166,7 @@
 
             <v-list-item class="d-flex justify-center mb-6">
 
-              <div class="mx-2">
+              <div class="">
                 <v-btn
                   color="success"
                   fab
@@ -172,11 +175,16 @@
 
                 </v-btn>
               </div>
-              <div class="mx-2">
-                <v-btn to="/friend" class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
+              <v-col cols="7" class="">
+                <v-btn @click="endcall =! endcall" large block class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
                   <div class="text-body-1 white--text"><v-icon class="">mdi-phone-remove-outline</v-icon>結束通話</div>
                 </v-btn>
-              </div>
+              </v-col>
+
+                <!-- <v-btn to="/call" large block class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
+                  <div class="text-body-1 white--text"><v-icon class="">mdi-phone-remove-outline</v-icon>撥話</div>
+                </v-btn> -->
+
 
             </v-list-item>
 
@@ -186,9 +194,9 @@
         </v-list>
 
 
-        <v-list v-if="!numberKeyboard" color="secondary" class="rounded-xl py-8 text-center">     
-          <v-list-item class="d-flex justify-center mb-9">
-            <div class="mx-2 flex-column d-flex">
+        <v-list style="height:600px" v-if="!numberKeyboard && !endcall" color="secondary" class="rounded-b-0 py-8 text-center">     
+          <v-list-item class="d-flex justify-center my-15">
+            <div class="mx-5 flex-column d-flex">
               <v-btn
                 color="success"
                 fab
@@ -196,37 +204,37 @@
               </v-btn>
               <span class="body-2 black--text mt-1">靜音</span>
             </div>
-            <div class="mx-2 flex-column d-flex">
+            <div class="mx-5 flex-column d-flex">
               <v-btn
                 color="success"
                 fab
                 dark
-              ><v-icon class="text-h5 grey--text">mdi-microphone-off</v-icon>
+              ><v-icon class="text-h5 grey--text ">mdi-microphone-off</v-icon>
               </v-btn>
               <span class="body-2 black--text mt-1">擴音</span>
             </div>
-            <div class="mx-2 flex-column d-flex">
+            <div class="mx-5 flex-column d-flex">
               <v-btn
                 @click="numberKeyboard = !numberKeyboard"
                 color="success"
                 fab
                 dark
-              ><v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
+              ><v-icon class="text-h5 grey--text ">mdi-dialpad</v-icon>
               </v-btn>
               <span class="body-2 black--text mt-1">鍵盤</span>
             </div>
           </v-list-item>
 
-          <v-list-item class="d-flex justify-center mb-15 ">
-            <div class="mx-2 flex-column d-flex">
+          <v-list-item class="d-flex justify-center my-15 ">
+            <div class="mx-5 flex-column d-flex">
               <v-btn
                 color="success"
                 fab
-              ><v-icon class="text-h5 grey--text">mdi-pause-circle-outline</v-icon>
+              ><v-icon class="text-h5 grey--text ">mdi-pause-circle-outline</v-icon>
               </v-btn>
               <span class="body-2 black--text mt-1">保留</span>
             </div>
-            <div class="mx-2 flex-column d-flex">
+            <div class="mx-5 flex-column d-flex">
               <v-btn
                 color="success"
                 fab
@@ -235,7 +243,7 @@
               </v-btn>
               <span class="body-2 black--text mt-1">三方通話</span>
             </div>
-            <div class="mx-2 flex-column d-flex">
+            <div class="mx-5 flex-column d-flex">
               <v-btn
                 color="success"
                 fab
@@ -256,15 +264,55 @@
               ><v-icon class="text-h5 grey--text">mdi-record-circle</v-icon>
               </v-btn>
             </div>
-            <div class="mx-2">
-              <v-btn to="/friend" class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
+            
+
+            <v-col cols="7" class="">
+              <v-btn @click="endcall =! endcall" large block class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
                 <div class="text-body-1 white--text"><v-icon class="">mdi-phone-remove-outline</v-icon>結束通話</div>
               </v-btn>
-            </div>
+            </v-col>
+
 
           </v-list-item>    
 
         </v-list>
+
+
+        <!-- endcall -->
+
+        <v-list
+          style="height: 600px"
+          v-if="endcall"
+          color="secondary"
+          class="rounded-b-0 py-8 text-center"
+        >     
+          <v-list-item class="d-flex justify-center my-15">
+            <div class="mx-5 flex-column d-flex text-center">
+              <v-btn
+                color="success"
+                fab
+              >
+                <img class="btnIcon" src="@/assets/svg/ic_g_block.svg" alt="">
+              </v-btn>
+              <span class="body-2 black--text mt-1">封鎖</span>
+            </div>
+            <div class="mx-5 flex-column d-flex">
+              <v-btn
+                color="success"
+                fab
+                dark
+              >            
+                <img class="btnIcon" src="@/assets/svg/ic_g_add.svg" alt="">
+              </v-btn>
+              <span class="body-2 black--text mt-1">新增聯絡人</span>
+            </div>
+           
+          </v-list-item>
+
+           
+
+        </v-list>
+
 
        
       </v-card>
@@ -280,9 +328,20 @@ export default {
 
   data: () => ({
     inputBox: "",
-    numberKeyboard: false
+    numberKeyboard: false,
+    endcall: false
     
   }),
+  watch:{
+    endcall(){
+      window.setTimeout(( () => 
+        this.$router.push({ path:"/friend" })
+
+      ), 2000);
+
+
+    }
+  },
   methods:{
     // changeList(){
 

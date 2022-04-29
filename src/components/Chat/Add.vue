@@ -7,7 +7,7 @@
       <v-toolbar-title>新增聊天</v-toolbar-title>
 
       <v-spacer></v-spacer> 
-      <a href="" class="herf--text text-decoration-none">確定</a>
+      <a to="/directory" class="herf--text text-decoration-none">確定</a>
   
     </v-toolbar>
 
@@ -56,7 +56,7 @@
               v-html="item.subtitle"
             ></v-list-item-subtitle>
           </v-list-item-content>
-          <v-radio  color="red"></v-radio>
+          <v-radio value="n"></v-radio>
 
 
         </v-list-item>
@@ -69,7 +69,7 @@
 
 <script>
 export default {
-  name: "PhoneSetting",
+  name: "Add",
 
   data: () => ({
     items: [

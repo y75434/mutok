@@ -5,12 +5,14 @@
     <v-toolbar color="white" >
       <v-app-bar-nav-icon to="/directory"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
       <v-toolbar-title>電話設定</v-toolbar-title>
-      <v-spacer></v-spacer>   
+      <v-spacer></v-spacer> 
+      <a to="/directory" class="herf--text text-decoration-none">確定</a>
+  
     </v-toolbar>
 
     <v-list one-line>
       <v-list-item>
-        <v-col cols="4">
+        <v-col cols="4" >
           <v-list-item-content>
             <v-list-item-title>勿擾模式</v-list-item-title>
           </v-list-item-content>
@@ -97,3 +99,10 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+.v-list-item__content{
+  padding: 0;
+}
+
+</style>

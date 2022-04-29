@@ -22,29 +22,29 @@
 
     <v-col cols="8" class="mx-auto" >
 
-      <v-btn to="/call" large block class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
+      <v-btn @click="call = !call" v-if="!call" to="/call" large block class=" text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
         <div class="text-body-1 white--text"><v-icon class="">mdi-phone-remove-outline</v-icon>撥話</div>
       </v-btn>
     </v-col>
 
     
-    <div class="text-body-1 black--text mb-3"> <v-icon class="text-h5 grey--text">mdi-phone-outgoing-outline</v-icon>通話中....</div>
+    <div v-if="call" class="text-body-1 black--text mb-3"> <v-icon class="text-h5 grey--text">mdi-phone-outgoing-outline</v-icon>通話中....</div>
 
      <div  class=" text-center" style="height:80px;">
       <v-list-item class="d-flex justify-center mb-1 pt-3">
-        <div class="mx-2 flex-column d-flex">
+        <div class="mx-5 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent">
             <img class="profileIcon" src="@/assets/svg/ic_g_mute.svg" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">靜音</span>
         </div>
-        <div class="mx-2 flex-column d-flex">
+        <div class="mx-5 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent">
             <img class="profileIcon" src="@/assets/svg/ic_g_edit.svg" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">編輯聯絡人</span>
         </div>
-        <div class="mx-2 flex-column d-flex">
+        <div class="mx-5 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent"  >
             <img class="profileIcon" src="@/assets/svg/ic_g_del.svg" alt="">
           </v-btn>
@@ -57,8 +57,8 @@
 
 
 
-    <v-list color="secondary" class="rounded-b-0 py-8 text-left">     
-        <v-list-item >
+    <v-list color="secondary" class="rounded-b-0 py-8 px-5 text-left">     
+        <v-list-item class="p0">
           <v-col cols="4" >
             <v-list-item-content class="p0">
             <v-list-item-title >顯示名稱</v-list-item-title>
@@ -107,7 +107,7 @@
           <v-list-item-content>
             <v-list-item-subtitle>01-2345678</v-list-item-subtitle>
           </v-list-item-content>
-          <a href="" class="redherf--text">刪除</a>
+          <a href="" class="herf--text">刪除</a>
         </v-list-item>
 
         <v-divider></v-divider>
@@ -158,7 +158,14 @@ export default {
   name: "friend",
 
   data: () => ({
-    
+    call: false
   }),
 };
 </script>
+
+<style scoped>
+.v-list-item__content{
+  padding: 0;
+}
+
+</style>
