@@ -13,6 +13,7 @@
     </v-col>
 
     <v-tabs
+      style="height:40px"
       background-color="white"
       centered
       dark
@@ -33,9 +34,8 @@
     </v-tabs>
 
     <v-tabs-items v-model="tab">
-      <v-tab-item value="tab-1">
+      <v-tab-item value="tab-1" class="bg">
         <v-card flat>
-          <v-card-text> text</v-card-text>
           <v-list two-line>
             <template v-for="(item, index) in items" >
               <v-subheader
@@ -70,17 +70,14 @@
                   ></v-list-item-subtitle>
                 </v-list-item-content>
                 <v-text class="">20:08</v-text>
-
               </v-list-item>
             </template>
           </v-list>
-
         </v-card>
       </v-tab-item>
 
-      <v-tab-item value="tab-2">
+      <v-tab-item value="tab-2" class="bg">
         <v-card flat>
-          <v-card-text> 3</v-card-text>
           <v-list two-line>
             <template v-for="(item, index) in items" >
               <v-subheader
@@ -88,13 +85,11 @@
                 :key="item.header"
                 v-text="item.header"
               ></v-subheader>
-
               <v-divider
                 v-else-if="item.divider"
                 :key="index"
                 :inset="item.inset"
               ></v-divider>
-
               <v-list-item
                 v-else
                 :key="item.title"
@@ -103,7 +98,6 @@
                 <v-list-item-avatar>
                   <v-img :src="item.avatar"></v-img>
                 </v-list-item-avatar>
-
                 <v-list-item-content>
                   <v-list-item-title
                     class="text-left"
@@ -115,11 +109,8 @@
                   ></v-list-item-subtitle>
                 </v-list-item-content>
                 <v-text class="">20:08</v-text>
-
               </v-list-item>
             </template>
-           
-
           </v-list>
         </v-card>
       </v-tab-item>
@@ -151,13 +142,10 @@
             dark
           >
           <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
-
           </v-btn>
           <span class="body-2 black--text mt-1">通訊錄</span>
 
         </div>
-      
-
 
       </v-list-item>
     </div>

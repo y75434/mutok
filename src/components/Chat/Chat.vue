@@ -143,36 +143,27 @@
           </v-icon>
         </v-btn>
       </template>
-      <v-btn
-        color="white"
-        to="/addf"
-      >
+      <v-btn color="white" to="/addf">
         <v-icon>mdi-pencil</v-icon>
         新增聊天
       </v-btn>
-      <v-btn
-       color="white"
-       to="/add"
-      >
+      <v-btn color="white" to="/add">
         <v-icon>mdi-plus</v-icon>
         新增好友
       </v-btn>
-      <v-btn
-        
-        color="white"
-      >
+      <v-btn color="white">
         <v-icon>mdi-delete</v-icon>
         撥打緊急電話
       </v-btn>
     </v-speed-dial> 
 
-     <v-menu v-model="showMenu" :position-x="x" :position-y="y" absolute offset-y>
+     <!-- <v-menu v-model="showMenu" :position-x="x" :position-y="y" absolute offset-y>
       <v-list>
         <v-list-item>
           <v-list-item-title>item.title</v-list-item-title>
         </v-list-item>
       </v-list>
-    </v-menu> 
+    </v-menu>  -->
 
 
    

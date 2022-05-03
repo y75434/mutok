@@ -1,7 +1,8 @@
 <template>
-<!-- @contextmenu="handler($event)" -->
-  <div >      
-    <v-container class="" style="height: 100vh;" fluid permanent >
+<!-- @contextmenu="handler($event)"
+ -->
+  <div style=" width:100vw">      
+    <v-container class="p0" style="height: 100vh;" fluid permanent >
       <v-row>  
 
 
@@ -26,12 +27,10 @@
               <v-list-item to="/selfsetting">
                 <v-list-item-title class="d-flex align-center">
                   <img class="menuIcon" src="@/assets/svg/ic_g_contactlist.svg" alt="">
-                  <!--  -->
-
                   通訊錄
                 </v-list-item-title>
               </v-list-item>
-              <v-list-item >
+              <v-list-item>
                 <v-list-item-title class="d-flex align-center">
                   <img class="menuIcon" src="@/assets/svg/ic_im_setting.svg" alt="">
                   訊息設定
@@ -53,29 +52,25 @@
           </v-menu>
         </v-toolbar>
 
-        <!-- <router-view /> -->
 
-      <v-tabs background-color="white" centered dark icons-and-text v-model="tab">
+      <v-tabs style="height:35px" background-color="white" centered dark icons-and-text v-model="tab">
         <v-col cols="6">
-
           <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-1">
             好友
           </v-tab>
         </v-col>
-
         <v-tabs-slider></v-tabs-slider>
         <v-col cols="6">
-
           <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-2">
             公司部門
           </v-tab>
         </v-col>
       </v-tabs>
-
-        <v-tabs-items v-model="tab">
-          <v-tab-item value="tab-1">
-            <v-card class="bg" flat @contextmenu="show">
-              <v-list two-line>
+      <v-col cols="12">
+        <v-tabs-items v-model="tab" >
+          <v-tab-item value="tab-1" class="bg">
+            <v-card  flat @contextmenu="show">
+              <v-list class="bg" two-line>
                 <template v-for="(item, index) in items" >
                   <v-subheader
                     v-if="item.header"
@@ -143,60 +138,15 @@
               </v-list>
 
 
-            <v-menu v-model="show" :position-x="x" :position-y="y" absolute offset-y>
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn icon v-bind="attrs" v-on="on">
-                  <v-icon>mdi-dots-vertical</v-icon>
-                </v-btn>
-              </template>
-              <v-list>
-                <v-list-item >
-                  <v-list-item-title class="d-flex align-center">
-                  Esther Howard
-                  </v-list-item-title>
-                </v-list-item>
-
-                <v-list-item to="/selfsetting">
-                  <v-list-item-title class="d-flex align-center">
-                    <img class="menuIcon" src="@/assets/svg/ic_bk_info.svg" alt="">
-                    <!--  -->
-
-                    個人資訊
-                  </v-list-item-title>
-                </v-list-item>
-                <v-list-item>
-                  <v-list-item-title class="d-flex align-center">
-                    <img class="menuIcon" src="@/assets/svg/ic_bk_mute.svg" alt="">
-                    關閉提醒
-                  </v-list-item-title>
-                </v-list-item>
-                <v-list-item>
-                  <v-list-item-title class="d-flex align-center">
-                    <img class="menuIcon" src="@/assets/svg/ic_bk_vibe.svg" alt="">
-                    設為震動
-                  </v-list-item-title>
-                </v-list-item>
-                <v-list-item>
-                  <v-list-item-title class="d-flex align-center">
-                    <img class="menuIcon" src="@/assets/svg/ic_g_delmsg.svg" alt="">
-                    刪除訊息紀錄
-                  </v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-
+            
 
             </v-card>
           </v-tab-item>
-
-          <v-tab-item value="tab-2">
-            <v-card flat>
+          <v-tab-item style="width:100%" value="tab-2">
+            <v-card flat style="width:100vw">
               <v-list two-line>
                 <template v-for="(item, index) in items" >
-                  <v-subheader
-                    v-if="item.header"
-                    :key="item.header"
-                  ></v-subheader>
+                  <v-subheader v-if="item.header" :key="item.header"></v-subheader>
 
                   <v-divider
                     v-else-if="item.divider"
@@ -223,7 +173,18 @@
                         v-html="item.subtitle"
                       ></v-list-item-subtitle>
                     </v-list-item-content>
+                    <v-badge color="red" content="6">6</v-badge>
+                    <v-tab>
+                      <v-badge
+                        color="green"
+                        content="6"
+                      >
+                        Item Two
+                      </v-badge>
+                    </v-tab>
+
                     <v-text class="">20:08</v-text>
+
 
                   </v-list-item>
                 </template>
@@ -231,6 +192,7 @@
             </v-card>
           </v-tab-item>
         </v-tabs-items>
+      </v-col>
 
         <v-speed-dial
           top="false"
@@ -277,31 +239,62 @@
         </v-speed-dial>
 
 
-        
+        <v-menu v-model="show" :position-x="x" :position-y="y" absolute offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn icon v-bind="attrs" v-on="on">
+              <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item >
+              <v-list-item-title class="d-flex align-center">
+              Esther Howard
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item to="/selfsetting">
+              <v-list-item-title class="d-flex align-center">
+                <img class="menuIcon" src="@/assets/svg/ic_bk_info.svg" alt="">
+                個人資訊
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title class="d-flex align-center">
+                <img class="menuIcon" src="@/assets/svg/ic_bk_mute.svg" alt="">
+                關閉提醒
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title class="d-flex align-center">
+                <img class="menuIcon" src="@/assets/svg/ic_bk_vibe.svg" alt="">
+                設為震動
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title class="d-flex align-center">
+                <img class="menuIcon" src="@/assets/svg/ic_g_delmsg.svg" alt="">
+                刪除訊息紀錄
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+
 
 
         <v-bottom-navigation v-model="value">
           <v-btn>
             <span>訊息</span>
-
             <v-icon>mdi-android-messages</v-icon>
           </v-btn>
-
           <v-btn to="/call">
             <span>鍵盤</span>
-
             <v-icon>mdi-phone</v-icon>
           </v-btn>
-
           <v-btn>
             <span>通訊錄</span>
-
             <v-icon>mdi-video</v-icon>
           </v-btn>
         </v-bottom-navigation>
 
-
-       
 
       </v-row>
     </v-container>
@@ -326,7 +319,6 @@ export default {
     y: 0,
     tab: null,
     items: [
-      { header: "Today" },
       {
         avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
         title: "Brunch this weekend?",
@@ -362,14 +354,6 @@ export default {
       },
     ],
   }),
-  computed: {
-		// style() {
-		// 	return {
-		// 		top: `${this.top}px`,
-		// 		left: `${this.left}px`,
-		// 	};
-		// },
-	},
   methods: {    
     showMenu(event) { 
       // console.log('right')
@@ -384,6 +368,7 @@ export default {
     },
     show (e) {
       e.preventDefault()
+      console.log(e,'361');
       this.showMenu = false
       this.x = e.clientX
       this.y = e.clientY

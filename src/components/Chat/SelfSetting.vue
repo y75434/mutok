@@ -15,14 +15,14 @@
     
 
 
-    <v-row class="d-flex py-6 justify-center align-center text-left bg"> 
-      <div  class="d-flex my-5 justify-center align-center ">
+    <v-row  class="d-flex pt-6 justify-center align-center text-left bg"> 
+      <div style="width:400px" class="d-flex mt-5 justify-center align-center ">
         <div class="" style="width:40%"> 
           <v-badge
             bordered
             bottom
             color="darkgrey"
-            offset-x="10"
+            offset-x="47"
             offset-y="20"
             icon="mdi-camera"
             class="d-flex justify-center mb-6"
@@ -53,7 +53,7 @@
 
 
     <v-list two-line class="text-left bg">
-      <v-list-item >
+      <v-list-item class="p0">
         <v-col cols="4" >
           <v-list-item-content >
           <v-list-item-title >帳號</v-list-item-title>
@@ -66,7 +66,7 @@
 
       <v-divider></v-divider>
 
-      <v-list-item>
+      <v-list-item class="p0">
         <v-col cols="4">
           <v-list-item-content>
           <v-list-item-title>號碼</v-list-item-title>
@@ -79,7 +79,7 @@
 
       <v-divider></v-divider>
 
-      <v-list-item>
+      <v-list-item class="p0">
         <v-col cols="4">
           <v-list-item-content >
             <v-list-item-title>信箱</v-list-item-title>
@@ -93,7 +93,7 @@
 
       <v-divider></v-divider>
 
-      <v-list-item>
+      <v-list-item class="p0">
         <v-col cols="4">
           <v-list-item-content>
             <v-list-item-title>密碼</v-list-item-title>
@@ -107,7 +107,7 @@
 
       <v-divider></v-divider>
 
-      <v-list-item>
+      <v-list-item class="p0">
         <v-col cols="4">
           <v-list-item-content>
             <v-list-item-title>隱藏</v-list-item-title>
@@ -116,14 +116,13 @@
         <v-list-item-content >
         <v-list-item-subtitle>aloha me</v-list-item-subtitle>
         </v-list-item-content>
-        <v-switch label="公開" ></v-switch>
+        <v-switch style="color: #05B2DC;" label="公開" ></v-switch>
       </v-list-item>
 
-      <v-divider></v-divider>
 
     </v-list>
 
-    <span class="grey--text text-left">系統設定</span>
+    <v-text class="text-body-2 grey--text mt-3 ml-2 d-flex justify-start">系統設定</v-text>
     <v-expansion-panels class="bg">
       <v-list-item>
         <v-col cols="4">
@@ -134,7 +133,7 @@
         <v-list-item-content >
           <v-menu offset-y>
             <template v-slot:activator="{ on }">
-              <a v-on="on" class="grey--text justify-end">
+              <a v-on="on" class="grey--text justify-end d-flex align-center">
                 <img class="chatIcon" src="@/assets/svg/ic_bk_mute.svg" alt="">
                 <!-- <v-img :src="require('@/assets/svg/ic_bk_mute.svg')" size="15px"></v-img> -->
                 震動
@@ -172,8 +171,6 @@
           通訊協定
         </v-expansion-panel-header>
         <v-expansion-panel-content>
-          
-
         </v-expansion-panel-content>
       </v-expansion-panel>
 
@@ -268,5 +265,10 @@ export default {
 <style scoped>
 .v-list-item__content {   
   padding: 0 !important;
+}
+
+.v-application .primary--text {
+    color: #05B2DC !important;
+    caret-color: #05B2DC !important;
 }
 </style>

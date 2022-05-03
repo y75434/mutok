@@ -21,19 +21,8 @@
           fixed-tabs
         >
           <v-tabs-slider></v-tabs-slider>
-          <v-tab
-            href="#mobile-tabs-5-1"
-            class="primary--text"
-          >公司同事</v-tab>
-
-          <v-tab
-            href="#mobile-tabs-5-2"
-            class="primary--text"
-          >
-          公司群組
-          </v-tab>
-
-          
+          <v-tab href="#mobile-tabs-5-1" class="primary--text">公司同事</v-tab>
+          <v-tab href="#mobile-tabs-5-2" class="primary--text">公司群組</v-tab>          
         </v-tabs>
       </template>
     </v-toolbar>
@@ -56,8 +45,8 @@
             bordered
             bottom
             color="darkgrey"
-            offset-x="10"
-            offset-y="20"
+            offset-x="180"
+            offset-y="40"
             icon="mdi-camera"
             class="d-flex justify-center mb-6"
           >
@@ -255,26 +244,12 @@
               </v-list-item-content>
               <a class="herf--text" href="">新增電話</a>
             </v-list-item>
-
             <v-divider></v-divider>
-
           </v-list>
         </v-card>
-      </v-tab-item>
-
-
-    
+      </v-tab-item> 
     </v-tabs-items>
-
-    
-
   </v-card>
-
-   
-
-
-
-  <!-- </v-card> -->
 
 </template>
 
