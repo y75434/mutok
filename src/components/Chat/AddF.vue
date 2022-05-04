@@ -133,7 +133,8 @@
                 <v-list-item-content >
                 <v-list-item-subtitle>aloha me</v-list-item-subtitle>
                 </v-list-item-content>
-                <v-switch label="公開" ></v-switch>
+                <v-switch color="#05B2DC" label="公開"></v-switch>
+
               </v-list-item>
 
               <v-divider></v-divider>

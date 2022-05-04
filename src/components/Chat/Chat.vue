@@ -120,7 +120,6 @@
     </v-tabs-items>
 
     <v-speed-dial
-      v-model="fab"    
       top="false"
       bottom="true"
       right="false"
@@ -129,16 +128,14 @@
     >
       <template v-slot:activator>
         <v-btn
-          v-model="fab"
-          fab
           dark
           bottom right
           class="speeddial"      
         >
-          <v-icon v-if="fab">
+          <v-icon >
             mdi-close
           </v-icon>
-          <v-icon v-else>
+          <v-icon>
             mdi-plus
           </v-icon>
         </v-btn>

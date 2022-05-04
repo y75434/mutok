@@ -79,6 +79,11 @@
   
 }
 
+.activeFilter{
+  filter: invert(69%) sepia(61%) saturate(7048%) hue-rotate(153deg) brightness(97%) contrast(89%);
+}
+
+
 .bg{
   background-color: #fafafa;
 }

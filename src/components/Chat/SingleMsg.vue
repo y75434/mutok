@@ -2,13 +2,13 @@
 
   <v-card max-width="768" style="height: 100vh;" class="mx-auto">
 
-    <v-toolbar class=" py-2 mb-2">
+    <v-toolbar class="py-2 mb-2">
       <v-list-item-avatar>
         <v-img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-img>
       </v-list-item-avatar>
-      <v-list-item-content class="col-4 p0">
+      <v-list-item-content style="width:100px !important;" class="col-4">
         <v-text class="text-left" v-text="'開發部'"></v-text>
-        <v-text class="text-left body-2 black--text" v-text="'5位參與者'"></v-text>
+        <v-text class=" text-left body-2 black--text" v-text="'5位參與者'"></v-text>
         <!-- <span>5位參與者</span> -->
       </v-list-item-content>
 
@@ -107,7 +107,7 @@
     <v-col cols="12" class="p0">
       <v-bottom-navigation v-model="value">
           <v-btn class="p0">
-            <img class="chatActive" src="@/assets/svg/ic_g_image.svg" alt="">
+            <img class="chatActive activeFilter" src="@/assets/svg/ic_g_image.svg" alt="">
 
             <!-- <v-icon class="chatActive">mdi-android-messages</v-icon> -->
           </v-btn>
@@ -121,13 +121,20 @@
             v-model="inputBox"
             hide-details
             style="border-color:#4E9EAC"  
-            class="align-center col-7"        
-          ></v-text-field>
-
+            class="align-center col-7"  
+          >
+           <template v-slot:append>        
+              <v-icon color="green" style="margin:-7px"> mdi-emoticon-happy-outline </v-icon> 
+           </template>
+          </v-text-field>
           <v-btn>
             <v-icon class="chatActive">mdi-send</v-icon>
           </v-btn>
-        </v-bottom-navigation>
+          
+
+      </v-bottom-navigation>      
+
+
     </v-col>
 
   </v-card>
@@ -181,7 +188,7 @@
   }
 </script>
 
-<style>
+<style scope>
 .v-application--is-ltr 
 .v-list-item__avatar:first-child { 
   margin-right: 6px; 
@@ -194,10 +201,13 @@
 } */
 
 .v-text-field fieldset, .v-text-field .v-input__control, .v-text-field
-.v-input__slot { border-color: #4E9EAC; }
+.v-input__slot { border-color: #4E9EAC !important; }
 
 .v-input__slot { min-height: 43px !important; }
 
-
+.v-toolbar__content, .v-toolbar__extension {
+    padding: 4px 10px !important;
+    padding-bottom: 18px !important;
+}
 
 </style>

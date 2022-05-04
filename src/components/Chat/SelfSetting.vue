@@ -12,9 +12,6 @@
     <v-spacer></v-spacer>
   </v-toolbar>
 
-    
-
-
     <v-row  class="d-flex pt-6 justify-center align-center text-left bg"> 
       <div style="width:400px" class="d-flex mt-5 justify-center align-center ">
         <div class="" style="width:40%"> 
@@ -36,9 +33,51 @@
 
       <div class="d-flex flex-column" style="width:60%"> 
           <div class="text-body-1 mx-6 black--text d-flex justify-space-between text-left mb-3">
-            本人暱稱<v-icon class="text-h5 grey--text ">mdi-pencil</v-icon>
-          </div>
+            本人暱稱
 
+            <v-menu offset-y>
+              <template v-slot:activator="{ on }">
+                <a v-on="on" class="grey--text justify-end d-flex align-center">
+                  <v-icon class="text-h5 grey--text">mdi-pencil</v-icon>
+                </a>
+              </template>
+              <v-list>
+                <v-list-item >
+                  <v-list-item-title class="align-center d-flex">
+                    <v-icon class="pr-2" size="4" color="grey">mdi-circle</v-icon>
+                    未上線
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="align-center d-flex">
+                    <v-icon class="pr-2" size="4" color="red">mdi-circle</v-icon>
+                    忙碌中
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="align-center d-flex">
+                    <v-icon class="pr-2" size="4" color="green">mdi-circle</v-icon>
+                    有空
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="align-center d-flex">
+                    <v-icon class="pr-2" size="4" color="orange">mdi-circle</v-icon>
+                    電話中
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="align-center d-flex">
+                    <v-icon class="pr-2" size="4" color="deep-purple">mdi-circle</v-icon>
+                    勿打擾
+                  </v-list-item-title>
+                </v-list-item>
+
+              </v-list>
+            </v-menu>
+
+            
+          </div>
           <div class="text-body-2 mx-6 black--text text-center mb-3 mr-3 d-flex  align-center">
             忙碌中    
             <v-icon size="4" color="red">mdi-circle</v-icon>
@@ -116,7 +155,8 @@
         <v-list-item-content >
         <v-list-item-subtitle>aloha me</v-list-item-subtitle>
         </v-list-item-content>
-        <v-switch style="color: #05B2DC;" label="公開" ></v-switch>
+        <v-switch color="#05B2DC"  label="公開" ></v-switch>
+  
       </v-list-item>
 
 
@@ -267,8 +307,4 @@ export default {
   padding: 0 !important;
 }
 
-.v-application .primary--text {
-    color: #05B2DC !important;
-    caret-color: #05B2DC !important;
-}
 </style>

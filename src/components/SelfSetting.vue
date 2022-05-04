@@ -49,7 +49,7 @@
           忙碌中    
           <v-icon size="4" color="red">mdi-circle</v-icon>
         </div>
-        <a href="" class="justify-end">修改狀態</a>
+        <a href="" class="herf--text justify-end">修改狀態</a>
       </div>
     </div>
 
@@ -104,7 +104,7 @@
         <v-list-item-content>
           <v-list-item-subtitle>**********</v-list-item-subtitle>
         </v-list-item-content>
-        <a href="">更改密碼</a>
+        <a href="" class="herf--text">更改密碼</a>
       </v-list-item>
 
       <v-divider></v-divider>
@@ -118,7 +118,7 @@
         <v-list-item-content >
         <v-list-item-subtitle>aloha me</v-list-item-subtitle>
         </v-list-item-content>
-        <v-switch label="公開" ></v-switch>
+        <v-switch label="公開" color="#05B2DC"></v-switch>
       </v-list-item>
 
       <v-divider></v-divider>

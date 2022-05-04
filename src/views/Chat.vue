@@ -144,16 +144,14 @@
           </v-tab-item>
           <v-tab-item style="width:100%" value="tab-2">
             <v-card flat style="width:100vw">
-              <v-list two-line>
+              <v-list two-line class="bg">
                 <template v-for="(item, index) in items" >
                   <v-subheader v-if="item.header" :key="item.header"></v-subheader>
-
                   <v-divider
                     v-else-if="item.divider"
                     :key="index"
                     :inset="item.inset"
                   ></v-divider>
-
                   <v-list-item
                     v-else
                     :key="item.title"
@@ -173,19 +171,12 @@
                         v-html="item.subtitle"
                       ></v-list-item-subtitle>
                     </v-list-item-content>
-                    <v-badge color="red" content="6">6</v-badge>
-                    <v-tab>
-                      <v-badge
-                        color="green"
-                        content="6"
-                      >
-                        Item Two
-                      </v-badge>
-                    </v-tab>
+                    <div style="height:100%" class="d-flex  flex-column">
+                      <v-text class="">20:08</v-text>
 
-                    <v-text class="">20:08</v-text>
+                      <v-badge style="background: #4E9EAC; inset: auto auto calc(100% - 60px) calc(100% - 65px);" content="6"></v-badge>
 
-
+                    </div>
                   </v-list-item>
                 </template>
               </v-list>
@@ -195,6 +186,7 @@
       </v-col>
 
         <v-speed-dial
+        
           top="false"
           bottom="true"
           right="false"

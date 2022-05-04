@@ -18,7 +18,7 @@
           </v-list-item-content>
         </v-col>
         <v-list-item-content >
-          <v-list-item-subtitle><v-switch label="開啟"></v-switch></v-list-item-subtitle>
+          <v-list-item-subtitle><v-switch color="#05B2DC" label="開啟"></v-switch></v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
@@ -44,7 +44,7 @@
           </v-list-item-content>
         </v-col>   
         <v-list-item-content>
-          <v-list-item-subtitle><v-switch label="顯示"></v-switch></v-list-item-subtitle>
+          <v-list-item-subtitle><v-switch color="#05B2DC" label="顯示"></v-switch></v-list-item-subtitle>
         </v-list-item-content>      
       </v-list-item>
       
@@ -75,6 +75,7 @@
           <v-list-item-subtitle>aloha me</v-list-item-subtitle>
         </v-list-item-content>
         <v-switch
+          color="#05B2DC"
           label="Switch"
         ></v-switch>
 

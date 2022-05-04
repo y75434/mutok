@@ -8,7 +8,7 @@
 
   <v-toolbar color="white" >
     <v-app-bar-nav-icon to="/singlemsg"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
-    <v-avatar size="40">
+    <v-avatar size="40" class="mr-3">
       <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
     </v-avatar>
 
@@ -38,21 +38,21 @@
       </div>
     </div>
 
-     <div class="text-center" style="height:80px;">
-      <v-list-item class="d-flex justify-center mb-1 pt-3">
-        <div class="mx-2 flex-column d-flex">
+     <div class="text-center mb-7" style="height:80px;">
+      <v-list-item class="d-flex justify-center pb-10 pt-3">
+        <div class="mx-4 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent">
-            <img class="profileIcon" src="@/assets/svg/ic_g_addfriend.svg" alt="">
+            <img class="profileIcon filter" src="@/assets/svg/ic_g_addfriend.svg" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">邀請</span>
         </div>
-        <div class="mx-2 flex-column d-flex">
+        <div class="mx-4 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent">
             <img class="profileIcon" src="@/assets/svg/ic_bk_mute.svg" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">編輯聯絡人</span>
         </div>
-        <div class="mx-2 flex-column d-flex">
+        <div class="mx-4 flex-column d-flex">
           <v-btn style="box-shadow:none;background: transparent"  >
             <img class="profileIcon" src="@/assets/svg/ic_bk_del.svg" alt="">
             <!-- <v-img :src="require('@/assets/svg/ic_g_del.svg')" size="15px"></v-img> -->
@@ -141,45 +141,10 @@
 
 <script>
 export default {
-  name: "SelfSetting",
+  name: "Friend",
 
   data: () => ({
-    
-    items: [
-      { header: "Today" },
-      {
-        avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
-        title: "Brunch this weekend?",
-        subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
-      },
-      { divider: true, inset: true },
-      {
-        avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-        title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
-        subtitle: `<span class="text--primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
-      },
-      { divider: true, inset: true },
-      {
-        avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
-        title: "Oui oui",
-        subtitle:
-          '<span class="text--primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
-      },
-      { divider: true, inset: true },
-      {
-        avatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
-        title: "Birthday gift",
-        subtitle:
-          '<span class="text--primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
-      },
-      { divider: true, inset: true },
-      {
-        avatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
-        title: "Recipe to try",
-        subtitle:
-          '<span class="text--primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
-      },
-    ],
+   
   }),
 };
 </script>
