@@ -5,6 +5,7 @@ import router from './router'
 import store from './store/store';
 import VueContextMenu from 'vue-contextmenu'
 Vue.use(VueContextMenu)
+Vue.use(vuetify);
 
 Vue.config.productionTip = false
 

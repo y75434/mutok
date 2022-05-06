@@ -9,7 +9,6 @@
       <v-list-item-content style="width:100px !important;" class="col-4">
         <v-text class="text-left" v-text="'開發部'"></v-text>
         <v-text class=" text-left body-2 black--text" v-text="'5位參與者'"></v-text>
-        <!-- <span>5位參與者</span> -->
       </v-list-item-content>
 
 
@@ -118,7 +117,6 @@
             outlined
             rounded
             label=""
-            v-model="inputBox"
             hide-details
             style="border-color:#4E9EAC"  
             class="align-center col-7"  

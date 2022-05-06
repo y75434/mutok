@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Vuetify from 'vuetify/lib/framework';
+import Vuetify,{ VTextField } from 'vuetify/lib/framework';
 
 Vue.use(Vuetify);
 
@@ -14,6 +14,7 @@ export default new Vuetify({
   theme: {
     themes: {
       light: {
+        green: '#4E9EAC',
         primary: '#3f51b5',
         secondary: '#F3F6FC',
         lightblack: '#666666;',
@@ -30,4 +31,7 @@ export default new Vuetify({
       },
     },
   },
+  components: {
+    VTextField
+  }
 });

@@ -21,6 +21,36 @@
 
     
     </v-tabs>
+
+    <v-toolbar flat>
+      <v-app-bar-nav-icon to="/chat" ><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
+
+      <v-toolbar-title>新增聊天</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+
+      <template v-slot:extension>
+        <v-tabs
+          v-model="tabs"
+          fixed-tabs
+        >
+          <v-tabs-slider></v-tabs-slider>
+          <v-tab href="#mobile-tabs-5-1" class="primary--text">公司同事</v-tab>
+          <v-tab href="#mobile-tabs-5-2" class="primary--text">公司群組</v-tab>          
+        </v-tabs>
+      </template>
+    </v-toolbar>
+
+ 
+
     <!-- @contextmenu="show" -->
     <v-tabs-items class="bg" v-model="tab" >
       <v-tab-item value="tab-1">
@@ -154,17 +184,6 @@
       </v-btn>
     </v-speed-dial> 
 
-     <!-- <v-menu v-model="showMenu" :position-x="x" :position-y="y" absolute offset-y>
-      <v-list>
-        <v-list-item>
-          <v-list-item-title>item.title</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>  -->
-
-
-   
-  <!-- </v-card>  -->
   </div>
 </template>
 

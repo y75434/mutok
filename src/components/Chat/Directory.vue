@@ -146,8 +146,12 @@ export default {
 </script>
 
 <style scoped>
-.v-application .primary--text .v-tabs-slider-wrapper{
+.v-application .primary--text {
     color: #0EA5B0 !important;
     caret-color: #0EA5B0 !important;
+}
+
+.v-tabs-slider {
+   color: #0EA5B0 !important;
 }
 </style>

@@ -98,3 +98,37 @@
  background: #fff;
 }
 
+.customRadio{
+  width: 20px;
+  height: 20px;
+}
+
+input[type="radio"] {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding: 0px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+input[type='radio']:checked {
+  // position: relative;
+  background-color: #60C2EC !important;
+    
+}
+
+// .mdi-check {
+  // right: 0;
+  // position: absolute;
+// }
+
+

@@ -56,8 +56,13 @@
               v-html="item.subtitle"
             ></v-list-item-subtitle>
           </v-list-item-content>
-          <v-radio value="n"></v-radio>
 
+          <!-- <v-icon class="mdi-check text-h5 grey--text">mdi-check</v-icon> -->
+
+           <input class="customRadio" type="radio" @change="retainRecord" @click="controlSingel($event)" />
+
+
+      
 
         </v-list-item>
       </template>
@@ -72,16 +77,17 @@ export default {
   name: "Add",
 
   data: () => ({
+    radioGroup: 1,
     items: [
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-          title: 'Joe Cooper',
+          title: 'Joe ',
           subtitle: `03-65428652`,
         },
         { divider: true, inset: true },
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-          title: 'Joe Cooper',
+          title: 'Cooper',
           subtitle: `03-65428652`,
         },
         { divider: true, inset: true },
@@ -105,5 +111,24 @@ export default {
       ],
     
   }),
+  methods:{
+   
+
+    //控制单选框再次点击不被选中
+    controlSingel($event) {
+      let that = this;
+      window.setTimeout(() => {
+        if (!this.changed) {
+          $event.target.checked = false;      
+            }
+        that.changed = false;
+      }, 0);
+    },
+    //改变change的状态
+    retainRecord() {
+      // 可以写些单选框选中的代码处理
+      this.changed = true;
+    },
+  }
 };
 </script>

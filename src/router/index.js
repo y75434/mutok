@@ -36,18 +36,6 @@ const routes = [
       },
     ]
   },
-  //chat
-  // {
-  //   path: '/chat',
-  //   name: 'Chat',
-  //   component: () => import('../components/Chat/Chat.vue'),
-  //   // children: [
-  //   //   {
-  //   //     path: 'chat',
-  //   //     component: () => import('../components/Chat/Chat.vue')
-  //   //   },
-  //   // ]
-  // },
   {
       path: '/chat',
       component: () => import('../views/Chat.vue')
@@ -77,6 +65,11 @@ const routes = [
     path: '/addf',
     name: 'AddF',
     component: () => import('../components/Chat/AddF.vue')
+  },
+  {
+    path: '/searchmsg',
+    name: 'SearchMsg',
+    component: () => import('../components/Chat/SearchMsg.vue')
   },
   {
     path: '/chatfriend',

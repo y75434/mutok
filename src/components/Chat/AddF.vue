@@ -38,7 +38,7 @@
     </v-col>
 
     
-    <v-tabs-items v-model="tabs">
+    <v-tabs-items class="bg" v-model="tabs">
       <v-tab-item :value="'mobile-tabs-5-1'" >
         <v-card flat class="mx-auto text-center">
           <v-badge
@@ -304,7 +304,7 @@ export default {
 }
 
 .v-text-field--outlined > .v-input__control > .v-input__slot {
-    background: #fff;
+    background: #fff !important;
 }
 
 

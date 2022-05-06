@@ -11,13 +11,13 @@
           <v-spacer></v-spacer>
 
           <v-btn icon>
-            <v-icon>mdi-magnify</v-icon>
+            <v-icon style="color:#fff;">mdi-magnify</v-icon>
           </v-btn>
 
           <v-menu bottom left>
             <template v-slot:activator="{ on, attrs }">
               <v-btn icon v-bind="attrs" v-on="on">
-                <v-icon>mdi-dots-vertical</v-icon>
+                <v-icon style="color:#fff;">mdi-dots-vertical</v-icon>
               </v-btn>
             </template>
             <v-list>

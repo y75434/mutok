@@ -14,13 +14,13 @@
           <v-spacer></v-spacer>
 
           <v-btn icon>
-            <v-icon>mdi-magnify</v-icon>
+            <v-icon style="color:#fff;">mdi-magnify</v-icon>
           </v-btn>
 
-          <v-menu bottom left>
+          <v-menu  >
             <template v-slot:activator="{ on, attrs }">
               <v-btn icon v-bind="attrs" v-on="on">
-                <v-icon>mdi-dots-vertical</v-icon>
+                <v-icon style="color:#fff;">mdi-dots-vertical</v-icon>
               </v-btn>
             </template>
             <v-list>
@@ -66,81 +66,137 @@
           </v-tab>
         </v-col>
       </v-tabs>
-      <v-col cols="12">
+      <v-col cols="12" style="height: 75vh;">
         <v-tabs-items v-model="tab" >
           <v-tab-item value="tab-1" class="bg">
-            <v-card  flat @contextmenu="show">
-              <v-list class="bg" two-line>
-                <template v-for="(item, index) in items" >
-                  <v-subheader
-                    v-if="item.header"
-                    :key="item.header"
-                    v-text="item.header"
-                  ></v-subheader>
 
-                  <v-divider
-                    v-else-if="item.divider"
-                    :key="index"
-                    :inset="item.inset"
-                  ></v-divider>
+            <v-menu
+              v-model="showMenu"
+              absolute
+              offset-y
+              style="max-width: 600px"
+            >
+            <template v-slot:activator="{ on, attrs }">
 
-                  <v-list-item
-                    v-else
-                    :key="item.title"
-                    class="d-flex justify-space-between mb-0"
-                    to="/singlemsg"
-                    @click="set"
-                  >
+              <v-card >
+                <v-list class="bg" two-line>
+                  <template v-for="(item, index) in items" >
+                    <v-subheader
+                      v-if="item.header"
+                      :key="item.header"
+                      v-text="item.header"
+                    ></v-subheader>
 
-                  <v-badge
-                    bordered
-                    bottom
-                    color="red"
-                    dot
-                    offset-x="20"
-                    offset-y="27"
-                  >
+                    <v-divider
+                      v-else-if="item.divider"
+                      :key="index"
+                      :inset="item.inset"
+                    ></v-divider>
+
+                    <v-list-item
+                      @contextmenu="show" v-bind="attrs" v-on="on" flat
+                      v-else
+                      :key="item.title"
+                      class="d-flex justify-space-between mb-0"                    
+                    >
+                    <!-- to="/singlemsg" @click="set" -->
+
+                    <v-badge
+                      bordered
+                      bottom
+                      color="red"
+                      dot
+                      offset-x="20"
+                      offset-y="27"
+                    >
+                      <v-list-item-avatar>
+                        <v-img :src="item.avatar"></v-img>
+                      </v-list-item-avatar>
+
+                    </v-badge>
+
+                      
+
+                      <v-list-item-content>
+                        <v-list-item-title
+                          class="text-left"
+                          v-html="item.title"
+                        ></v-list-item-title>
+                        <v-list-item-subtitle
+                          class="text-left"
+                          v-html="item.subtitle"
+                        ></v-list-item-subtitle>
+                      </v-list-item-content>
+                      <div style="height:100%" class="d-flex  flex-column">
+                        <span class="grey--text text-body-2">20:08</span>
+                        <v-badge
+                          color="green"
+                          style="inset: auto auto calc(100% - 5px) calc(100% - -1px)"
+                          content="6"
+                        ></v-badge>
+
+                        <div class="text-right">
+                          <v-badge color="green" style="inset: auto auto calc(100% - 5px) calc(100% - -1px);" content="6"></v-badge>
+                        </div>
+                      </div>
+
+                    </v-list-item>
+
+                  </template>
+
+                  <v-list-item to="/singlemsg" @click="setGroup" class="d-flex justify-space-between mb-0">
                     <v-list-item-avatar>
-                      <v-img :src="item.avatar"></v-img>
+                      <v-img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-img>
                     </v-list-item-avatar>
-
-                  </v-badge>
-
-                    
-
                     <v-list-item-content>
-                      <v-list-item-title
-                        class="text-left"
-                        v-html="item.title"
-                      ></v-list-item-title>
-                      <v-list-item-subtitle
-                        class="text-left"
-                        v-html="item.subtitle"
-                      ></v-list-item-subtitle>
+                      <v-list-item-title  class="text-left">group</v-list-item-title>
+                      <v-list-item-subtitle class="text-left">group</v-list-item-subtitle>
                     </v-list-item-content>
                     <v-text class="">20:08</v-text>
-
                   </v-list-item>
 
-                </template>
+                </v-list>
 
-                <v-list-item to="/singlemsg" @click="setGroup" class="d-flex justify-space-between mb-0">
-                  <v-list-item-avatar>
-                    <v-img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-img>
-                  </v-list-item-avatar>
-                  <v-list-item-content>
-                    <v-list-item-title  class="text-left">group</v-list-item-title>
-                    <v-list-item-subtitle class="text-left">group</v-list-item-subtitle>
-                  </v-list-item-content>
-                  <v-text class="">20:08</v-text>
+
+              
+
+              </v-card>
+            </template>
+
+             <v-list>
+                <v-list-item >
+                  <v-list-item-title class="d-flex align-center">
+                  Esther Howard
+                  </v-list-item-title>
                 </v-list-item>
-
+                <v-list-item to="/selfsetting">
+                  <v-list-item-title class="d-flex align-center">
+                    <img class="menuIcon" src="@/assets/svg/ic_bk_info.svg" alt="">
+                    個人資訊
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="d-flex align-center">
+                    <img class="menuIcon" src="@/assets/svg/ic_bk_mute.svg" alt="">
+                    關閉提醒
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="d-flex align-center">
+                    <img class="menuIcon" src="@/assets/svg/ic_bk_vibe.svg" alt="">
+                    設為震動
+                  </v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title class="d-flex align-center">
+                    <img class="menuIcon" src="@/assets/svg/ic_g_delmsg.svg" alt="">
+                    刪除訊息紀錄
+                  </v-list-item-title>
+                </v-list-item>
               </v-list>
 
+        </v-menu>
 
-            
-
-            </v-card>
           </v-tab-item>
           <v-tab-item style="width:100%" value="tab-2">
             <v-card flat style="width:100vw">
@@ -172,10 +228,10 @@
                       ></v-list-item-subtitle>
                     </v-list-item-content>
                     <div style="height:100%" class="d-flex  flex-column">
-                      <v-text class="">20:08</v-text>
-
-                      <v-badge style="background: #4E9EAC; inset: auto auto calc(100% - 60px) calc(100% - 65px);" content="6"></v-badge>
-
+                      <span class="grey--text text-body-2">20:08</span>
+                      <div class="text-right">
+                        <v-badge color="green" style="inset: auto auto calc(100% - 6px) calc(100% - 65px); !important" content="6"></v-badge>
+                      </div>
                     </div>
                   </v-list-item>
                 </template>
@@ -187,11 +243,11 @@
 
         <v-speed-dial
         
-          top="false"
-          bottom="true"
-          right="false"
-          left="true"
-          :direction="top"
+          :top="top"
+          :bottom="bottom"
+          :right="right"
+          :left="left"
+          :direction="direction"
         >
           <template v-slot:activator>
             <v-btn
@@ -222,68 +278,25 @@
             <v-icon>mdi-plus</v-icon>
             新增好友
           </v-btn>
-          <v-btn 
-            color="white"
-          >
+          <v-btn color="white">
             <v-icon>mdi-delete</v-icon>
             撥打緊急電話
           </v-btn>
         </v-speed-dial>
 
 
-        <v-menu v-model="show" :position-x="x" :position-y="y" absolute offset-y>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn icon v-bind="attrs" v-on="on">
-              <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-          </template>
-          <v-list>
-            <v-list-item >
-              <v-list-item-title class="d-flex align-center">
-              Esther Howard
-              </v-list-item-title>
-            </v-list-item>
-            <v-list-item to="/selfsetting">
-              <v-list-item-title class="d-flex align-center">
-                <img class="menuIcon" src="@/assets/svg/ic_bk_info.svg" alt="">
-                個人資訊
-              </v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title class="d-flex align-center">
-                <img class="menuIcon" src="@/assets/svg/ic_bk_mute.svg" alt="">
-                關閉提醒
-              </v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title class="d-flex align-center">
-                <img class="menuIcon" src="@/assets/svg/ic_bk_vibe.svg" alt="">
-                設為震動
-              </v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title class="d-flex align-center">
-                <img class="menuIcon" src="@/assets/svg/ic_g_delmsg.svg" alt="">
-                刪除訊息紀錄
-              </v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-
-
-
-        <v-bottom-navigation v-model="value">
+        <v-bottom-navigation >
           <v-btn>
-            <span>訊息</span>
-            <v-icon>mdi-android-messages</v-icon>
+            <span class="active">訊息</span>
+            <v-icon style="color:#0EA5B0;">mdi-android-messages</v-icon>
           </v-btn>
           <v-btn to="/call">
-            <span>鍵盤</span>
-            <v-icon>mdi-phone</v-icon>
+            <span class="active">鍵盤</span>
+            <v-icon style="color:#0EA5B0;">mdi-phone</v-icon>
           </v-btn>
           <v-btn>
-            <span>通訊錄</span>
-            <v-icon>mdi-video</v-icon>
+            <span class="active">通訊錄</span>
+            <v-icon style="color:#0EA5B0;">mdi-video</v-icon>
           </v-btn>
         </v-bottom-navigation>
 
@@ -296,16 +309,18 @@
   
 
 </template>
+
 <script>
 
-
 export default {
-  name: "Chat",
-  components: { 
-  
-
-  },
-  data: () => ({    
+  name: "chat",
+  data: () => ({ 
+    direction: 'top',
+    top:false,
+    bottom:true,
+    right:false,
+    left:true,
+    fab: false,  
     showMenu: false,
     x: 0,
     y: 0,
@@ -347,10 +362,7 @@ export default {
     ],
   }),
   methods: {    
-    showMenu(event) { 
-      // console.log('right')
-      this.$refs.menu.open(event);
-    },
+   
     handler(event) { event.preventDefault(); },
     set(){
       this.$store.dispatch('setGroup', false);
@@ -378,4 +390,11 @@ export default {
   display: block;
   height: 100%;
 }
+
+.portrait.v-card {
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+}
+
 </style>
