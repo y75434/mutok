@@ -34,11 +34,11 @@
         </v-btn>
         </template>
         <v-list>
-          <v-list-item v-if="!this.$store.getters.group" to="/selfsetting">
+          <v-list-item v-if="!this.$store.getters.group" to="/chatfriend">
             <img class="chatIcon" src="@/assets/svg/ic_g_info.svg" alt="">
             <v-list-item-title>個人資訊</v-list-item-title>
           </v-list-item>
-          <v-list-item v-else  to="/selfsetting">
+          <v-list-item v-else  to="/chatfriend">
             <img class="chatIcon" src="@/assets/svg/ic_g_info.svg" alt="">
             <v-list-item-title>群組資訊</v-list-item-title>
           </v-list-item>

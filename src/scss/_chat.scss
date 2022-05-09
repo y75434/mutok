@@ -1,0 +1,28 @@
+.sidebar {
+  display: block;
+  height: 100%;
+}
+
+.portrait.v-card {
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+}
+ .v-tabs-bar{
+  height: 40px !important;
+}
+
+.v-tabs-slider {
+   color: #0EA5B0 !important;
+}
+.v-tabs-slider-wrapper{
+  height: 0 !important;
+}
+.v-slide-group__content ,.v-tabs-bar__content{
+  height: 37px !important;
+
+}
+.green{
+  inset: auto auto calc(100% - 4px) calc(100% - -1px) !important;
+
+}

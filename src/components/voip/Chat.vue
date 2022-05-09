@@ -20,23 +20,23 @@
       icons-and-text
       v-model="tab"
     >
-      <v-col cols="6">
-        <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-1">
+      <v-col style="height:35px" class="p0" cols="6">
+        <v-tab style="height:35px" class="text-body-1 grey--text ma-0 pa-0" href="#tab-1">
           好友
         </v-tab>
       </v-col>
       <v-tabs-slider></v-tabs-slider>
-      <v-col cols="6">
-        <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-2">
+      <v-col style="height:35px" class="p0" cols="6">
+        <v-tab style="height:35px" class="text-body-1 grey--text ma-0 pa-0" href="#tab-2">
           公司部門
         </v-tab>
       </v-col> 
     </v-tabs>
 
-    <v-tabs-items v-model="tab">
-      <v-tab-item value="tab-1" class="bg">
-        <v-card flat>
-          <v-list two-line>
+    <v-tabs-items style="height: 60vh;" v-model="tab">
+      <v-tab-item value="tab-1" >
+        <v-card class="bg" flat>
+          <v-list two-line >
             <template v-for="(item, index) in items" >
               <v-subheader
                 v-if="item.header"
@@ -117,12 +117,13 @@
     </v-tabs-items>
 
     <div color="success" class="rounded-b-0 rounded-pill" style="height:100px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
-      <v-list-item class="d-flex justify-center mb-6 pt-3">
+      <v-list-item class="d-flex justify-center mb-6 pt-3 text-center">
         <div class="mx-2 flex-column d-flex">
           <v-btn
             color="success"
             fab
-          ><v-icon class="text-h5 grey--text">mdi-bullhorn-variant-outline</v-icon>
+          >
+          <img src="@/assets/svg/ic_g_history.svg" style="width:30px" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">最近紀錄</span>
         </div>
@@ -131,7 +132,8 @@
             color="success"
             fab
             dark
-          ><v-icon class="text-h5 grey--text">mdi-microphone-off</v-icon>
+          >
+          <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
           </v-btn>
           <span class="body-2 black--text mt-1">鍵盤</span>
         </div>
@@ -141,7 +143,7 @@
             fab
             dark
           >
-          <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
+            <img src="@/assets/svg/ic_g_contactlist.svg" style="width:30px" alt="">
           </v-btn>
           <span class="body-2 black--text mt-1">通訊錄</span>
 
@@ -197,3 +199,9 @@
     }),
   }
 </script>
+
+<style lang="scss">
+
+@import "src/scss/_voipchat.scss";
+</style>
+

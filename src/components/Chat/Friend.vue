@@ -6,7 +6,7 @@
   class="mx-auto text-center"
   >
 
-  <v-toolbar color="white" >
+  <v-toolbar color="white" class="pt-2">
     <v-app-bar-nav-icon to="/singlemsg"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
     <v-avatar size="40" class="mr-3">
       <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>

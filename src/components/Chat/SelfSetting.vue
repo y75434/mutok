@@ -2,7 +2,7 @@
 
  <v-card
   max-width="768"
-  style="height: 100vh; width: 100vw"
+  style="height: 100vh;"
   class="mx-auto text-center"
   >
 
@@ -12,7 +12,7 @@
     <v-spacer></v-spacer>
   </v-toolbar>
 
-    <v-row  class="d-flex pt-6 justify-center align-center text-left bg"> 
+    <div  class="d-flex pt-6 justify-center align-center text-left bg"> 
       <div style="width:400px" class="d-flex mt-5 justify-center align-center ">
         <div class="" style="width:40%"> 
           <v-badge
@@ -88,10 +88,10 @@
       
       
       
-    </v-row>
+    </div>
 
 
-    <v-list two-line class="text-left bg">
+    <v-list two-line class="text-left bg px-2">
       <v-list-item class="p0">
         <v-col cols="4" >
           <v-list-item-content >
@@ -163,7 +163,7 @@
     </v-list>
 
     <v-text class="text-body-2 grey--text mt-3 ml-2 d-flex justify-start">系統設定</v-text>
-    <v-expansion-panels class="bg">
+    <v-expansion-panels class="bg m0">
       <v-list-item>
         <v-col cols="4">
           <v-list-item-content>
@@ -206,7 +206,7 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-expansion-panel class="bg">
+      <v-expansion-panel class="bg m0">
         <v-expansion-panel-header>
           通訊協定
         </v-expansion-panel-header>
@@ -214,7 +214,7 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
 
-      <v-expansion-panel class="bg">
+      <v-expansion-panel class="bg m0">
         <v-expansion-panel-header>
           通訊協定
         </v-expansion-panel-header>
@@ -222,7 +222,7 @@
           Lorem ipsum dolor sit amet, 
         </v-expansion-panel-content>
       </v-expansion-panel>
-      <v-expansion-panel class="bg">
+      <v-expansion-panel class="bg m0">
         <v-expansion-panel-header>
           通訊協定
         </v-expansion-panel-header>
@@ -230,7 +230,7 @@
           Lorem ipsum dolor sit amet, 
         </v-expansion-panel-content>
       </v-expansion-panel>
-      <v-expansion-panel class="bg">
+      <v-expansion-panel class="bg m0">
         <v-expansion-panel-header>
           伺服器設定
         </v-expansion-panel-header>
@@ -238,7 +238,7 @@
           Lorem ipsum dolor sit amet, 
         </v-expansion-panel-content>
       </v-expansion-panel>
-      <v-expansion-panel class="bg">
+      <v-expansion-panel class="bg m0">
         <v-expansion-panel-header>
           安全設定
         </v-expansion-panel-header>

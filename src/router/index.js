@@ -139,6 +139,12 @@ const routes = [
     component: Call,
    
   },
+  {
+    path: '/no',
+    name: 'no',
+    component: () => import('../components/Chat/no.vue') 
+   
+  },
   
 ]
 

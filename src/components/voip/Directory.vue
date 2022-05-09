@@ -2,50 +2,7 @@
   <div background-color="bg" class="" style="height: 85vh; width:100vw">
 
 
-    <v-container color="bg" class="rounded-lg  alert">
-      <v-row no-gutters>
-        <v-col cols="12">
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            Mutok 電話
-          </v-card>
-        </v-col>
-        <v-col cols="12">
-          <v-card
-            class="px-6 py-7"
-            outlined
-            tile
-          >       
-            <div class="text-h4 text-left lightblack--text">David</div>
-          </v-card>
-        </v-col>
-
-        <v-col
-          cols="6"
-        >
-          <v-btn
-            class="pa-7"
-            block
-            style="background: #DDD2CC;"
-          >
-            <div class="text-body-2 text-center lightblack--text">忽略</div>
-
-          </v-btn>
-
-        </v-col>
-        <v-col cols="6">
-          <v-btn class="pa-7" block style="background: #05B2DC">
-            <div class="text-body-2 text-center white--text ">接聽</div>
-          </v-btn>
-
-          
-        </v-col>
-
-      </v-row>
-    </v-container>
+    
 
 
     <v-tabs background-color="bg" height="35px" centered dark icons-and-text v-model="tab">
@@ -61,6 +18,7 @@
         </v-tab>
       </v-col>    
     </v-tabs>
+
 
 
     <v-card flat class="bg">
@@ -79,13 +37,15 @@
           ></v-divider>
 
           <v-list-item
+            @click="show(item)" 
             v-else
             :key="item.title"
-            class="d-flex justify-space-between mb-1 "
+            class="d-flex flex-column  mb-1 "
+            style="height:100px"
             color="lightgrey"
-            to="/friend"
-
           >
+          <!-- to="/friend" -->
+          <div class="justify-space-between d-flex">
             <v-list-item-avatar>
               <v-img :src="item.avatar"></v-img>
             </v-list-item-avatar>
@@ -100,34 +60,45 @@
               <v-text class="">20:08</v-text>
             
             </div>
+          </div>
+<!-- v-bind:class="{ active: item.active }" item.active = !item.active;-->
+            <div col="16">
+              <div  color="success" class="rounded-b-xl text-center" style="height:50px;width:400px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
+                  <v-list-item class="d-flex justify-center mb-1 ">
+                    <div class="mx-2 flex-column d-flex">
+                      <v-btn  style="box-shadow:none;background: transparent ;height:20px">
+                        <v-icon style="font-size: 20px;" class=" grey--text">mdi-phone-outgoing-outline</v-icon>
+                      </v-btn>
+                      <span class="body-2 black--text mt-1">通話</span>
+                    </div>
+                    <div class="mx-2 flex-column d-flex">
+                      <v-btn style="box-shadow:none;background: transparent;height:20px">
+                        <v-icon style="font-size: 20px;" class=" grey--text">mdi-plus</v-icon>
+                      </v-btn>
+                      <span class="body-2 black--text mt-1">加入通訊錄</span>
+                    </div>
+                    <div class="mx-2 flex-column d-flex">
+                      <v-btn style="box-shadow:none;background: transparent ;height:20px"  >
+                        <v-icon style="font-size: 20px;" class=" grey--text">mdi-pencil-outline</v-icon>
+                      </v-btn>
+                      <span class="body-2 black--text mt-1">編輯資料</span>
+                    </div>
+                  </v-list-item>
+
+                </div>
+            </div>
+
+
           </v-list-item>
+
+
+          
         </template>
+        
       </v-list>
     </v-card>
 
-    <div color="success" class="rounded-b-xl text-center" style="height:80px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
-      <v-list-item class="d-flex justify-center mb-1 pt-3">
-        <div class="mx-2 flex-column d-flex">
-          <v-btn  style="box-shadow:none;background: transparent">
-            <v-icon class="text-h5 grey--text">mdi-phone-outgoing-outline</v-icon>
-          </v-btn>
-          <span class="body-2 black--text mt-1">通話</span>
-        </div>
-        <div class="mx-2 flex-column d-flex">
-          <v-btn style="box-shadow:none;background: transparent">
-            <v-icon class="text-h5 grey--text">mdi-plus</v-icon>
-          </v-btn>
-          <span class="body-2 black--text mt-1">加入通訊錄</span>
-        </div>
-        <div class="mx-2 flex-column d-flex">
-          <v-btn style="box-shadow:none;background: transparent"  >
-            <v-icon class="text-h5 grey--text">mdi-pencil-outline</v-icon>
-          </v-btn>
-          <span class="body-2 black--text mt-1">編輯資料</span>
-        </div>
-      </v-list-item>
-
-    </div>
+    
 
     <div color="success" class="rounded-b-0 rounded-pill" style="height:100px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
       <v-list-item class="d-flex justify-center mb-1 pt-3 text-center">
@@ -149,7 +120,7 @@
             dark
             to="/call"
           >
-          <img src="@/assets/svg/ic_g_dialbtn_non.svg" style="width:30px" alt="">
+           <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
           </v-btn>
           <span class="body-2 black--text mt-1">鍵盤</span>
         </div>
@@ -183,7 +154,9 @@
     name: 'Directory',
 
     data: () => ({
-     
+      showMenu: false,
+      x: 0,
+      y: 0,
       items: [
         {
           avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
@@ -217,6 +190,18 @@
       ],
     }),
     methods:{
+      show (item) {
+        item.active = !item.active;
+        console.log(item.active);
+        // e.preventDefault()
+        // console.log(e,'361');
+        // this.showMenu = false
+        // this.x = e.clientX
+        // this.y = e.clientY
+        // this.$nextTick(() => {
+        //   this.showMenu = true
+        // })
+      },
       //接受
       onInvite(invitation) { 
 
@@ -241,3 +226,8 @@
     }
   }
 </script>
+
+
+<style>
+
+</style>

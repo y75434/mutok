@@ -6,8 +6,10 @@
       <v-list-item-avatar>
         <v-img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-img>
       </v-list-item-avatar>
-      <v-list-item-content style="width: 100px !important" class="col-4">
-        <v-text class="text-left" v-text="'開發部'"></v-text>
+      <v-toolbar-title class="ml-2" style="width: 400px !important">Joe Cooper</v-toolbar-title>
+
+      <v-list-item-content style="width: 500px !important" class="col-4">
+
       </v-list-item-content>
 
       <v-toolbar-title class="white--text">網路電話</v-toolbar-title>
@@ -21,7 +23,7 @@
         </v-btn>
 
           
-        <v-btn  icon>
+        <v-btn icon>
           <v-icon class="chatActive">mdi-magnify</v-icon>
         </v-btn>
 
@@ -77,6 +79,7 @@
       ></v-text-field>
     </v-col>
 
+    <v-text class="text-body-2 grey--text mt-3 ml-2 d-flex justify-start">訊息(8)</v-text>
 
     <v-list two-line class="bg">
       <template v-for="(item, index) in items" >
@@ -119,7 +122,7 @@
       </template>
       <v-divider></v-divider>
 
-      <v-list-item class="d-flex justify-center mb-0">
+      <v-list-item class="d-flex justify-center p0 mb-0">
          
         <a href="" class="text-decoration-none herf--text">顯示更多訊息</a>
 
@@ -187,6 +190,10 @@ export default {
 
 .v-text-field--outlined > .v-input__control > .v-input__slot {
     background: #fff;
+}
+
+.v-list-item__content{
+  padding: 0;
 }
 
 

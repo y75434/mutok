@@ -5,8 +5,8 @@
     
 
 
-    <v-card flat class="bg">
-      <v-list one-line>
+    <v-card flat  style="height:70vh">
+      <v-list class="bg" one-line>
         <v-col cols="12" >
           <div class=" secondary rounded-lg" >
             <div class="text-body-2 grey--text text-center">昨天</div>
@@ -56,7 +56,7 @@
     </v-card>
 
     <div color="success" class="rounded-b-0 rounded-pill" style="height:100px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
-      <v-list-item class="d-flex justify-center mb-6 pt-3">
+      <v-list-item class="text-center d-flex justify-center mb-6 pt-3">
         <div class="mx-2 flex-column d-flex">
           <v-btn
             color="success"
@@ -73,7 +73,7 @@
             dark
             to="/call"
           >
-          <img src="@/assets/svg/ic_g_dialbtn_non.svg" style="width:30px" alt="">
+           <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
           </v-btn>
           <span class="body-2 black--text mt-1">鍵盤</span>
         </div>

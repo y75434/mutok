@@ -6,8 +6,8 @@
       <v-row>  
 
 
-        <v-toolbar class="msbar py-2 mb-2">
-          <v-img :src="require('@/assets/img/img_mutok_color@2x.png')" size="36px" max-width="50" alt=""></v-img>
+        <v-toolbar class="msbar py-2 my-2">
+          <v-img class="mx-2" :src="require('@/assets/img/img_mutok_white@2x.png')" size="36px" max-width="50" alt=""></v-img>
 
           <v-toolbar-title class="white--text">網路電話</v-toolbar-title>
 
@@ -53,15 +53,15 @@
         </v-toolbar>
 
 
-      <v-tabs style="height:35px" background-color="white" centered dark icons-and-text v-model="tab">
-        <v-col cols="6">
-          <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-1">
+      <v-tabs  background-color="white" centered  icons-and-text v-model="tab">
+        <v-col style="height:35px" cols="6" class="p0">
+          <v-tab style="height:35px" class="text-body-1 grey--text ma-0 pa-0" href="#tab-1">
             好友
           </v-tab>
         </v-col>
-        <v-tabs-slider></v-tabs-slider>
-        <v-col cols="6">
-          <v-tab class="text-body-1 grey--text ma-0 pa-0" href="#tab-2">
+        <v-tabs-slider style="height:35px"></v-tabs-slider>
+        <v-col style="height:35px" cols="6" class="p0">
+          <v-tab style="height:35px" class="text-body-1 grey--text ma-0 pa-0" href="#tab-2">
             公司部門
           </v-tab>
         </v-col>
@@ -114,8 +114,6 @@
                       </v-list-item-avatar>
 
                     </v-badge>
-
-                      
 
                       <v-list-item-content>
                         <v-list-item-title
@@ -385,16 +383,7 @@ export default {
 };
 </script>
 
-<style scoped>
-.sidebar {
-  display: block;
-  height: 100%;
-}
+<style lang="scss">
 
-.portrait.v-card {
-  margin: 0 auto;
-  max-width: 600px;
-  width: 100%;
-}
-
+@import 'src/scss/_chat.scss';
 </style>
