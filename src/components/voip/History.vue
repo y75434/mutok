@@ -82,7 +82,7 @@
             color="success"
             fab
             dark
-            to="/directory"
+            to="/voipchat"
           >
           <img src="@/assets/svg/ic_g_contactlist.svg" style="width:30px" alt="">
 

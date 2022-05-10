@@ -2,12 +2,12 @@
   
   <v-card max-width="768" style="height: 100vh;" class="mx-auto">
 
-    <v-toolbar color="white" >
+    <v-toolbar color="white" class="pt-2">
       <v-app-bar-nav-icon to="/chat"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
       <v-toolbar-title>新增聊天</v-toolbar-title>
 
       <v-spacer></v-spacer> 
-      <a to="/directory" class="herf--text text-decoration-none">確定</a>
+      <a to="/voipchat" class="herf--text text-decoration-none">確定</a>
   
     </v-toolbar>
 
@@ -132,3 +132,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.v-input__prepend-inner{
+  margin-top: 7px;
+
+}
+</style>

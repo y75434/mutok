@@ -14,6 +14,7 @@
 
     <v-toolbar-title>Joe Cooper</v-toolbar-title>
     <v-spacer></v-spacer>
+    <a to="/chat" class="herf--text text-decoration-none">確定</a>
   </v-toolbar>
 
 

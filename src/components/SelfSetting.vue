@@ -7,9 +7,10 @@
   >
 
   <v-toolbar color="white" >
-    <v-app-bar-nav-icon to="/directory"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon to="/voipchat"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
     <v-toolbar-title>個人設定</v-toolbar-title>
     <v-spacer></v-spacer>
+    <a to="/chat" class="herf--text text-decoration-none">確定</a>
   </v-toolbar>
 
   <v-card-title>

@@ -35,8 +35,18 @@
 
     <v-tabs-items style="height: 60vh;" v-model="tab">
       <v-tab-item value="tab-1" >
-        <v-card class="bg" flat>
-          <v-list two-line >
+
+      <v-menu
+        v-model="showMenu"
+        absolute
+        class="rounded-b-0 rounded-b-xl text-center"
+        style="style=min-width: 0px; top: 360px; left: 45px; transform-origin: left top;
+        background:transparent;"
+      >
+      <template v-slot:activator="{ on }">
+
+        <v-card  flat>
+          <v-list two-line class="bg" >
             <template v-for="(item, index) in items" >
               <v-subheader
                 v-if="item.header"
@@ -51,10 +61,12 @@
               ></v-divider>
 
               <v-list-item
+                @contextmenu="show" v-bind="attrs" v-on="on" flat
+                style="height: 50px;"
                 v-else
                 :key="item.title"
                 class="d-flex justify-space-between mb-0"
-              >
+              ><!-- to="/friend" -->
                 <v-list-item-avatar>
                   <v-img :src="item.avatar"></v-img>
                 </v-list-item-avatar>
@@ -74,6 +86,38 @@
             </template>
           </v-list>
         </v-card>
+
+         </template>
+
+       
+        <!-- <div col="16"> -->
+          <div  color="success" class="rounded-b-xl text-center" style="height:50px; background: radial-gradient(111.7% 111.7% at 50% 100%, #C2EBF9 0%, rgba(231,249, 255, 0.99) 100%);">
+              <v-list-item class="d-flex justify-center mb-1 ">
+                <div class="mx-2 flex-column d-flex">
+                  <v-btn  style="box-shadow:none;background: transparent ;height:20px">
+                    <v-icon style="font-size: 20px;" class=" grey--text">mdi-phone-outgoing-outline</v-icon>
+                  </v-btn>
+                  <span class="body-2 black--text mt-1">通話</span>
+                </div>
+                <div class="mx-2 flex-column d-flex">
+                  <v-btn style="box-shadow:none;background: transparent;height:20px">
+                    <v-icon style="font-size: 20px;" class=" grey--text">mdi-plus</v-icon>
+                  </v-btn>
+                  <span class="body-2 black--text mt-1">加入通訊錄</span>
+                </div>
+                <div class="mx-2 flex-column d-flex">
+                  <v-btn style="box-shadow:none;background: transparent ;height:20px"  >
+                    <v-icon style="font-size: 20px;" class=" grey--text">mdi-pencil-outline</v-icon>
+                  </v-btn>
+                  <span class="body-2 black--text mt-1">編輯資料</span>
+                </div>
+              </v-list-item>
+
+            </div>
+        <!-- </div> -->
+      </v-menu>
+
+
       </v-tab-item>
 
       <v-tab-item value="tab-2" class="bg">
@@ -122,6 +166,7 @@
           <v-btn
             color="success"
             fab
+            to="/history"
           >
           <img src="@/assets/svg/ic_g_history.svg" style="width:30px" alt="">
           </v-btn>
@@ -132,6 +177,7 @@
             color="success"
             fab
             dark
+            to="/call"
           >
           <v-icon class="text-h5 grey--text">mdi-dialpad</v-icon>
           </v-btn>
@@ -142,6 +188,7 @@
             color="success"
             fab
             dark
+            to="/voipchat"
           >
             <img src="@/assets/svg/ic_g_contactlist.svg" style="width:30px" alt="">
           </v-btn>
@@ -163,6 +210,7 @@
     name: 'Chat',
 
     data: () => ({
+     showMenu: false,
      tab: null,
      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
      items: [
@@ -197,6 +245,13 @@
         },
       ],
     }),
+    methods:{
+      show (item) {
+        item.active = !item.active;
+        console.log(item.active);
+      
+      },
+    }
   }
 </script>
 

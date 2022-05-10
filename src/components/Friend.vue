@@ -2,9 +2,10 @@
 
   <v-card max-width="450"  style="height: 100vh;" class="mx-auto text-center">
     <v-toolbar color="white">
-      <v-app-bar-nav-icon to="/directory"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon to="/voipchat"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
       <v-toolbar-title>Joe Cooper</v-toolbar-title>
-      <v-spacer></v-spacer>   
+      <v-spacer></v-spacer> 
+      <a to="/chat" class="herf--text text-decoration-none">確定</a>  
     </v-toolbar>
 
     <v-avatar size="70" class="my-6">

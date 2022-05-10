@@ -2,11 +2,11 @@
   
   <v-card max-width="768" style="height: 100vh;" class="mx-auto">
 
-    <v-toolbar color="white" >
-      <v-app-bar-nav-icon to="/directory"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
+    <v-toolbar color="white" class="pt-2">
+      <v-app-bar-nav-icon to="/voipchat"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
       <v-toolbar-title>電話設定</v-toolbar-title>
       <v-spacer></v-spacer> 
-      <a to="/directory" class="herf--text text-decoration-none">確定</a>
+      <a to="/voipchat" class="herf--text text-decoration-none">確定</a>
   
     </v-toolbar>
 
@@ -59,7 +59,7 @@
         <v-list-item-content>
           <v-list-item-subtitle>**********</v-list-item-subtitle>
         </v-list-item-content>   
-        <a href="">更改密碼</a>   
+        <a href="" class="text-decoration-none herf--text">更改密碼</a>   
       </v-list-item>
 
       <v-divider></v-divider>

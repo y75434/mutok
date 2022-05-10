@@ -25,16 +25,29 @@
             <v-text-field label="聯絡名稱" solo ></v-text-field>
           </v-col>
         </v-list-item>
-        <router-link to="/forgotpw" class="herf--text text-right justify-end d-flex">忘記密碼</router-link>          
+        <router-link to="/forgotpw" class="text-decoration-none herf--text text-right justify-end mr-5 d-flex">忘記密碼</router-link>          
 
-        <v-list-item class="justify-center d-flex">
+        <v-list-item class="justify-center d-flex ">
           <v-col cols="12" class="p0">
-            <router-link  to="/enroll" class="herf--text text-center">開設新帳號</router-link>          
-            <v-btn to="/directory" x-large class="col-11 mt-6 text-center text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
+            <v-btn to="/voipchat" x-large class="col-11 mt-6 text-center text-no-wrap rounded-pill" style="background: linear-gradient(92.37deg, #29BCD0 6.91%, #1A73E9 94%);">
               <div class="text-body-1 white--text">登入</div>
             </v-btn>
+          
+
           </v-col>
+          
+
         </v-list-item>
+        <v-list-item class="justify-center d-flex ">
+          <router-link
+            to="/enroll"
+            class="text-decoration-none herf--text text-center"
+          >
+          開設新帳號
+          </router-link>
+
+        </v-list-item>
+
     </v-list>
 
   </v-card>

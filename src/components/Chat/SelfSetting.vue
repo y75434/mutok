@@ -6,10 +6,12 @@
   class="mx-auto text-center"
   >
 
-  <v-toolbar color="white" >
+  <v-toolbar color="white" class="mb-2 ">
     <v-app-bar-nav-icon to="/chat"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
     <v-toolbar-title>帳號設定</v-toolbar-title>
     <v-spacer></v-spacer>
+    <a to="/chat" class="herf--text text-decoration-none">確定</a>
+
   </v-toolbar>
 
     <div  class="d-flex pt-6 justify-center align-center text-left bg"> 
