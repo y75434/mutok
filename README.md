@@ -4,7 +4,7 @@
 
 - 登入頁
 
-![image](https://imgur.com/a/VqURnoa)
+(https://imgur.com/a/VqURnoa)
 
 - 訊息頁
 
