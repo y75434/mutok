@@ -1,24 +1,26 @@
-# mutok
+# Mutok
 
-## Project setup
-```
-npm install
-```
+## 說明
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- 登入頁
 
-### Compiles and minifies for production
-```
-npm run build
-```
+![image](https://imgur.com/a/VqURnoa)
 
-### Lints and fixes files
-```
-npm run lint
-```
+- 訊息頁
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![image](https://imgur.com/a/F0Nbw12)
+
+- 撥號頁
+
+![image](https://imgur.com/a/WwRCoig)
+
+- 個人資料頁
+
+![image](https://imgur.com/a/hoglGKg)
+
+
+
+## 使用技術
+
+- Vuetify
+
